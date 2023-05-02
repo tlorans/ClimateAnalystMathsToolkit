@@ -307,8 +307,8 @@ document.write(`
 <h2>Matrix Definition<a class="headerlink" href="#matrix-definition" title="Permalink to this headline">#</a></h2>
 <p>A <span class="math notranslate nohighlight">\(m\)</span>-by-<span class="math notranslate nohighlight">\(n\)</span> matrix is a rectangular array of numbers or maths objects, with <span class="math notranslate nohighlight">\(m\)</span> rows and <span class="math notranslate nohighlight">\(n\)</span> columns.</p>
 <p>A two-by-two matrix <span class="math notranslate nohighlight">\(A\)</span> with two rows and two columns looks like:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5fa297dd-0389-4429-95a0-bdb2fdf9c4aa">
-<span class="eqno">(1)<a class="headerlink" href="#equation-5fa297dd-0389-4429-95a0-bdb2fdf9c4aa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a3e49002-da34-41bf-b563-d60ecc140eb1">
+<span class="eqno">(1)<a class="headerlink" href="#equation-a3e49002-da34-41bf-b563-d60ecc140eb1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A = \begin{bmatrix}
 a &amp; b \\
 c &amp; d
@@ -327,8 +327,8 @@ c &amp; d
 <p>Column and row matrices are of special importance: these matrices are called vectors.
 We generally denote a column vector as a <span class="math notranslate nohighlight">\(n\)</span>-by-one vector and the row vector as one-by-<span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p>As an example, a <span class="math notranslate nohighlight">\(n = 3\)</span> column vector would be written as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b0f4d8ff-185e-42d8-9635-99073d9cc6b6">
-<span class="eqno">(2)<a class="headerlink" href="#equation-b0f4d8ff-185e-42d8-9635-99073d9cc6b6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8e74f27a-facf-4394-aeca-399095937a30">
+<span class="eqno">(2)<a class="headerlink" href="#equation-8e74f27a-facf-4394-aeca-399095937a30" title="Permalink to this equation">#</a></span>\[\begin{equation}
 x = \begin{bmatrix}
 a \\
 b \\
@@ -336,8 +336,8 @@ c
 \end{bmatrix}
 \end{equation}\]</div>
 <p>And a row vector <span class="math notranslate nohighlight">\(m = 3\)</span> as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9f8b6d7-2128-4a33-b6cb-035d8886d5d5">
-<span class="eqno">(3)<a class="headerlink" href="#equation-d9f8b6d7-2128-4a33-b6cb-035d8886d5d5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0297791c-2d0f-4dc9-ad7c-44a3fd9308d7">
+<span class="eqno">(3)<a class="headerlink" href="#equation-0297791c-2d0f-4dc9-ad7c-44a3fd9308d7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = \begin{bmatrix}
 a &amp; b &amp; c
 \end{bmatrix}
@@ -360,12 +360,16 @@ a &amp; b &amp; c
 </pre></div>
 </div>
 <p>Finally, a general notation that you will encounter for writing a <span class="math notranslate nohighlight">\(m\)</span>-by-<span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-853e2a05-e53b-43b9-99b4-870415d77743">
-<span class="eqno">(4)<a class="headerlink" href="#equation-853e2a05-e53b-43b9-99b4-870415d77743" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5c9da75b-9800-4d56-bc51-399ee38fc7d1">
+<span class="eqno">(4)<a class="headerlink" href="#equation-5c9da75b-9800-4d56-bc51-399ee38fc7d1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A = \begin{bmatrix}
-a_{11} &amp; a_{12} 
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
 \end{bmatrix}
 \end{equation}\]</div>
+<p>With <span class="math notranslate nohighlight">\(a_{ij}\)</span> the element of <span class="math notranslate nohighlight">\(A\)</span> in the <span class="math notranslate nohighlight">\(i\)</span>th row and the <span class="math notranslate nohighlight">\(j\)</span>th column.</p>
 </section>
 <section id="matrix-addition-and-multiplication">
 <h2>Matrix Addition and Multiplication<a class="headerlink" href="#matrix-addition-and-multiplication" title="Permalink to this headline">#</a></h2>

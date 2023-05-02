@@ -76,10 +76,14 @@ Finally, a general notation that you will encounter for writing a $m$-by-$n$ mat
 
 \begin{equation}
 A = \begin{bmatrix}
-a_{11} & a_{12} 
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn}
 \end{bmatrix}
 \end{equation}
 
+With $a_{ij}$ the element of $A$ in the $i$th row and the $j$th column.
 
 ### Matrix Addition and Multiplication 
 
