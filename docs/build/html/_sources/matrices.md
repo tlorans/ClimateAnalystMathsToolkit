@@ -391,8 +391,29 @@ With transpose matrices, we have the following facts:
 \end{equation}
 
 And finally, if $A$ is a square matrix and $A^T = A$, $A$ is called a symmetric matrix.
-
 ### Inner and Outer Products 
+
+The inner product, also called the dot product, is a matrix product between a row vector and a column vector. We can obtain a row vector from a column vector with the transpose operator:
+
+\begin{equation}
+u^Tv = \begin{bmatrix}
+u_1 & u_2 & u_3
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2 \\
+v_3
+\end{bmatrix} =
+u_1v_1 + u_2v_2 + u_3v_3
+\end{equation}
+
+In Python (please note that we have created the column vectors as transpose of row vectors, with `.T`): 
+
+```Python
+u = np.array([[1, 2, 3]]).T
+v = np.array([[4, 5, 6]]).T
+u.T @ v
+```
 
 ### Inverse Matrix 
 ### Orthogonal Matrices 
