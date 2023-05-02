@@ -179,6 +179,40 @@ We can write a more general formula: element $c_{ij}$ in the product matrix $C$ 
 c_{ij} = \sum^n_{k=1}a_{ik}b_{kj}
 \end{equation}
 
+We first can test matrix multiplication in Python with two matrices of the wrong dimensions:
+
+```Python
+A = np.array([[1,2],
+          [3,4]])
+
+B = np.array([[1, 2, 3],
+             [4,5,6],
+             [7,8,9]])
+
+np.matmul(A, B)
+```
+
+The error message is:
+```
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 3 is different from 2)
+```
+
+In our case, either $A$ should be of dimension two-by-three or $B$ should be of dimension two-by-three in order that the multiplication of the two matrices is possible. Let's modify our previous code:
+
+```Python
+A = np.array([[1,2],
+          [3,4]])
+
+B = np.array([[1, 2, 3],
+             [4,5,6]])
+
+np.matmul(A, B)
+```
+```
+array([[ 9, 12, 15],
+       [19, 26, 33]])
+```
+
 
 ### Special Matrices
 

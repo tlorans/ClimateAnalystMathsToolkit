@@ -17,7 +17,7 @@ This course is under heavy development
 part1matrixalgebra
 matrices
 systemslinearequations
-vectorsspaces
+vectorspaces
 eigenvalues
 part2optimization
 linearprograms
