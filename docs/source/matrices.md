@@ -300,6 +300,7 @@ You can create it in Python by using `tril` and `triu` functions:
 ```Python
 np.tril([1, 2, 3])
 ```
+
 ```
 array([[1, 0, 0],
        [1, 2, 0],
@@ -318,14 +319,42 @@ array([[1, 2, 3],
 
 
 
-### Matrix Transpose
+### Transpose Matrix
+
+The transpose of the matrix $A$ is denoted $A^T$ and switches the rows and columns of $A$:
+
+If:
+
+
+\begin{equation}
+A = \begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{bmatrix}
+\end{equation}
+
+Then:
+
+\begin{equation}
+A^T  = \begin{bmatrix}
+a_{11} & a_{21} & \cdots & a_{m1} \\
+a_{12} & a_{22} & \cdots & a_{m2} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{1n} & a_{2n} & \cdots & a_{mn}
+\end{bmatrix}
+\end{equation}
+
+If $A$ is $m$-by-$n$, then $A^T$ is $n$-b-$m$.
+
+As an example:
+
+
 
 ### Inner and Outer Products 
 
 ### Inverse Matrix 
-
 ### Orthogonal Matrices 
-
-### Rotation Matrices
 
 ### Permutation Matrices
