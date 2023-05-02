@@ -350,7 +350,47 @@ If $A$ is $m$-by-$n$, then $A^T$ is $n$-b-$m$.
 
 As an example:
 
+\begin{equation}
+\begin{bmatrix}
+a & d \\
+b & e \\
+c & f \\
+\end{bmatrix}^T =
+\begin{bmatrix}
+a & b & c \\
+d & e & f
+\end{bmatrix}
+\end{equation}
 
+We can get the transpose of a matrix in Python with:
+
+```Python
+A = np.array([[1,2],
+          [3,4]])
+
+A.T
+```
+
+```
+array([[1, 3],
+       [2, 4]])
+```
+
+With transpose matrices, we have the following facts:
+
+\begin{equation}
+(A^T)^T = A
+\end{equation}
+
+\begin{equation}
+(A + B)^T = A^T + B^T
+\end{equation}
+
+\begin{equation}
+(AB)^T = B^TA^T
+\end{equation}
+
+And finally, if $A$ is a square matrix and $A^T = A$, $A$ is called a symmetric matrix.
 
 ### Inner and Outer Products 
 
