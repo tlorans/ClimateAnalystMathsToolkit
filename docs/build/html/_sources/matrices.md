@@ -216,6 +216,108 @@ array([[ 9, 12, 15],
 
 ### Special Matrices
 
+A matrix consisting of all zero elements is called the zero matrix, denoted by $0$. It can be of any size. Multiplication by a zero matrix result in a zero matrix.
+
+Let's see in Python:
+
+```Python
+Z = np.zeros((2,2))
+A = np.array([[1,2],
+          [3,4]])
+
+np.matmul(A,Z) 
+```
+
+```
+array([[0., 0.],
+       [0., 0.]])
+```
+
+The identity matrix is a square matrix ($n = m$) with ones on the main diagonal. It is denoted by $I$.
+A property of $I$ is the following result, if $A$ and $I$ are square matrices of the same size:
+
+\begin{equation}
+AI = IA = A
+\end{equation}
+
+
+It means that multiplication by the identity matrix leaves the matrix unchanged.
+
+Let's see it in action in Python:
+
+```Python
+I = np.identity(2)
+A = np.array([[1,2],
+          [3,4]])
+np.matmul(A, I)
+```
+
+```
+array([[1., 2.],
+       [3., 4.]])
+```
+Zero and identity matrices play the role of the numbers zero and one in matrix multiplication.
+
+Diagonal matrix has its nonzero elements on the diagonal. An example of a two-by-two diagonal matrix is:
+
+\begin{equation}
+D = \begin{bmatrix}
+d_1 & 0 \\
+0 & d_2
+\end{bmatrix}
+\end{equation}
+
+We can use the `diag` function for creating a diagonal matrix:
+```Python
+np.diag([1,2])
+```
+
+```
+array([[1, 0],
+       [0, 2]])
+```
+
+Upper and lower triangular matrices are square matrix with zero elements below or above the diagonal:
+
+\begin{equation}
+U = \begin{bmatrix}
+a & b & c \\
+0 & d & e \\
+0 & 0 & f
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}
+L = \begin{bmatrix}
+a & 0 & 0 \\
+b & d & 0 \\
+c & e & f
+\end{bmatrix}
+\end{equation}
+
+You can create it in Python by using `tril` and `triu` functions:
+
+```Python
+np.tril([1, 2, 3])
+```
+```
+array([[1, 0, 0],
+       [1, 2, 0],
+       [1, 2, 3]])
+```
+
+```Python
+np.triu([1, 2, 3])
+```
+
+```
+array([[1, 2, 3],
+       [0, 2, 3],
+       [0, 0, 3]])
+```
+
+
+
 ### Matrix Transpose
 
 ### Inner and Outer Products 
