@@ -87,6 +87,43 @@ With $a_{ij}$ the element of $A$ in the $i$th row and the $j$th column.
 
 ### Matrix Addition and Multiplication 
 
+We can add two matrices only if they have the same dimension $m$ and $n$. We proceed the addition element by element:
+
+\begin{equation}
+\begin{bmatrix}
+a & b \\
+c & d 
+\end{bmatrix}
++ 
+\begin{bmatrix}
+e & f \\
+g & h
+\end{bmatrix}
+= 
+\begin{bmatrix}
+a + e & b + f \\
+c + g & d + h
+\end{bmatrix}
+\end{equation}
+
+Let's test it in Python:
+
+```Python
+A = np.array([[1,2],
+          [3,4]])
+
+B = np.array([[5,6],
+          [7,8]])
+
+A + B
+```
+
+```
+array([[ 6,  8],
+       [10, 12]])
+```
+
+
 ### Special Matrices
 
 ### Matrix Transpose
