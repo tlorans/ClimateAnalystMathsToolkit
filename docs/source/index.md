@@ -3,15 +3,16 @@
 % You can adapt this file completely to your liking, but it should at least
 % contain the root `toctree` directive.
 
-# Welcome to Climate Analyst Maths Toolkit's documentation!
+# Climate Analyst Maths Toolkit
+
+```{warning}
+This course is under heavy development
+```
 
 ```{toctree}
 :caption: 'Contents:'
 :maxdepth: 2
 ```
-
-# Indices and tables
-
-- {ref}`genindex`
-- {ref}`modindex`
-- {ref}`search`
+part1matrixalgebra
+references
+```
