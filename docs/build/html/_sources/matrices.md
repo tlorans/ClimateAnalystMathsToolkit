@@ -4,6 +4,83 @@ In this part, we will cover the concept of matrices. We will define matrices, ho
 
 ### Matrix Definition
 
+A $m$-by-$n$ matrix is a rectangular array of numbers or maths objects, with $m$ rows and $n$ columns. 
+
+A two-by-two matrix $A$ with two rows and two columns looks like:
+\begin{equation}
+A = \begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+\end{equation}
+
+The usual library to use in Python for linear algebra is `numpy`. Let's create a simple two-by-two matrix in Python:
+
+```Python
+import numpy as np
+
+np.array([["a","b"],["c","d"]])
+```
+
+```
+array([['a', 'b'],
+       ['c', 'd']], dtype='<U1')
+```
+
+Column and row matrices are of special importance: these matrices are called vectors. 
+We generally denote a column vector as a $n$-by-one vector and the row vector as one-by-$n$.
+
+As an example, a $n = 3$ column vector would be written as:
+
+\begin{equation}
+x = \begin{bmatrix}
+a \\
+b \\
+c
+\end{bmatrix}
+\end{equation}
+
+And a row vector $m = 3$ as:
+
+\begin{equation}
+y = \begin{bmatrix}
+a & b & c
+\end{bmatrix}
+\end{equation}
+
+With `numpy`, you can create a row vector as:
+
+```Python
+np.array([["a","b","c"]]).shape
+```
+
+```
+(1, 3)
+```
+
+Or a column vector as:
+
+```Python
+np.array([["a"],
+          ["b"],
+          ["c"]
+          ]).shape
+```
+
+```
+(3, 1)
+```
+
+
+Finally, a general notation that you will encounter for writing a $m$-by-$n$ matrix $A$ is:
+
+\begin{equation}
+A = \begin{bmatrix}
+a_{11} & a_{12} 
+\end{bmatrix}
+\end{equation}
+
+
 ### Matrix Addition and Multiplication 
 
 ### Special Matrices
