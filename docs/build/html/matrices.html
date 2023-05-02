@@ -130,6 +130,7 @@
 <li class="toctree-l1"><a class="reference internal" href="part1matrixalgebra.html">Part 1: Matrix Algebra</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="systemslinearequations.html">Systems of Linear Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigenvalues.html">Eigenvalues and Eigenvectors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="part2optimization.html">Part 2: Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linearprograms.html">Linear Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leastsquaresandqp.html">Least Squares and Quadratic Programming</a></li>
@@ -307,8 +308,8 @@ document.write(`
 <h2>Matrix Definition<a class="headerlink" href="#matrix-definition" title="Permalink to this headline">#</a></h2>
 <p>A <span class="math notranslate nohighlight">\(m\)</span>-by-<span class="math notranslate nohighlight">\(n\)</span> matrix is a rectangular array of numbers or maths objects, with <span class="math notranslate nohighlight">\(m\)</span> rows and <span class="math notranslate nohighlight">\(n\)</span> columns.</p>
 <p>A two-by-two matrix <span class="math notranslate nohighlight">\(A\)</span> with two rows and two columns looks like:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-954c55a0-d60e-4504-91e9-9d4eb3bb6c1f">
-<span class="eqno">(1)<a class="headerlink" href="#equation-954c55a0-d60e-4504-91e9-9d4eb3bb6c1f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e87aab98-73ee-4579-96bc-d19c07d1f976">
+<span class="eqno">(1)<a class="headerlink" href="#equation-e87aab98-73ee-4579-96bc-d19c07d1f976" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A = \begin{bmatrix}
 a &amp; b \\
 c &amp; d
@@ -327,8 +328,8 @@ c &amp; d
 <p>Column and row matrices are of special importance: these matrices are called vectors.
 We generally denote a column vector as a <span class="math notranslate nohighlight">\(n\)</span>-by-one vector and the row vector as one-by-<span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p>As an example, a <span class="math notranslate nohighlight">\(n = 3\)</span> column vector would be written as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-021624d8-7cd4-4c8f-9136-3a544fc95ecf">
-<span class="eqno">(2)<a class="headerlink" href="#equation-021624d8-7cd4-4c8f-9136-3a544fc95ecf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6eb9b072-c669-4b85-a820-46cdd4452cbf">
+<span class="eqno">(2)<a class="headerlink" href="#equation-6eb9b072-c669-4b85-a820-46cdd4452cbf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 x = \begin{bmatrix}
 a \\
 b \\
@@ -336,8 +337,8 @@ c
 \end{bmatrix}
 \end{equation}\]</div>
 <p>And a row vector <span class="math notranslate nohighlight">\(m = 3\)</span> as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c0fbeaf7-1468-4745-8774-014e3ed8c721">
-<span class="eqno">(3)<a class="headerlink" href="#equation-c0fbeaf7-1468-4745-8774-014e3ed8c721" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7a0e6ff4-36f5-42cc-8b50-d938a8e2f1a1">
+<span class="eqno">(3)<a class="headerlink" href="#equation-7a0e6ff4-36f5-42cc-8b50-d938a8e2f1a1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = \begin{bmatrix}
 a &amp; b &amp; c
 \end{bmatrix}
@@ -360,8 +361,8 @@ a &amp; b &amp; c
 </pre></div>
 </div>
 <p>Finally, a general notation that you will encounter for writing a <span class="math notranslate nohighlight">\(m\)</span>-by-<span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c4a556dc-084e-46c6-97bb-dafc5016085b">
-<span class="eqno">(4)<a class="headerlink" href="#equation-c4a556dc-084e-46c6-97bb-dafc5016085b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-53696f56-9f01-4370-a34e-bdceee827352">
+<span class="eqno">(4)<a class="headerlink" href="#equation-53696f56-9f01-4370-a34e-bdceee827352" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A = \begin{bmatrix}
 a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
 a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
@@ -374,8 +375,8 @@ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
 <section id="matrix-addition-and-multiplication">
 <h2>Matrix Addition and Multiplication<a class="headerlink" href="#matrix-addition-and-multiplication" title="Permalink to this headline">#</a></h2>
 <p>We can add two matrices only if they have the same dimension <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span>. We proceed the addition element by element:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fdb86253-6ad8-4b57-a6bf-1c6900acaee2">
-<span class="eqno">(5)<a class="headerlink" href="#equation-fdb86253-6ad8-4b57-a6bf-1c6900acaee2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-54469a48-d337-4a1e-98c7-0d8c87023162">
+<span class="eqno">(5)<a class="headerlink" href="#equation-54469a48-d337-4a1e-98c7-0d8c87023162" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 a &amp; b \\
 c &amp; d 
@@ -405,6 +406,57 @@ c + g &amp; d + h
        <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">]])</span>
 </pre></div>
 </div>
+<p>We can multiply matrices by a scalar. In that case, we just multiply every element of the matrix:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f1c358dd-41f0-435f-bce9-f2ce4a59eea2">
+<span class="eqno">(6)<a class="headerlink" href="#equation-f1c358dd-41f0-435f-bce9-f2ce4a59eea2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+k \begin{bmatrix}
+a &amp; b \\
+c &amp; d
+\end{bmatrix}
+= \begin{bmatrix}
+ka &amp; kb \\
+kc &amp; kd
+\end{bmatrix}
+\end{equation}\]</div>
+<p>Again, in Python it gives:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+
+<span class="mi">3</span> <span class="o">*</span> <span class="n">A</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">6</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Matrices can be multiplied by something other than a scalar if the number of columns <span class="math notranslate nohighlight">\(n\)</span> of the left matrix equals the number of rows <span class="math notranslate nohighlight">\(m\)</span> of the right matrix.
+A matrix <span class="math notranslate nohighlight">\(m\)</span>-by-<span class="math notranslate nohighlight">\(n\)</span> can only be multiplied by another matrix <span class="math notranslate nohighlight">\(n\)</span>-by-<span class="math notranslate nohighlight">\(k\)</span>, and the resulting matrix will be of dimension <span class="math notranslate nohighlight">\(m\)</span>-by-<span class="math notranslate nohighlight">\(k\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4787a435-e279-478f-8481-9970cf1ca095">
+<span class="eqno">(7)<a class="headerlink" href="#equation-4787a435-e279-478f-8481-9970cf1ca095" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{bmatrix}
+a &amp; b \\
+c &amp; d
+\end{bmatrix}
+\begin{bmatrix}
+e &amp; f \\
+g &amp; h
+\end{bmatrix}
+= \begin{bmatrix}
+ae + bg &amp; af + bh \\
+ce + dg &amp; cf + dh
+\end{bmatrix}
+\end{equation}\]</div>
+<p>This is how it proceeds:</p>
+<ul class="simple">
+<li><p>The first row of the left matrix is multiplied against and summed with the first column of the right matrix to obtain the element in the first row and the first column of the product matrix (<span class="math notranslate nohighlight">\(ae + bg\)</span>)</p></li>
+<li><p>The first row of the lew matrix is multiplied against and summed the second column of the right matrix to obtain the element in the first row and the second column of the product matrix (<span class="math notranslate nohighlight">\(af + bh\)</span>)</p></li>
+<li><p>The same apply for the second row</p></li>
+</ul>
+<p>We can write a more general formula: element <span class="math notranslate nohighlight">\(c_{ij}\)</span> in the product matrix <span class="math notranslate nohighlight">\(C\)</span> is obtained by multiplying and summing the elements in row <span class="math notranslate nohighlight">\(i\)</span> of the left matrix and in column <span class="math notranslate nohighlight">\(j\)</span> of the right matrix:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-45701cff-688d-49b7-838b-bc67a9897043">
+<span class="eqno">(8)<a class="headerlink" href="#equation-45701cff-688d-49b7-838b-bc67a9897043" title="Permalink to this equation">#</a></span>\[\begin{equation}
+c_{ij} = \sum^n_{k=1}a_{ik}b_{kj}
+\end{equation}\]</div>
 </section>
 <section id="special-matrices">
 <h2>Special Matrices<a class="headerlink" href="#special-matrices" title="Permalink to this headline">#</a></h2>

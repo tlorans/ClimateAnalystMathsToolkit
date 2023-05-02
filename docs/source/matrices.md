@@ -123,6 +123,62 @@ array([[ 6,  8],
        [10, 12]])
 ```
 
+We can multiply matrices by a scalar. In that case, we just multiply every element of the matrix:
+
+\begin{equation}
+k \begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+= \begin{bmatrix}
+ka & kb \\
+kc & kd
+\end{bmatrix}
+\end{equation}
+
+Again, in Python it gives:
+
+```Python
+A = np.array([[1,2],
+          [3,4]])
+
+3 * A
+```
+
+```
+array([[ 3,  6],
+       [ 9, 12]])
+```
+
+Matrices can be multiplied by something other than a scalar if the number of columns $n$ of the left matrix equals the number of rows $m$ of the right matrix. 
+A matrix $m$-by-$n$ can only be multiplied by another matrix $n$-by-$k$, and the resulting matrix will be of dimension $m$-by-$k$:
+
+\begin{equation}
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+\begin{bmatrix}
+e & f \\
+g & h
+\end{bmatrix}
+= \begin{bmatrix}
+ae + bg & af + bh \\
+ce + dg & cf + dh
+\end{bmatrix}
+\end{equation}
+
+This is how it proceeds:
+- The first row of the left matrix is multiplied against and summed with the first column of the right matrix to obtain the element in the first row and the first column of the product matrix ($ae + bg$)
+- The first row of the lew matrix is multiplied against and summed the second column of the right matrix to obtain the element in the first row and the second column of the product matrix ($af + bh$)
+- The same apply for the second row
+
+We can write a more general formula: element $c_{ij}$ in the product matrix $C$ is obtained by multiplying and summing the elements in row $i$ of the left matrix and in column $j$ of the right matrix:
+
+\begin{equation}
+c_{ij} = \sum^n_{k=1}a_{ik}b_{kj}
+\end{equation}
+
 
 ### Special Matrices
 
