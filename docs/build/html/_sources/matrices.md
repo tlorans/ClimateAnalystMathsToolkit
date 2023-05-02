@@ -415,6 +415,20 @@ v = np.array([[4, 5, 6]]).T
 u.T @ v
 ```
 
+When the inner product between two vectors with nonzero elements is zero, we say that these vectors are orthogonal. 
+
+The norm of a vector is defined by:
+
+\begin{equation}
+||u|| = (u^Tu)^{1/2} = (u^2_1 + u^2_2 + u^2_3)^{1/2}
+\end{equation}
+
+If this norm is equal to one, the vector is said to be normalized.
+
+If a set of vectors are mutually orthogonal and normalized, we say that they are orthonormal.
+
+
+
 ### Inverse Matrix 
 ### Orthogonal Matrices 
 
