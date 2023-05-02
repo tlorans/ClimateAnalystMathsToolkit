@@ -14,5 +14,9 @@ This course is under heavy development
 :maxdepth: 2
 ```
 part1matrixalgebra
+matrices
+part2optimization
+linearprogramming
+leastsquaresandqp
 references
 ```
