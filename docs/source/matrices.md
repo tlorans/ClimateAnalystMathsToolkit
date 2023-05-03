@@ -653,3 +653,66 @@ array([[1, 0, 0],
 ```
 
 ### Permutation Matrices
+
+Permutation matrix is a type of orthogonal matrix that:
+- when multiplying on the left, permutes the rows of a matrix
+- when multiplying on the right, permutes the columns of a matrix
+
+An example is:
+
+\begin{equation}
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+= \begin{bmatrix}
+c & d \\
+a & b
+\end{bmatrix}
+\end{equation}
+
+If we denote the initial order as a set $\{1,2\}$ (ie. the first row in the first place, the second row in the second place), we can denote the order of the permuted matrix as $\{2,1\}$ (we have switched the order of the rows). To obtain the corresponding permutation matrix, we have permuted the corresponding rows of the identify matrix, such as $\{1,2\} \rightarrow \{2,1\}$:
+
+\begin{equation}
+\begin{bmatrix}
+1 & 0 \\
+0 & 1
+\end{bmatrix}
+\rightarrow
+\begin{bmatrix}
+0 & 1 \\
+1 & 0
+\end{bmatrix}
+\end{equation}
+
+Let's have an example of constructing a permutation matrix in Python, with the goal to switch the rows such as $\{1, 2, 3\} \rightarrow \{2, 1, 3\}$
+
+```Python
+I = np.identity(3)
+P = np.take(I, [1, 0, 2], axis=0)
+P
+```
+```
+array([[0., 1., 0.],
+       [1., 0., 0.],
+       [0., 0., 1.]])
+```
+And let switch the rows of $A$:
+```Python
+A = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+
+P @ A
+```
+```
+array([[4., 5., 6.],
+       [1., 2., 3.],
+       [7., 8., 9.]])
+```
