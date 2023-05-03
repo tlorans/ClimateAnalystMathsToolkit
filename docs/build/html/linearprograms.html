@@ -280,9 +280,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-and-affine-functions">Linear and Affine Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-intuitions">Geometrical Intuitions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-form">Standard Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-intuitions">Geometrical Intuitions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-and-affine-functions">Linear and Affine Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry-of-affine-equations">Geometry of Affine Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#affine-combinations">Affine Combinations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convex-combinations">Convex Combinations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry-of-affine-inequalities">Geometry of Affine Inequalities</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-form">Standard Form</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions-of-an-lp">Solutions of an LP</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linear-program">The Linear Program</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Standard Form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-tricks">Transformation Tricks</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -296,14 +308,38 @@ document.write(`
                   
   <section id="linear-programming">
 <h1>Linear Programming<a class="headerlink" href="#linear-programming" title="Permalink to this headline">#</a></h1>
-<section id="linear-and-affine-functions">
-<h2>Linear and Affine Functions<a class="headerlink" href="#linear-and-affine-functions" title="Permalink to this headline">#</a></h2>
-</section>
 <section id="geometrical-intuitions">
 <h2>Geometrical Intuitions<a class="headerlink" href="#geometrical-intuitions" title="Permalink to this headline">#</a></h2>
+<section id="linear-and-affine-functions">
+<h3>Linear and Affine Functions<a class="headerlink" href="#linear-and-affine-functions" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="geometry-of-affine-equations">
+<h3>Geometry of Affine Equations<a class="headerlink" href="#geometry-of-affine-equations" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="affine-combinations">
+<h3>Affine Combinations<a class="headerlink" href="#affine-combinations" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="convex-combinations">
+<h3>Convex Combinations<a class="headerlink" href="#convex-combinations" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="geometry-of-affine-inequalities">
+<h3>Geometry of Affine Inequalities<a class="headerlink" href="#geometry-of-affine-inequalities" title="Permalink to this headline">#</a></h3>
+</section>
 </section>
 <section id="standard-form">
 <h2>Standard Form<a class="headerlink" href="#standard-form" title="Permalink to this headline">#</a></h2>
+<section id="solutions-of-an-lp">
+<h3>Solutions of an LP<a class="headerlink" href="#solutions-of-an-lp" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="the-linear-program">
+<h3>The Linear Program<a class="headerlink" href="#the-linear-program" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="id1">
+<h3>Standard Form<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="transformation-tricks">
+<h3>Transformation Tricks<a class="headerlink" href="#transformation-tricks" title="Permalink to this headline">#</a></h3>
+</section>
 </section>
 </section>
 
@@ -349,9 +385,21 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-and-affine-functions">Linear and Affine Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-intuitions">Geometrical Intuitions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-form">Standard Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-intuitions">Geometrical Intuitions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-and-affine-functions">Linear and Affine Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry-of-affine-equations">Geometry of Affine Equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#affine-combinations">Affine Combinations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convex-combinations">Convex Combinations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry-of-affine-inequalities">Geometry of Affine Inequalities</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-form">Standard Form</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions-of-an-lp">Solutions of an LP</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linear-program">The Linear Program</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Standard Form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-tricks">Transformation Tricks</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
