@@ -1,6 +1,8 @@
 ## Linear Programming 
 
-Every linear program (LP) has linear constraints and a linear objective. Using particular solver, requires a particular form. We need to undersand how to manipulate a linear program in order to fit the form required by solvers.
+Optimization programs have constraints and objective function. The objective function is the function you want to minimize. In linear programs (LP), the objective function is linear, and the constraints as well. 
+
+Using a particular solver, requires a particular form. We need to undersand how to manipulate a linear program in order to fit the form required by solvers.
 
 ### Linear and Affine Functions
 

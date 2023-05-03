@@ -12,7 +12,6 @@ c_1x_1 + ... + c_nx_n = c^Tx
 With $c_i$ are parameters and $x_i$ are variables.
 
 On the other side, the general form of quadratic functions is:
-
 \begin{equation}
 q_{11x^2_1} + q_{12}x_1x_2 + ... + q_{nn}x^2_n
 = 
