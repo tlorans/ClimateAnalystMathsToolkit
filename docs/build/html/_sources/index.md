@@ -23,8 +23,8 @@ In this part, we will introduce optimization from a modelling perspective, follo
 
 
 matrices
-linearprograms
 systemslinearequations
+linearprograms
 vectorspaces
 eigenvalues
 leastsquaresandqp

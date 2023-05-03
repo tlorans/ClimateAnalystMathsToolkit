@@ -76,3 +76,15 @@ Every LP can be put in the form:
 
 ### Transformation Tricks
 
+#### Converting Min to Max or Vice Versa
+
+#### Reversing Inequalities 
+
+#### Equalities to Inequalities 
+
+#### Inequalities to Equalities 
+
+#### Unbounded to Bounded
+
+#### Bounded to Nonnegative
+
