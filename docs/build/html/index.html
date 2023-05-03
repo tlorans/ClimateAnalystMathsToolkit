@@ -45,7 +45,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Part 1: Matrix Algebra" href="part1matrixalgebra.html" />
+    <link rel="next" title="Matrices" href="matrices.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -124,13 +124,11 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="part1matrixalgebra.html">Part 1: Matrix Algebra</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linearprograms.html">Linear Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="systemslinearequations.html">Systems of Linear Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vectorspaces.html">Vector Spaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="eigenvalues.html">Eigenvalues and Eigenvectors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="part2optimization.html">Part 2: Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linearprograms.html">Linear Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leastsquaresandqp.html">Quadratic Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
@@ -287,10 +285,12 @@ document.write(`
 <p class="admonition-title">Warning</p>
 <p>This course is under heavy development</p>
 </div>
+<p>In this part, I cover the first main tool needed as a climate analyst: matrix algebra. We closely follow the corresponding textbook from Chasnov (2018) <span id="id1">[<a class="reference internal" href="references.html#id2" title="Jeffrey R Chasnov. Matrix algebra for engineers. The Hong Kong University of Science and Technology, 2018.">Cha18</a>]</span>, adding Python codes snippets.</p>
+<p>I strongly think that Python codes implementation will facilitate and dedramatize the maths involved in this course, even for those of you who are not confortable with. There is no such things as “people bad in maths”.</p>
+<p>In this part, we will introduce optimization from a modelling perspective, following <a class="reference external" href="https://laurentlessard.com/teaching/524-intro-to-optimization/">this course</a> from Laurent Lessard. Starting from Linear Programming, we will build the foundations for understanding Quadratic Programming. This will be particularly useful in formulating portfolio optimization problems.</p>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="part1matrixalgebra.html">Part 1: Matrix Algebra</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="matrices.html#matrix-definition">Matrix Definition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="matrices.html#matrix-addition-and-multiplication">Matrix Addition and Multiplication</a></li>
@@ -300,6 +300,12 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="matrices.html#inverse-matrix">Inverse Matrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="matrices.html#orthogonal-matrices">Orthogonal Matrices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="matrices.html#permutation-matrices">Permutation Matrices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linearprograms.html">Linear Programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linearprograms.html#linear-and-affine-functions">Linear and Affine Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linearprograms.html#the-linear-program-and-standard-form">The Linear Program and Standard Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linearprograms.html#transformation-tricks">Transformation Tricks</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="systemslinearequations.html">Systems of Linear Equations</a><ul>
@@ -334,13 +340,6 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="eigenvalues.html#powers-of-a-matrix">Powers of a Matrix</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="part2optimization.html">Part 2: Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linearprograms.html">Linear Programming</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="linearprograms.html#linear-and-affine-functions">Linear and Affine Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linearprograms.html#the-linear-program-and-standard-form">The Linear Program and Standard Form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linearprograms.html#transformation-tricks">Transformation Tricks</a></li>
-</ul>
-</li>
 <li class="toctree-l1"><a class="reference internal" href="leastsquaresandqp.html">Quadratic Programming</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="leastsquaresandqp.html#quadratic-forms">Quadratic Forms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="leastsquaresandqp.html#qps">QPs</a></li>
@@ -361,11 +360,11 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="right-next"
-       href="part1matrixalgebra.html"
+       href="matrices.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Part 1: Matrix Algebra</p>
+        <p class="prev-next-title">Matrices</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -9,18 +9,24 @@
 This course is under heavy development
 ```
 
+In this part, I cover the first main tool needed as a climate analyst: matrix algebra. We closely follow the corresponding textbook from Chasnov (2018) {cite:p}`chasnov2018matrix`, adding Python codes snippets. 
+
+I strongly think that Python codes implementation will facilitate and dedramatize the maths involved in this course, even for those of you who are not confortable with. There is no such things as "people bad in maths". 
+
+
+In this part, we will introduce optimization from a modelling perspective, following [this course](https://laurentlessard.com/teaching/524-intro-to-optimization/) from Laurent Lessard. Starting from Linear Programming, we will build the foundations for understanding Quadratic Programming. This will be particularly useful in formulating portfolio optimization problems.
+
+
 ```{toctree}
 :caption: 'Contents:'
 :maxdepth: 2
 
 
-part1matrixalgebra
 matrices
+linearprograms
 systemslinearequations
 vectorspaces
 eigenvalues
-part2optimization
-linearprograms
 leastsquaresandqp
 references
 ```
