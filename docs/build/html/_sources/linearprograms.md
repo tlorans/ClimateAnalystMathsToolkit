@@ -1,5 +1,7 @@
 ## Linear Programming 
 
+With the previous part about matrices and matrices manipulation, we already know enough of linear algebra to introduce linear programming.
+
 Optimization programs have constraints and objective function. The objective function is the function you want to minimize. In linear programs (LP), the objective function is linear, and the constraints as well. 
 
 Using a particular solver, requires a particular form. We need to undersand how to manipulate a linear program in order to fit the form required by solvers.
@@ -27,6 +29,35 @@ a^Tx + b
 
 This is basically a dot product plus a constant. 
 
+We can also combine several linear or affine functions:
+
+\begin{equation}
+\begin{matrix}
+a_{11}x_1 + & \cdots + & a_{1n}x_n + b_1 \\
+a_{21}x_1 + & \cdots + & a_{2n}x_n + b_2 \\
+\vdots & \vdots & \vdots \\
+a_{m1}x_1 + & \cdots + & a_{mn}x_n + b_m 
+\end{matrix} \rightarrow
+\begin{bmatrix}
+a_{11} & \cdots & a_{1n} \\
+\vdots & \ddots & \vdots \\
+a_{m1} & \cdots & a_{mn}
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{bmatrix}
++ 
+\begin{bmatrix}
+b_1 \\
+\vdots \\
+b_m
+\end{bmatrix}
+\end{equation}
+
+Which can be written as $Ax + b$.
+
 ### The Linear Program and Standard Form
 
 A linear program (LP) is an optimization model with:
@@ -35,7 +66,7 @@ A linear program (LP) is an optimization model with:
 - affine objective function ($c^Tx + d$), min or max
 - constraints can be:
     - affine equations ($Ax = b$)
-    - affine inequalities ($Ax \leq b or Ax \geq b$)
+    - affine inequalities ($Ax \leq b$ or $Ax \geq b$)
     - a combination of affine equations or inequalities
 - individual variables can have:
     - box constraints ($p \leq x_i$, or $p \leq x_i \leq q$)

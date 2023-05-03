@@ -47,8 +47,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'linearprograms';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Quadratic Programming" href="leastsquaresandqp.html" />
-    <link rel="prev" title="Part 2: Optimization" href="part2optimization.html" />
+    <link rel="next" title="Systems of Linear Equations" href="systemslinearequations.html" />
+    <link rel="prev" title="Matrices" href="matrices.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -127,13 +127,11 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="part1matrixalgebra.html">Part 1: Matrix Algebra</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Linear Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="systemslinearequations.html">Systems of Linear Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vectorspaces.html">Vector Spaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="eigenvalues.html">Eigenvalues and Eigenvectors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="part2optimization.html">Part 2: Optimization</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Linear Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leastsquaresandqp.html">Quadratic Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
@@ -298,25 +296,53 @@ document.write(`
                   
   <section id="linear-programming">
 <h1>Linear Programming<a class="headerlink" href="#linear-programming" title="Permalink to this headline">#</a></h1>
+<p>With the previous part about matrices and matrices manipulation, we already know enough of linear algebra to introduce linear programming.</p>
 <p>Optimization programs have constraints and objective function. The objective function is the function you want to minimize. In linear programs (LP), the objective function is linear, and the constraints as well.</p>
 <p>Using a particular solver, requires a particular form. We need to undersand how to manipulate a linear program in order to fit the form required by solvers.</p>
 <section id="linear-and-affine-functions">
 <h2>Linear and Affine Functions<a class="headerlink" href="#linear-and-affine-functions" title="Permalink to this headline">#</a></h2>
 <p>Let’s first define what linear and affine functions are.</p>
 <p>A function <span class="math notranslate nohighlight">\(f(x_1,..., x_m)\)</span> is linear in the variables <span class="math notranslate nohighlight">\(x_1, ..., x_m\)</span> if there exists constants <span class="math notranslate nohighlight">\(a_1, ... , a_m\)</span> such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d2053d2b-6afd-46d0-9193-48b6270b525c">
-<span class="eqno">(1)<a class="headerlink" href="#equation-d2053d2b-6afd-46d0-9193-48b6270b525c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7136cc78-42a7-4dde-ac6a-e9417ea0bc8e">
+<span class="eqno">(1)<a class="headerlink" href="#equation-7136cc78-42a7-4dde-ac6a-e9417ea0bc8e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x_1,..., x_m) = a_1x_1 + ... + a_mx_m =
 a^Tx
 \end{equation}\]</div>
 <p>This is basically a dot product.</p>
 <p>A function <span class="math notranslate nohighlight">\(f(x_1,..., x_m)\)</span> is affine in the variables <span class="math notranslate nohighlight">\(x_1, ..., x_m\)</span> if there exist constants <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(a_1, ... , a_m\)</span> such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0e72ce35-881a-4673-b936-163e7a0dbd9c">
-<span class="eqno">(2)<a class="headerlink" href="#equation-0e72ce35-881a-4673-b936-163e7a0dbd9c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-37aef2f2-c56a-4711-b960-0c9f09996de7">
+<span class="eqno">(2)<a class="headerlink" href="#equation-37aef2f2-c56a-4711-b960-0c9f09996de7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x_1,..., x_m) = a_0 + a_1x_1 + ... + a_mx_m =
 a^Tx + b
 \end{equation}\]</div>
 <p>This is basically a dot product plus a constant.</p>
+<p>We can also combine several linear or affine functions:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1aca4795-98b0-4d1f-9ac2-db495de868de">
+<span class="eqno">(3)<a class="headerlink" href="#equation-1aca4795-98b0-4d1f-9ac2-db495de868de" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{matrix}
+a_{11}x_1 + &amp; \cdots + &amp; a_{1n}x_n + b_1 \\
+a_{21}x_1 + &amp; \cdots + &amp; a_{2n}x_n + b_2 \\
+\vdots &amp; \vdots &amp; \vdots \\
+a_{m1}x_1 + &amp; \cdots + &amp; a_{mn}x_n + b_m 
+\end{matrix} \rightarrow
+\begin{bmatrix}
+a_{11} &amp; \cdots &amp; a_{1n} \\
+\vdots &amp; \ddots &amp; \vdots \\
+a_{m1} &amp; \cdots &amp; a_{mn}
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{bmatrix}
++ 
+\begin{bmatrix}
+b_1 \\
+\vdots \\
+b_m
+\end{bmatrix}
+\end{equation}\]</div>
+<p>Which can be written as <span class="math notranslate nohighlight">\(Ax + b\)</span>.</p>
 </section>
 <section id="the-linear-program-and-standard-form">
 <h2>The Linear Program and Standard Form<a class="headerlink" href="#the-linear-program-and-standard-form" title="Permalink to this headline">#</a></h2>
@@ -327,7 +353,7 @@ a^Tx + b
 <li><p>constraints can be:</p>
 <ul>
 <li><p>affine equations (<span class="math notranslate nohighlight">\(Ax = b\)</span>)</p></li>
-<li><p>affine inequalities (<span class="math notranslate nohighlight">\(Ax \leq b or Ax \geq b\)</span>)</p></li>
+<li><p>affine inequalities (<span class="math notranslate nohighlight">\(Ax \leq b\)</span> or <span class="math notranslate nohighlight">\(Ax \geq b\)</span>)</p></li>
 <li><p>a combination of affine equations or inequalities</p></li>
 </ul>
 </li>
@@ -355,20 +381,20 @@ a^Tx + b
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="part2optimization.html"
+       href="matrices.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Part 2: Optimization</p>
+        <p class="prev-next-title">Matrices</p>
       </div>
     </a>
     <a class="right-next"
-       href="leastsquaresandqp.html"
+       href="systemslinearequations.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Quadratic Programming</p>
+        <p class="prev-next-title">Systems of Linear Equations</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
