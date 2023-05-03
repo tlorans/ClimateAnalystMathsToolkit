@@ -42,6 +42,8 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'leastsquaresandqp';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -280,15 +282,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-forms-and-ellipsoids">Quadratic Forms and Ellipsoids</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-forms">Quadratic Forms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-forms">Quadratic Forms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Quadratic Forms</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-decomposition">Orthogonal Decomposition</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-definite-matrices">Positive Definite Matrices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ellipsoids">Ellipsoids</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qps">QPs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ellipsoids</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convex-quadratic-programs">Convex Quadratic Programs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-optimization">Portfolio Optimization</a></li>
 </ul>
@@ -306,10 +306,28 @@ document.write(`
                   
   <section id="quadratic-programming">
 <h1>Quadratic Programming<a class="headerlink" href="#quadratic-programming" title="Permalink to this headline">#</a></h1>
-<section id="quadratic-forms-and-ellipsoids">
-<h2>Quadratic Forms and Ellipsoids<a class="headerlink" href="#quadratic-forms-and-ellipsoids" title="Permalink to this headline">#</a></h2>
+<p>Quadratic programming is relying on quadratic constraints and a quadratic objective.</p>
 <section id="quadratic-forms">
-<h3>Quadratic Forms<a class="headerlink" href="#quadratic-forms" title="Permalink to this headline">#</a></h3>
+<h2>Quadratic Forms<a class="headerlink" href="#quadratic-forms" title="Permalink to this headline">#</a></h2>
+<p>As we have seen in the previous part, the general form of linear functions is:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e88dc3c1-dcfa-49c0-a559-a45d3be96e45">
+<span class="eqno">(1)<a class="headerlink" href="#equation-e88dc3c1-dcfa-49c0-a559-a45d3be96e45" title="Permalink to this equation">#</a></span>\[\begin{equation}
+c_1x_1 + ... + c_nx_n = c^Tx
+\end{equation}\]</div>
+<p>With <span class="math notranslate nohighlight">\(c_i\)</span> are parameters and <span class="math notranslate nohighlight">\(x_i\)</span> are variables.</p>
+<p>On the other side, the general form of quadratic functions is:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-40fd7bd7-fc14-4839-a804-e01c46aa8197">
+<span class="eqno">(2)<a class="headerlink" href="#equation-40fd7bd7-fc14-4839-a804-e01c46aa8197" title="Permalink to this equation">#</a></span>\[\begin{equation}
+q_{11x^2_1} + q_{12}x_1x_2 + ... + q_{nn}x^2_n
+= 
+\begin{bmatrix}
+x_1 &amp; \cdots \ x_n
+\end{bmatrix}
+\begin{bmatrix}
+\end{bmatrix}
+\end{equation}\]</div>
+<section id="id1">
+<h3>Quadratic Forms<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 </section>
 <section id="orthogonal-decomposition">
 <h3>Orthogonal Decomposition<a class="headerlink" href="#orthogonal-decomposition" title="Permalink to this headline">#</a></h3>
@@ -317,15 +335,9 @@ document.write(`
 <section id="positive-definite-matrices">
 <h3>Positive Definite Matrices<a class="headerlink" href="#positive-definite-matrices" title="Permalink to this headline">#</a></h3>
 </section>
-<section id="ellipsoids">
-<h3>Ellipsoids<a class="headerlink" href="#ellipsoids" title="Permalink to this headline">#</a></h3>
-</section>
 </section>
 <section id="qps">
 <h2>QPs<a class="headerlink" href="#qps" title="Permalink to this headline">#</a></h2>
-<section id="id1">
-<h3>Ellipsoids<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
-</section>
 <section id="convex-quadratic-programs">
 <h3>Convex Quadratic Programs<a class="headerlink" href="#convex-quadratic-programs" title="Permalink to this headline">#</a></h3>
 </section>
@@ -377,15 +389,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-forms-and-ellipsoids">Quadratic Forms and Ellipsoids</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-forms">Quadratic Forms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-forms">Quadratic Forms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Quadratic Forms</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-decomposition">Orthogonal Decomposition</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-definite-matrices">Positive Definite Matrices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ellipsoids">Ellipsoids</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qps">QPs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ellipsoids</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convex-quadratic-programs">Convex Quadratic Programs</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-optimization">Portfolio Optimization</a></li>
 </ul>
