@@ -417,17 +417,73 @@ u.T @ v
 
 When the inner product between two vectors with nonzero elements is zero, we say that these vectors are orthogonal. 
 
+Let's have two formulations of the same example in Python. With `numpy`, you can instantiate your vectors as 1 dimension only, this way:
+```Python
+u = np.array([1, 2]) 
+v = np.array([2, -1]) 
+v.shape
+```
+Then the resulting array is only 1 dimension:
+```
+(2,)
+```
+In that case, `numpy` takes in charge to get the proper transpose in case of applying the dot product:
+
+```Python
+u.T @ v
+```
+Will output:
+```
+0
+```
+And:
+```Python
+u @ v
+```
+Will also output:
+```
+0
+```
+
+If you are creating column vectors, you need to specify the transpose:
+```Python
+u = np.array([[1, 2]]).T # column vector
+v = np.array([[2, -1]]).T # column vector
+u @ v
+```
+If not, you will encounter this error:
+```
+ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)->(n?,m?) (size 2 is different from 1)
+```
+```Python
+u = np.array([[1, 2]]).T # column vector
+v = np.array([[2, -1]]).T # column vector
+u.T @ v
+```
+The output is:
+```
+array([[0]])
+```
+That is, a one-by-one matrix, ie. a scalar.
+
+
 The norm of a vector is defined by:
 
 \begin{equation}
 ||u|| = (u^Tu)^{1/2} = (u^2_1 + u^2_2 + u^2_3)^{1/2}
 \end{equation}
 
-If this norm is equal to one, the vector is said to be normalized.
+If this norm is equal to one, the vector is normalized.
+
+You can use the function `linalg.norm` to get the norm of a vector:
+```Python
+np.linalg.norm(u)
+```
+```
+2.23606797749979
+```
 
 If a set of vectors are mutually orthogonal and normalized, we say that they are orthonormal.
-
-
 
 ### Inverse Matrix 
 ### Orthogonal Matrices 
