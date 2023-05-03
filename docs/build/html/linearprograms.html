@@ -299,20 +299,21 @@ document.write(`
                   
   <section id="linear-programming">
 <h1>Linear Programming<a class="headerlink" href="#linear-programming" title="Permalink to this headline">#</a></h1>
-<p>Every linear program (LP) has linear constraints and a linear objective. Using particular solver, requires a particular form. We need to undersand how to manipulate a linear program in order to fit the form required by solvers.</p>
+<p>Optimization programs have constraints and objective function. The objective function is the function you want to minimize. In linear programs (LP), the objective function is linear, and the constraints as well.</p>
+<p>Using a particular solver, requires a particular form. We need to undersand how to manipulate a linear program in order to fit the form required by solvers.</p>
 <section id="linear-and-affine-functions">
 <h2>Linear and Affine Functions<a class="headerlink" href="#linear-and-affine-functions" title="Permalink to this headline">#</a></h2>
 <p>Let’s first define what linear and affine functions are.</p>
 <p>A function <span class="math notranslate nohighlight">\(f(x_1,..., x_m)\)</span> is linear in the variables <span class="math notranslate nohighlight">\(x_1, ..., x_m\)</span> if there exists constants <span class="math notranslate nohighlight">\(a_1, ... , a_m\)</span> such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e1ffb6ea-d3f1-463b-bc94-2cf19c0a9843">
-<span class="eqno">(1)<a class="headerlink" href="#equation-e1ffb6ea-d3f1-463b-bc94-2cf19c0a9843" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5f3cac46-935a-42ff-9694-18e967973742">
+<span class="eqno">(1)<a class="headerlink" href="#equation-5f3cac46-935a-42ff-9694-18e967973742" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x_1,..., x_m) = a_1x_1 + ... + a_mx_m =
 a^Tx
 \end{equation}\]</div>
 <p>This is basically a dot product.</p>
 <p>A function <span class="math notranslate nohighlight">\(f(x_1,..., x_m)\)</span> is affine in the variables <span class="math notranslate nohighlight">\(x_1, ..., x_m\)</span> if there exist constants <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(a_1, ... , a_m\)</span> such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4e978bd6-73cc-4531-864d-3bbd9069503b">
-<span class="eqno">(2)<a class="headerlink" href="#equation-4e978bd6-73cc-4531-864d-3bbd9069503b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4d4db06a-01e4-4e2e-ab01-edc7d9949e09">
+<span class="eqno">(2)<a class="headerlink" href="#equation-4d4db06a-01e4-4e2e-ab01-edc7d9949e09" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x_1,..., x_m) = a_0 + a_1x_1 + ... + a_mx_m =
 a^Tx + b
 \end{equation}\]</div>

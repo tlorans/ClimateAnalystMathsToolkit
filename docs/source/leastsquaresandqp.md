@@ -1,6 +1,6 @@
 ## Quadratic Programming
 
-Quadratic programming is relying on quadratic constraints and a quadratic objective.
+Quadratic programming is relying on quadratic constraints and a quadratic objective. Portfolio optimization is a well-known example of QP, as the objective to minimize portfolio risk is quadratric.
 ### Quadratic Forms
 
 As we have seen in the previous part, the general form of linear functions is:
