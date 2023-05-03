@@ -574,7 +574,82 @@ np.linalg.inv(A)
 array([[-2. ,  1. ],
        [ 1.5, -0.5]])
 ```
-
 ### Orthogonal Matrices 
+
+An orthogonal matrix is a square matrix $Q$ that satisfies:
+
+\begin{equation}
+Q^{-1} = Q^T
+\end{equation}
+
+Other properties are:
+
+\begin{equation}
+QQ^T = I
+\end{equation}
+
+\begin{equation}
+Q^TQ = I
+\end{equation}
+
+Let's examine a two-by-two example, with $Q$ the orthogonal matrix given by:
+
+\begin{equation}
+Q = \begin{bmatrix}
+q_{11} & q_{12} \\
+q_{21} & q_{22}
+\end{bmatrix} =
+\begin{bmatrix}
+q_1 & q_2
+\end{bmatrix}
+\end{equation}
+
+that is $q_1$ and $q_2$ are the two-by-one column vectors of $Q$.
+
+Let's check if $Q$ is orthogonal:
+
+\begin{equation}
+Q^TQ = \begin{bmatrix}
+q_1^T \\
+q_2^T
+\end{bmatrix}
+\begin{bmatrix}
+q_1 & q_2
+\end{bmatrix}
+= \begin{bmatrix}
+q_1^Tq_1 & q_1^Tq_2 \\
+q_2^Tq_1 & q_2^Tq_2
+\end{bmatrix}
+\end{equation}
+
+So, if $Q$ is orthogonal, then $Q^TQ = I$ and:
+
+\begin{equation}
+q^T_1q_1 = q_2^Tq_2 = 1
+\end{equation}
+
+\begin{equation}
+q_1^Tq_2 = q_2^Tq_1 = 0
+\end{equation}
+
+Which means that the columns of $Q$, $q_1$ and $q_2$, form an orthonormal (mutually orthogonal and normalized) set of vectors. The same apply for the rows.
+
+An example in Python is:
+
+```Python
+Q = np.array([
+    [0, 1, 0],
+    [-1, 0, 0],
+    [0, 0, 1]
+])
+
+Q.T @ Q
+```
+Which gives you the identity matrix:
+```
+array([[1, 0, 0],
+       [0, 1, 0],
+       [0, 0, 1]])
+```
 
 ### Permutation Matrices
