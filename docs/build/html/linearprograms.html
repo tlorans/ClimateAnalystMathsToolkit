@@ -283,8 +283,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-and-affine-functions">Linear and Affine Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linear-program">The Linear Program</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-form">Standard Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linear-program-and-standard-form">The Linear Program and Standard Form</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-tricks">Transformation Tricks</a></li>
 </ul>
             </nav>
@@ -305,25 +304,41 @@ document.write(`
 <h2>Linear and Affine Functions<a class="headerlink" href="#linear-and-affine-functions" title="Permalink to this headline">#</a></h2>
 <p>Let’s first define what linear and affine functions are.</p>
 <p>A function <span class="math notranslate nohighlight">\(f(x_1,..., x_m)\)</span> is linear in the variables <span class="math notranslate nohighlight">\(x_1, ..., x_m\)</span> if there exists constants <span class="math notranslate nohighlight">\(a_1, ... , a_m\)</span> such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5f3cac46-935a-42ff-9694-18e967973742">
-<span class="eqno">(1)<a class="headerlink" href="#equation-5f3cac46-935a-42ff-9694-18e967973742" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d2053d2b-6afd-46d0-9193-48b6270b525c">
+<span class="eqno">(1)<a class="headerlink" href="#equation-d2053d2b-6afd-46d0-9193-48b6270b525c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x_1,..., x_m) = a_1x_1 + ... + a_mx_m =
 a^Tx
 \end{equation}\]</div>
 <p>This is basically a dot product.</p>
 <p>A function <span class="math notranslate nohighlight">\(f(x_1,..., x_m)\)</span> is affine in the variables <span class="math notranslate nohighlight">\(x_1, ..., x_m\)</span> if there exist constants <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(a_1, ... , a_m\)</span> such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4d4db06a-01e4-4e2e-ab01-edc7d9949e09">
-<span class="eqno">(2)<a class="headerlink" href="#equation-4d4db06a-01e4-4e2e-ab01-edc7d9949e09" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0e72ce35-881a-4673-b936-163e7a0dbd9c">
+<span class="eqno">(2)<a class="headerlink" href="#equation-0e72ce35-881a-4673-b936-163e7a0dbd9c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x_1,..., x_m) = a_0 + a_1x_1 + ... + a_mx_m =
 a^Tx + b
 \end{equation}\]</div>
 <p>This is basically a dot product plus a constant.</p>
 </section>
-<section id="the-linear-program">
-<h2>The Linear Program<a class="headerlink" href="#the-linear-program" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="standard-form">
-<h2>Standard Form<a class="headerlink" href="#standard-form" title="Permalink to this headline">#</a></h2>
+<section id="the-linear-program-and-standard-form">
+<h2>The Linear Program and Standard Form<a class="headerlink" href="#the-linear-program-and-standard-form" title="Permalink to this headline">#</a></h2>
+<p>A linear program (LP) is an optimization model with:</p>
+<ul class="simple">
+<li><p>real-valued variables (<span class="math notranslate nohighlight">\(x \in \mathbb{R}^n\)</span>)</p></li>
+<li><p>affine objective function (<span class="math notranslate nohighlight">\(c^Tx + d\)</span>), min or max</p></li>
+<li><p>constraints can be:</p>
+<ul>
+<li><p>affine equations (<span class="math notranslate nohighlight">\(Ax = b\)</span>)</p></li>
+<li><p>affine inequalities (<span class="math notranslate nohighlight">\(Ax \leq b or Ax \geq b\)</span>)</p></li>
+<li><p>a combination of affine equations or inequalities</p></li>
+</ul>
+</li>
+<li><p>individual variables can have:</p>
+<ul>
+<li><p>box constraints (<span class="math notranslate nohighlight">\(p \leq x_i\)</span>, or <span class="math notranslate nohighlight">\(p \leq x_i \leq q\)</span>)</p></li>
+<li><p>no constraints (<span class="math notranslate nohighlight">\(x_i\)</span> is unconstrainted)</p></li>
+</ul>
+</li>
+</ul>
+<p>Every LP can be put in the form:</p>
 </section>
 <section id="transformation-tricks">
 <h2>Transformation Tricks<a class="headerlink" href="#transformation-tricks" title="Permalink to this headline">#</a></h2>
@@ -373,8 +388,7 @@ a^Tx + b
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-and-affine-functions">Linear and Affine Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linear-program">The Linear Program</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-form">Standard Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linear-program-and-standard-form">The Linear Program and Standard Form</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformation-tricks">Transformation Tricks</a></li>
 </ul>
   </nav></div>

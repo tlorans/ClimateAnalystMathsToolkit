@@ -27,9 +27,21 @@ a^Tx + b
 
 This is basically a dot product plus a constant. 
 
-### The Linear Program
+### The Linear Program and Standard Form
 
-### Standard Form
+A linear program (LP) is an optimization model with:
+
+- real-valued variables ($x \in \mathbb{R}^n$)
+- affine objective function ($c^Tx + d$), min or max
+- constraints can be:
+    - affine equations ($Ax = b$)
+    - affine inequalities ($Ax \leq b or Ax \geq b$)
+    - a combination of affine equations or inequalities
+- individual variables can have:
+    - box constraints ($p \leq x_i$, or $p \leq x_i \leq q$)
+    - no constraints ($x_i$ is unconstrainted)
+
+Every LP can be put in the form:
 
 ### Transformation Tricks
 
