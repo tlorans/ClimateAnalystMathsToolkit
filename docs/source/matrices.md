@@ -515,8 +515,66 @@ u @ v.T
 array([[ 2, -1],
        [ 4, -2]])
 ```
-
 ### Inverse Matrix 
+
+Square matrices can have inverses. A matrix $A$ with an invers is said invertible, and its inverse is denoted by $A^{-1}$. A property of the inverse matrix is:
+
+\begin{equation}
+AA^{-1} = A^{-1}A = I
+\end{equation}
+
+If we have two invertibles matrices $A$ and $B$, then:
+
+\begin{equation}
+(AB)^{-1} = B^{-1}A^{-1}
+\end{equation}
+
+And, if $A$ is invertible:
+
+\begin{equation}
+(A^T)^{-1} = (A^{-1})^T
+\end{equation}
+
+As an illustration of the derivation of the inverse of a two-by-two matrix:
+
+\begin{equation}
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}^{-1}
+= \frac{1}{ad-bc} 
+\begin{bmatrix}
+d & -b \\
+-c & a
+\end{bmatrix}
+\end{equation}
+
+Where $ad - bc$ is the definition of the determinant of a two-by-two matrix:
+
+\begin{equation}
+det \begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix} = ad - bc
+\end{equation}
+
+The determinants of a two-by-two matrix is then the product of the diagonal ($ad$) minus the product of the off-diagonals ($bc$). Because the determinant is in the denominator in the formula of the derivation of the matrix, a two-by-two matrix is invertible only if $det(A) \neq 0$.
+
+We will see later that a $n$-by-$n$ matrix is invertible if and only if its determinant is nonzero. We will need a more general definition of the determinant.
+
+In Python, we find the inverse of a matrix with the `linalg.inv` function:
+
+```Python
+A = np.array([[1,2],
+          [3,4]])
+
+np.linalg.inv(A)
+```
+```
+array([[-2. ,  1. ],
+       [ 1.5, -0.5]])
+```
+
 ### Orthogonal Matrices 
 
 ### Permutation Matrices
