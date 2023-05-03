@@ -12,9 +12,11 @@
 
 #### Geometry of Affine Inequalities
 
+#### Solutions of an LP
+
 ### Standard Form
 
-#### Solutions of an LP
+Using particular solver, requires a particular form. We need to undersand how to manipulate a linear program in order to fit the form required by solvers.
 
 #### The Linear Program
 
