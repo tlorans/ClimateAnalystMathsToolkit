@@ -45,6 +45,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'linearprograms';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quadratic Programming" href="leastsquaresandqp.html" />
+    <link rel="prev" title="Part 2: Optimization" href="part2optimization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -121,7 +123,19 @@
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="part1matrixalgebra.html">Part 1: Matrix Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemslinearequations.html">Systems of Linear Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vectorspaces.html">Vector Spaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigenvalues.html">Eigenvalues and Eigenvectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part2optimization.html">Part 2: Optimization</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Linear Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leastsquaresandqp.html">Quadratic Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
     </div>
 </nav></div>
     </div>
@@ -266,11 +280,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-programs">Linear Programs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimax-and-planning">Minimax and Planning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network-flow-problems">Network Flow Problems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-programming-duality">Linear Programming Duality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dual-flows-and-algorithms">Dual Flows and Algorithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-and-affine-functions">Linear and Affine Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-intuitions">Geometrical Intuitions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-form">Standard Form</a></li>
 </ul>
             </nav>
         </div>
@@ -284,20 +296,14 @@ document.write(`
                   
   <section id="linear-programming">
 <h1>Linear Programming<a class="headerlink" href="#linear-programming" title="Permalink to this headline">#</a></h1>
-<section id="linear-programs">
-<h2>Linear Programs<a class="headerlink" href="#linear-programs" title="Permalink to this headline">#</a></h2>
+<section id="linear-and-affine-functions">
+<h2>Linear and Affine Functions<a class="headerlink" href="#linear-and-affine-functions" title="Permalink to this headline">#</a></h2>
 </section>
-<section id="minimax-and-planning">
-<h2>Minimax and Planning<a class="headerlink" href="#minimax-and-planning" title="Permalink to this headline">#</a></h2>
+<section id="geometrical-intuitions">
+<h2>Geometrical Intuitions<a class="headerlink" href="#geometrical-intuitions" title="Permalink to this headline">#</a></h2>
 </section>
-<section id="network-flow-problems">
-<h2>Network Flow Problems<a class="headerlink" href="#network-flow-problems" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="linear-programming-duality">
-<h2>Linear Programming Duality<a class="headerlink" href="#linear-programming-duality" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="dual-flows-and-algorithms">
-<h2>Dual Flows and Algorithms<a class="headerlink" href="#dual-flows-and-algorithms" title="Permalink to this headline">#</a></h2>
+<section id="standard-form">
+<h2>Standard Form<a class="headerlink" href="#standard-form" title="Permalink to this headline">#</a></h2>
 </section>
 </section>
 
@@ -310,6 +316,24 @@ document.write(`
                 <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="part2optimization.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Part 2: Optimization</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="leastsquaresandqp.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Quadratic Programming</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -325,11 +349,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-programs">Linear Programs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minimax-and-planning">Minimax and Planning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network-flow-problems">Network Flow Problems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-programming-duality">Linear Programming Duality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dual-flows-and-algorithms">Dual Flows and Algorithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-and-affine-functions">Linear and Affine Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-intuitions">Geometrical Intuitions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-form">Standard Form</a></li>
 </ul>
   </nav></div>
 

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Least Squares and Quadratic Programming &#8212; Climate Analyst Maths Toolkit 0 documentation</title>
+    <title>Quadratic Programming &#8212; Climate Analyst Maths Toolkit 0 documentation</title>
   
   
   
@@ -45,6 +45,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'leastsquaresandqp';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="References" href="references.html" />
+    <link rel="prev" title="Linear Programming" href="linearprograms.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -121,7 +123,19 @@
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="part1matrixalgebra.html">Part 1: Matrix Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemslinearequations.html">Systems of Linear Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vectorspaces.html">Vector Spaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigenvalues.html">Eigenvalues and Eigenvectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="part2optimization.html">Part 2: Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linearprograms.html">Linear Programming</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Quadratic Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
     </div>
 </nav></div>
     </div>
@@ -256,7 +270,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Least Squares and Quadratic Programming</h1>
+    <h1>Quadratic Programming</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -266,11 +280,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares">Least Squares</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equality-constraints-and-tradeoffs">Equality Constraints and Tradeoffs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization">Regularization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-forms-and-ellipsoids">Quadratic Forms and Ellipsoids</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qps-and-qcqps">QPs and QCQPs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-forms-and-ellipsoids">Quadratic Forms and Ellipsoids</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-forms">Quadratic Forms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-decomposition">Orthogonal Decomposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-definite-matrices">Positive Definite Matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ellipsoids">Ellipsoids</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qps">QPs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ellipsoids</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convex-quadratic-programs">Convex Quadratic Programs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-optimization">Portfolio Optimization</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -282,22 +304,34 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="least-squares-and-quadratic-programming">
-<h1>Least Squares and Quadratic Programming<a class="headerlink" href="#least-squares-and-quadratic-programming" title="Permalink to this headline">#</a></h1>
-<section id="least-squares">
-<h2>Least Squares<a class="headerlink" href="#least-squares" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="equality-constraints-and-tradeoffs">
-<h2>Equality Constraints and Tradeoffs<a class="headerlink" href="#equality-constraints-and-tradeoffs" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="regularization">
-<h2>Regularization<a class="headerlink" href="#regularization" title="Permalink to this headline">#</a></h2>
-</section>
+  <section id="quadratic-programming">
+<h1>Quadratic Programming<a class="headerlink" href="#quadratic-programming" title="Permalink to this headline">#</a></h1>
 <section id="quadratic-forms-and-ellipsoids">
 <h2>Quadratic Forms and Ellipsoids<a class="headerlink" href="#quadratic-forms-and-ellipsoids" title="Permalink to this headline">#</a></h2>
+<section id="quadratic-forms">
+<h3>Quadratic Forms<a class="headerlink" href="#quadratic-forms" title="Permalink to this headline">#</a></h3>
 </section>
-<section id="qps-and-qcqps">
-<h2>QPs and QCQPs<a class="headerlink" href="#qps-and-qcqps" title="Permalink to this headline">#</a></h2>
+<section id="orthogonal-decomposition">
+<h3>Orthogonal Decomposition<a class="headerlink" href="#orthogonal-decomposition" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="positive-definite-matrices">
+<h3>Positive Definite Matrices<a class="headerlink" href="#positive-definite-matrices" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="ellipsoids">
+<h3>Ellipsoids<a class="headerlink" href="#ellipsoids" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="qps">
+<h2>QPs<a class="headerlink" href="#qps" title="Permalink to this headline">#</a></h2>
+<section id="id1">
+<h3>Ellipsoids<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="convex-quadratic-programs">
+<h3>Convex Quadratic Programs<a class="headerlink" href="#convex-quadratic-programs" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="portfolio-optimization">
+<h3>Portfolio Optimization<a class="headerlink" href="#portfolio-optimization" title="Permalink to this headline">#</a></h3>
+</section>
 </section>
 </section>
 
@@ -310,6 +344,24 @@ document.write(`
                 <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="linearprograms.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Linear Programming</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="references.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">References</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -325,11 +377,19 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#least-squares">Least Squares</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equality-constraints-and-tradeoffs">Equality Constraints and Tradeoffs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regularization">Regularization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-forms-and-ellipsoids">Quadratic Forms and Ellipsoids</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qps-and-qcqps">QPs and QCQPs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-forms-and-ellipsoids">Quadratic Forms and Ellipsoids</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-forms">Quadratic Forms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-decomposition">Orthogonal Decomposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-definite-matrices">Positive Definite Matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ellipsoids">Ellipsoids</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qps">QPs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ellipsoids</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convex-quadratic-programs">Convex Quadratic Programs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-optimization">Portfolio Optimization</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

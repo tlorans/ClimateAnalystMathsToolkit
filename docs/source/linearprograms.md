@@ -1,11 +1,8 @@
 ## Linear Programming 
 
-### Linear Programs
+### Linear and Affine Functions
 
-### Minimax and Planning
+### Geometrical Intuitions
 
-### Network Flow Problems
+### Standard Form
 
-### Linear Programming Duality
-
-### Dual Flows and Algorithms

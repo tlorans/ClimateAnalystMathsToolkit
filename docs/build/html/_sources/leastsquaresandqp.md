@@ -1,11 +1,17 @@
-## Least Squares and Quadratic Programming
-
-### Least Squares 
-
-### Equality Constraints and Tradeoffs
-
-### Regularization 
-
+## Quadratic Programming
 ### Quadratic Forms and Ellipsoids 
+#### Quadratic Forms
 
-### QPs and QCQPs
+#### Orthogonal Decomposition
+
+#### Positive Definite Matrices
+
+#### Ellipsoids
+
+### QPs
+
+#### Ellipsoids
+
+#### Convex Quadratic Programs
+
+#### Portfolio Optimization
