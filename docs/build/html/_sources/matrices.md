@@ -485,6 +485,32 @@ np.linalg.norm(u)
 
 If a set of vectors are mutually orthogonal and normalized, we say that they are orthonormal.
 
+You can also encouter the outer product:
+
+\begin{equation}
+uv^T = \begin{bmatrix}
+u_1 \\
+u_2 \\
+u_3
+\end{bmatrix}
+\begin{bmatrix}
+v_1 & v_2 & v_3
+\end{bmatrix}
+= \begin{bmatrix}
+u_1v_1 & u_1v2 & u_1v_3 \\
+u_2v_1 & u_2v_2 & u_2v_3 \\
+u_3v_1 & u_3v_2 & u_3v_3
+\end{bmatrix}
+\end{equation}
+
+To obtain the outer product in Python, you must be aware of creating your vectors with two dimensions:
+
+```Python
+u = np.array([[1, 2]]).T # column vector
+v = np.array([[2, -1]]).T # column vector
+u @ v.T
+```
+
 ### Inverse Matrix 
 ### Orthogonal Matrices 
 
