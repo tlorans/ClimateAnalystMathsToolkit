@@ -23,11 +23,7 @@ x_1 & \cdots \ x_n
 \end{equation}
 
 
-#### Quadratic Forms
-#### Orthogonal Decomposition
+### Orthogonal Decomposition and Positive Definite Matrices
+### Convex Quadratic Programs
 
-#### Positive Definite Matrices
-### QPs
-#### Convex Quadratic Programs
-
-#### Portfolio Optimization
+### Portfolio Optimization

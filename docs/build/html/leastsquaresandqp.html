@@ -48,7 +48,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="References" href="references.html" />
-    <link rel="prev" title="Linear Programming" href="linearprograms.html" />
+    <link rel="prev" title="Eigenvalues and Eigenvectors" href="eigenvalues.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -127,13 +127,11 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="part1matrixalgebra.html">Part 1: Matrix Algebra</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="systemslinearequations.html">Systems of Linear Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linearprograms.html">Linear Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vectorspaces.html">Vector Spaces</a></li>
 <li class="toctree-l1"><a class="reference internal" href="eigenvalues.html">Eigenvalues and Eigenvectors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="part2optimization.html">Part 2: Optimization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linearprograms.html">Linear Programming</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Quadratic Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
@@ -282,17 +280,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-forms">Quadratic Forms</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Quadratic Forms</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-decomposition">Orthogonal Decomposition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-definite-matrices">Positive Definite Matrices</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qps">QPs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convex-quadratic-programs">Convex Quadratic Programs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-optimization">Portfolio Optimization</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-forms">Quadratic Forms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-decomposition-and-positive-definite-matrices">Orthogonal Decomposition and Positive Definite Matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convex-quadratic-programs">Convex Quadratic Programs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-optimization">Portfolio Optimization</a></li>
 </ul>
             </nav>
         </div>
@@ -310,14 +301,14 @@ document.write(`
 <section id="quadratic-forms">
 <h2>Quadratic Forms<a class="headerlink" href="#quadratic-forms" title="Permalink to this headline">#</a></h2>
 <p>As we have seen in the previous part, the general form of linear functions is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d6e849d3-b941-45dd-944b-2b5aaa74e476">
-<span class="eqno">(1)<a class="headerlink" href="#equation-d6e849d3-b941-45dd-944b-2b5aaa74e476" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-115db08e-4d8b-4613-b137-1273f497c993">
+<span class="eqno">(1)<a class="headerlink" href="#equation-115db08e-4d8b-4613-b137-1273f497c993" title="Permalink to this equation">#</a></span>\[\begin{equation}
 c_1x_1 + ... + c_nx_n = c^Tx
 \end{equation}\]</div>
 <p>With <span class="math notranslate nohighlight">\(c_i\)</span> are parameters and <span class="math notranslate nohighlight">\(x_i\)</span> are variables.</p>
 <p>On the other side, the general form of quadratic functions is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-930340d6-bb78-4450-bbb6-6a7f3eb5e31a">
-<span class="eqno">(2)<a class="headerlink" href="#equation-930340d6-bb78-4450-bbb6-6a7f3eb5e31a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8e6272a2-13a9-4c2b-8e82-6f6f7c594d25">
+<span class="eqno">(2)<a class="headerlink" href="#equation-8e6272a2-13a9-4c2b-8e82-6f6f7c594d25" title="Permalink to this equation">#</a></span>\[\begin{equation}
 q_{11x^2_1} + q_{12}x_1x_2 + ... + q_{nn}x^2_n
 = 
 \begin{bmatrix}
@@ -326,24 +317,15 @@ x_1 &amp; \cdots \ x_n
 \begin{bmatrix}
 \end{bmatrix}
 \end{equation}\]</div>
-<section id="id1">
-<h3>Quadratic Forms<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 </section>
-<section id="orthogonal-decomposition">
-<h3>Orthogonal Decomposition<a class="headerlink" href="#orthogonal-decomposition" title="Permalink to this headline">#</a></h3>
+<section id="orthogonal-decomposition-and-positive-definite-matrices">
+<h2>Orthogonal Decomposition and Positive Definite Matrices<a class="headerlink" href="#orthogonal-decomposition-and-positive-definite-matrices" title="Permalink to this headline">#</a></h2>
 </section>
-<section id="positive-definite-matrices">
-<h3>Positive Definite Matrices<a class="headerlink" href="#positive-definite-matrices" title="Permalink to this headline">#</a></h3>
-</section>
-</section>
-<section id="qps">
-<h2>QPs<a class="headerlink" href="#qps" title="Permalink to this headline">#</a></h2>
 <section id="convex-quadratic-programs">
-<h3>Convex Quadratic Programs<a class="headerlink" href="#convex-quadratic-programs" title="Permalink to this headline">#</a></h3>
+<h2>Convex Quadratic Programs<a class="headerlink" href="#convex-quadratic-programs" title="Permalink to this headline">#</a></h2>
 </section>
 <section id="portfolio-optimization">
-<h3>Portfolio Optimization<a class="headerlink" href="#portfolio-optimization" title="Permalink to this headline">#</a></h3>
-</section>
+<h2>Portfolio Optimization<a class="headerlink" href="#portfolio-optimization" title="Permalink to this headline">#</a></h2>
 </section>
 </section>
 
@@ -357,12 +339,12 @@ x_1 &amp; \cdots \ x_n
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="linearprograms.html"
+       href="eigenvalues.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Linear Programming</p>
+        <p class="prev-next-title">Eigenvalues and Eigenvectors</p>
       </div>
     </a>
     <a class="right-next"
@@ -389,17 +371,10 @@ x_1 &amp; \cdots \ x_n
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-forms">Quadratic Forms</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Quadratic Forms</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-decomposition">Orthogonal Decomposition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-definite-matrices">Positive Definite Matrices</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qps">QPs</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convex-quadratic-programs">Convex Quadratic Programs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-optimization">Portfolio Optimization</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quadratic-forms">Quadratic Forms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-decomposition-and-positive-definite-matrices">Orthogonal Decomposition and Positive Definite Matrices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convex-quadratic-programs">Convex Quadratic Programs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#portfolio-optimization">Portfolio Optimization</a></li>
 </ul>
   </nav></div>
 
