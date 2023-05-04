@@ -2,6 +2,8 @@
 
 In this part, we are going to see how to solve a system of linear equations with linear algebra. 
 
+This part is particularly useful to understand the input-output modelling framework for estimating emissions factors.
+
 ### Gaussian Elimination
 
 First of all, let's recall that a linear system of equations such as:
