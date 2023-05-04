@@ -2,7 +2,9 @@
 
 In this part, we are going to see how to solve a system of linear equations with linear algebra. 
 
-This part is particularly useful to understand the input-output modelling framework for estimating emissions factors.
+This part is particularly useful to understand the input-output modelling framework for estimating emissions factors. We will progressively go up to the computation of inverses. Theoretically, solving the Input-Output model involves the computation of the matrix inverse $A^{-1}$ to solve a sytem such as $Ax = b$.
+
+We will then see the concept of LU decomposition and how to use it to solve $(LU)x = b$, which is substantially faster in practice, especially for large matrices such as the input-output matrices.
 
 ### Gaussian Elimination
 
