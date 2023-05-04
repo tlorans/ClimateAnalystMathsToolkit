@@ -714,5 +714,5 @@ We then have the LU decomposition of $A$ as $A = LU$:
 \end{bmatrix}
 \end{equation}
 
-
 ### Solving (LU)x = b
+
