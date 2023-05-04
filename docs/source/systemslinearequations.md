@@ -610,4 +610,107 @@ M_3M_2M_1A = U
 \end{equation}
 ### LU Decomposition
 
+We have found in the previous part that:
+
+
+\begin{equation}
+M_3M_2M_1A = U
+\end{equation}
+
+If we invert the elementary matrices, we have:
+
+\begin{equation}
+A = M^{-1}_1M_2^{-1}M_3^{-1}U
+\end{equation}
+
+The matrix $M_1$ multiplies the first row by two and adds it to the second row:
+
+\begin{equation}
+M_1 = \begin{bmatrix}
+1 & 0 & 0 \\
+2 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\end{equation}
+
+To invert this operation, we need to multiply the first row by -2 and add it to the second row:
+
+\begin{equation}
+M_1^{-1} = \begin{bmatrix}
+1 & 0 & 0 \\
+-2 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\end{equation}
+
+Applying the same process, we have:
+
+\begin{equation}
+M_2^{-1} = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+-1 & 0 & 1
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}
+M_3^{-1} = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 1 & 1
+\end{bmatrix}
+\end{equation}
+
+We have then:
+
+\begin{equation}
+L = M^{-1}_1M^{-1}_2M^{-1}_3
+\end{equation}
+
+\begin{equation}
+L = \begin{bmatrix}
+1 & 0 & 0 \\
+-2 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+-1 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 1 & 1
+\end{bmatrix}
+= \begin{bmatrix}
+1 & 0 & 0 \\
+-2 & 1 & 0 \\
+-1 & 1 & 1
+\end{bmatrix}
+\end{equation}
+
+Which is a lower triangular matrix. 
+
+We then have the LU decomposition of $A$ as $A = LU$:
+
+\begin{equation}
+ \begin{bmatrix}
+- 3 & 2 & -1 \\
+6 & -6 & 7 \\
+3 & -4 & 4
+\end{bmatrix}
+= \begin{bmatrix}
+1 & 0 & 0 \\
+-2 & 1 & 0 \\
+-1 & 1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+- 3 & 2 & -1  \\
+0 & -2 & 5 \\
+0 & 0 & -2
+\end{bmatrix}
+\end{equation}
+
+
 ### Solving (LU)x = b
