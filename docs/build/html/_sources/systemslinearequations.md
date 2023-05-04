@@ -75,7 +75,8 @@ Let's create the augmented matrix in Python:
 ```Python
 import numpy as np
 
-np.asarray(A.col_insert(len(symbolic_vars), b), dtype=np.float32)
+augmented_A = np.asarray(A.col_insert(len(symbolic_vars), b), dtype=np.float32)
+augmented_A
 ```
 
 Which gives us:
@@ -148,6 +149,16 @@ Our original $A$ matrix has now been converted to an upper triangular matrix. Th
 -2x_3 = 2
 \end{matrix}
 \end{equation}
+
+Let's proceed to these rows operations in Python:
+
+```Python
+augmented_A[1] += augmented_A[0] * 2
+augmented_A[2] += augmented_A[0]
+augmented_A[2] += augmented_A[1] * -1
+
+augmented_A
+```
 
 You can now use back substitution to solve these equations:
 
