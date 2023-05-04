@@ -60,10 +60,6 @@ We now can use the function `linear_eq_to_matrix` from `sympy` in order to get t
 A, b = sp.linear_eq_to_matrix(equations, symbolic_vars)
 ```
 
-
-
-
-
 The Gaussian elimination is the standard algorithm to solver a system of linear equations. The first step is to form an augmented matrix by combining the matrix $A$ and the column vector $b$:
 
 \begin{equation}
@@ -73,6 +69,21 @@ The Gaussian elimination is the standard algorithm to solver a system of linear 
 3 & -4 & 4 & -6
 \end{bmatrix}
 \end{equation}
+
+Let's create the augmented matrix in Python:
+
+```Python
+import numpy as np
+
+np.asarray(A.col_insert(len(symbolic_vars), b), dtype=np.float32)
+```
+
+Which gives us:
+```
+array([[-3.,  2., -1., -1.],
+       [ 6., -6.,  7., -7.],
+       [ 3., -4.,  4., -6.]], dtype=float32)
+```
 
 We need to apply row reduction with this augmented matrix. Operations allowed are:
 
