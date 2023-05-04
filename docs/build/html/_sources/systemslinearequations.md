@@ -212,7 +212,21 @@ def back_substitution(M, syms):
 back_substitution(augmented_A, symbolic_vars)
 ```
 
-### Reduced Row Echelon Norm
+And you get the expected results:
+```
+[2.00000000000000, 2.00000000000000, -1.00000000000000]
+```
+
+### Reduced Row Echelon Form
+
+We can continue the row elimination procedure of Gaussian elimination to bring a matrix to what is called a reduced row echelon form, denoted as $rref(A)$ for the matrix $A$. 
+
+The reduced row echelon form of a matrix has:
+- 1 as the first nonzero entry in every row
+- all the entries below and above this one are zero
+- any zero rows occur at the bottom of the matrix
+
+
 
 ### Computing Inverses 
 
