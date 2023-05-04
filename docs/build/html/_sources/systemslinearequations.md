@@ -547,6 +547,67 @@ M_1 = \begin{bmatrix}
 
 This matrix $M_1$ multiplies the first row by two and adds the result to the second row (this is why the element two is placed in the column 1, row 2).
 
+We have a second step with:
+\begin{equation}
+\begin{bmatrix}
+- 3 & 2 & -1  \\
+0 & -2 & 5 \\
+3 & -4 & 4 
+\end{bmatrix}\rightarrow 
+\begin{bmatrix}
+- 3 & 2 & -1  \\
+0 & -2 & 5 \\
+0 & -2 & 3
+\end{bmatrix} = 
+M_2M_1A
+\end{equation}
+
+
+Where:
+
+\begin{equation}
+M_2 = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+1 & 0 & 1
+\end{bmatrix}
+\end{equation}
+
+With the number one placed in column one, row three, and the matrix multiplies the first row by one and adds the result to the third row.
+
+Finally, we have:
+\begin{equation}
+\begin{bmatrix}
+- 3 & 2 & -1  \\
+0 & -2 & 5 \\
+0 & -2 & 3
+\end{bmatrix}\rightarrow 
+\begin{bmatrix}
+- 3 & 2 & -1  \\
+0 & -2 & 5 \\
+0 & 0 & -2
+\end{bmatrix} = 
+M_3M_2M_1A
+\end{equation}
+
+
+Where:
+
+\begin{equation}
+M_3 = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & -1 & 1
+\end{bmatrix}
+\end{equation}
+
+With the -1 placed in column two, row three and the matrix multiplies the second row by -1 and adds the result to the third row.
+
+Because the result is an upper triangular matrix, we have found that:
+
+\begin{equation}
+M_3M_2M_1A = U
+\end{equation}
 ### LU Decomposition
 
 ### Solving (LU)x = b
