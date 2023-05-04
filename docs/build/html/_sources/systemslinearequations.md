@@ -472,6 +472,46 @@ We can multiply the third row by two and add it to the first row:
 \end{bmatrix}
 \end{equation}
 
+We can then multiply the third row by $\frac{5}{2}$ and add it to the second row:
+
+\begin{equation}
+\begin{bmatrix}
+- 3 & 0 & 0 & 1 & -1 & 2\\
+0 & -2 & 5 - \frac{10}{2} & 2 - \frac{5}{2} & 1 - \frac{5}{2}  & 0 + \frac{5}{2}\\
+0 & 0 & -2 & -1 & - 1 & 1
+\end{bmatrix} = 
+\begin{bmatrix}
+- 3 & 0 & 0 & 1 & -1 & 2\\
+0 & -2 & 0 & - \frac{1}{2} & - \frac{3}{2}  & \frac{5}{2}\\
+0 & 0 & -2 & -1 & - 1 & 1
+\end{bmatrix}
+\end{equation}
+
+Finally, we can multiply the first row by $-\frac{1}{3}$, the second and third rows by $-\frac{1}{2}$ and we get:
+
+\begin{equation}
+\begin{bmatrix}
+- 3 \times -\frac{1}{3} & 0 & 0 & 1 \times -\frac{1}{3} & -1 \times -\frac{1}{3} & 2 \times -\frac{1}{3}\\
+0 & -2 \times  -\frac{1}{2}& 0 & - \frac{1}{2}\times  -\frac{1}{2}& - \frac{3}{2}  \times  -\frac{1}{2}  & \frac{5}{2}  \times  -\frac{1}{2}\\
+0 & 0 & -2  \times  -\frac{1}{2} & -1  \times  -\frac{1}{2} & - 1  \times  -\frac{1}{2} & 1 \times  -\frac{1}{2}
+\end{bmatrix}
+= \begin{bmatrix}
+1 & 0 & 0 & -\frac{1}{3} & \frac{1}{3} & -\frac{2}{3}\\
+0 & 1 & 0 & \frac{1}{4} & \frac{3}{4} & -\frac{5}{4}  \\
+0 & 0 & 1 & \frac{1}{2} & \frac{1}{2} & -\frac{1}{2}
+\end{bmatrix}
+\end{equation}
+
+Then we have:
+
+\begin{equation}
+A^{-1} = 
+\begin{bmatrix}
+ -\frac{1}{3} & \frac{1}{3} & -\frac{2}{3}\\
+ \frac{1}{4} & \frac{3}{4} & -\frac{5}{4}  \\
+ \frac{1}{2} & \frac{1}{2} & -\frac{1}{2}
+\end{bmatrix}
+\end{equation}
 
 
 ### Elementary Matrices
