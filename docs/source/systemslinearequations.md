@@ -6,6 +6,137 @@ This is particularly useful to understand how an optimization problem can be mod
 
 ### Gaussian Elimination
 
+First of all, let's recall that a linear system of equations such as:
+
+\begin{equation}
+\begin{matrix}
+-3x_1 + 2x_2 - x_3 = - 1 \\
+6x_1 - 6x_2 + 7x_3 = - 7 \\
+3x_1 - 4x_2 + 4x_3 = -6
+\end{matrix}
+\end{equation}
+
+can be written in matrix form as:
+
+\begin{equation}
+\begin{bmatrix}
+- 3 & 2 & -1 \\
+6 & -6 & 7 \\
+3 & -4 & 4
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix}
+= \begin{bmatrix}
+- 1 \\ 
+-7 \\
+-6
+\end{bmatrix}
+\end{equation}
+
+Or simply $Ax = b$. 
+
+The Gaussian elimination is the standard algorithm to solver a system of linear equations. The first step is to form an augmented matrix by combining the matrix $A$ and the column vector $b$:
+
+\begin{equation}
+\begin{bmatrix}
+- 3 & 2 & -1 & -1 \\
+6 & -6 & 7 & -7 \\
+3 & -4 & 4 & -6
+\end{bmatrix}
+\end{equation}
+
+We need to apply row reduction with this augmented matrix. Operations allowed are:
+
+1. Interchange the order of the rows
+2. Multiply any row by a constant
+3. Add a multiple of one row to another row
+
+The objective is to convert the matrix $A$ to an upper-triangular form and use this new form to solve for the unknowns $x$.
+
+First, we can multiply the first row by 2 and add it to the second row:
+
+\begin{equation}
+\begin{bmatrix}
+- 3 & 2 & -1 & -1 \\
+6 - 6& -6 + 4 & 7 - 2 & -7 - 2 \\
+3 & -4 & 4 & -6
+\end{bmatrix}
+
+= \begin{bmatrix}
+- 3 & 2 & -1 & -1 \\
+0 & -2 & 5 & -9 \\
+3 & -4 & 4 & -6
+\end{bmatrix}
+\end{equation}
+
+We can also add the first row the third row:
+
+\begin{equation}
+\begin{bmatrix}
+- 3 & 2 & -1 & -1 \\
+0 & -2 & 5 & -9 \\
+3 - 3 & -4 + 2 & 4 - 1 & -6 -1
+\end{bmatrix} =
+\begin{bmatrix}
+- 3 & 2 & -1 & -1 \\
+0 & -2 & 5 & -9 \\
+0 & -2 & 3 & -7
+\end{bmatrix}
+\end{equation}
+
+We then can multiply the second row by -1 and add it to the third row:
+
+\begin{equation}
+\begin{bmatrix}
+- 3 & 2 & -1 & -1 \\
+0 & -2 & 5 & -9 \\
+0 & -2 + 2 & 3 -5 & -7 + 9
+\end{bmatrix} =
+\begin{bmatrix}
+- 3 & 2 & -1 & -1 \\
+0 & -2 & 5 & -9 \\
+0 & 0 & -2 & 2
+\end{bmatrix}
+\end{equation}
+
+Our original $A$ matrix has now been converted to an upper triangular matrix. The new corresponding system of linear equations is:
+
+\begin{equation}
+\begin{matrix}
+-3 x_1 + 2x_2 - x_3 = -1 \\
+-2x_2 + 5x_3 = -9 \\
+-2x_3 = 2
+\end{matrix}
+\end{equation}
+
+You can now use back substitution to solve these equations:
+
+\begin{equation}
+\begin{matrix}
+x_3 = - 1 \\
+x_2 = - \frac{1}{2}(-9 - 5x_3) = 2 \\
+x_1 = - \frac{1}{3}(-1 + x_3 - 2x_2) = 2
+\end{matrix}
+\end{equation}
+
+And you get the solution:
+
+\begin{equation}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix}
+= \begin{bmatrix}
+2 \\
+2 \\
+- 1
+\end{bmatrix}
+\end{equation}
+
 ### Reduced Row Echelon Norm
 
 ### Computing Inverses 
