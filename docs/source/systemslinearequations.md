@@ -192,6 +192,32 @@ x_3
 \end{bmatrix}
 \end{equation}
 
+Let's implement the back substition in Python:
+
+```Python
+def back_substitution(M, syms):
+    # symbolic variable index
+    for i, row in reversed(list(enumerate(M))):
+        # create symbolic equation
+        eqn = -M[i][-1]
+        for j in range(len(syms)):
+            eqn += syms[j] * row[j]
+
+        # solve symbolic expression and store variable
+        syms[i] = sp.solve(eqn, syms[i])[0]
+
+    # return list of evaluated variables
+    return syms
+
+back_substitution(augmented_A, symbolic_vars)
+```
+
+And you get the expected results:
+```
+[2.00000000000000, 2.00000000000000, -1.00000000000000]
+
+```
+
 ### Reduced Row Echelon Norm
 
 ### Computing Inverses 

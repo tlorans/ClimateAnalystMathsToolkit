@@ -160,6 +160,13 @@ augmented_A[2] += augmented_A[1] * -1
 augmented_A
 ```
 
+Which gives us our upper triangular matrix:
+```
+array([[-3.,  2., -1., -1.],
+       [ 0., -2.,  5., -9.],
+       [ 0.,  0., -2.,  2.]], dtype=float32)
+```
+
 You can now use back substitution to solve these equations:
 
 \begin{equation}
@@ -184,6 +191,26 @@ x_3
 - 1
 \end{bmatrix}
 \end{equation}
+
+Let's implement the back substition in Python:
+
+```Python
+def back_substitution(M, syms):
+    # symbolic variable index
+    for i, row in reversed(list(enumerate(M))):
+        # create symbolic equation
+        eqn = -M[i][-1]
+        for j in range(len(syms)):
+            eqn += syms[j] * row[j]
+
+        # solve symbolic expression and store variable
+        syms[i] = sp.solve(eqn, syms[i])[0]
+
+    # return list of evaluated variables
+    return syms
+
+back_substitution(augmented_A, symbolic_vars)
+```
 
 ### Reduced Row Echelon Norm
 

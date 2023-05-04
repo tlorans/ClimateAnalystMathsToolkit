@@ -304,8 +304,8 @@ document.write(`
 <section id="gaussian-elimination">
 <h2>Gaussian Elimination<a class="headerlink" href="#gaussian-elimination" title="Permalink to this headline">#</a></h2>
 <p>First of all, let’s recall that a linear system of equations such as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6dd17181-249e-4cc4-9a62-efc25b630c24">
-<span class="eqno">(1)<a class="headerlink" href="#equation-6dd17181-249e-4cc4-9a62-efc25b630c24" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-48660c8e-d819-4e4c-b5c1-5c1ba6b19231">
+<span class="eqno">(1)<a class="headerlink" href="#equation-48660c8e-d819-4e4c-b5c1-5c1ba6b19231" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{matrix}
 -3x_1 + 2x_2 - x_3 = - 1 \\
 6x_1 - 6x_2 + 7x_3 = - 7 \\
@@ -313,8 +313,8 @@ document.write(`
 \end{matrix}
 \end{equation}\]</div>
 <p>can be written in matrix form as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2cc6ed83-338c-4bc5-9ac1-d05abf528255">
-<span class="eqno">(2)<a class="headerlink" href="#equation-2cc6ed83-338c-4bc5-9ac1-d05abf528255" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5b0a7a9e-e2d0-4d98-8ef3-ab7c2a7eaeba">
+<span class="eqno">(2)<a class="headerlink" href="#equation-5b0a7a9e-e2d0-4d98-8ef3-ab7c2a7eaeba" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 \\
 6 &amp; -6 &amp; 7 \\
@@ -351,8 +351,8 @@ x_3
 </pre></div>
 </div>
 <p>The Gaussian elimination is the standard algorithm to solver a system of linear equations. The first step is to form an augmented matrix by combining the matrix <span class="math notranslate nohighlight">\(A\)</span> and the column vector <span class="math notranslate nohighlight">\(b\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-43b9796b-48b9-429e-bfa8-d45224af50e0">
-<span class="eqno">(3)<a class="headerlink" href="#equation-43b9796b-48b9-429e-bfa8-d45224af50e0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ad9975f0-2f12-4dd8-8300-a9725193d14d">
+<span class="eqno">(3)<a class="headerlink" href="#equation-ad9975f0-2f12-4dd8-8300-a9725193d14d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 &amp; -1 \\
 6 &amp; -6 &amp; 7 &amp; -7 \\
@@ -380,8 +380,8 @@ x_3
 </ol>
 <p>The objective is to convert the matrix <span class="math notranslate nohighlight">\(A\)</span> to an upper-triangular form and use this new form to solve for the unknowns <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>First, we can multiply the first row by 2 and add it to the second row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b51a0b50-3986-4864-9e74-6bc2e6a31ffc">
-<span class="eqno">(4)<a class="headerlink" href="#equation-b51a0b50-3986-4864-9e74-6bc2e6a31ffc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1e2d507d-2591-496f-8c1d-a93fadfe227a">
+<span class="eqno">(4)<a class="headerlink" href="#equation-1e2d507d-2591-496f-8c1d-a93fadfe227a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 &amp; -1 \\
 6 - 6&amp; -6 + 4 &amp; 7 - 2 &amp; -7 - 2 \\
@@ -395,8 +395,8 @@ x_3
 \end{bmatrix}
 \end{equation}\]</div>
 <p>We can also add the first row the third row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a2abb93c-9e06-4b9a-84e6-ceb0c0e640a8">
-<span class="eqno">(5)<a class="headerlink" href="#equation-a2abb93c-9e06-4b9a-84e6-ceb0c0e640a8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2f05e39e-3d5e-4239-89e1-365d77dc8ed9">
+<span class="eqno">(5)<a class="headerlink" href="#equation-2f05e39e-3d5e-4239-89e1-365d77dc8ed9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 &amp; -1 \\
 0 &amp; -2 &amp; 5 &amp; -9 \\
@@ -409,8 +409,8 @@ x_3
 \end{bmatrix}
 \end{equation}\]</div>
 <p>We then can multiply the second row by -1 and add it to the third row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-52fa7237-d6bc-485d-9e41-ead58320557b">
-<span class="eqno">(6)<a class="headerlink" href="#equation-52fa7237-d6bc-485d-9e41-ead58320557b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8391c251-8d6b-471e-9bc2-5d7e8c0cbdfa">
+<span class="eqno">(6)<a class="headerlink" href="#equation-8391c251-8d6b-471e-9bc2-5d7e8c0cbdfa" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 &amp; -1 \\
 0 &amp; -2 &amp; 5 &amp; -9 \\
@@ -423,8 +423,8 @@ x_3
 \end{bmatrix}
 \end{equation}\]</div>
 <p>Our original <span class="math notranslate nohighlight">\(A\)</span> matrix has now been converted to an upper triangular matrix. The new corresponding system of linear equations is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5d21b31e-9b94-410a-94c7-966618d7582b">
-<span class="eqno">(7)<a class="headerlink" href="#equation-5d21b31e-9b94-410a-94c7-966618d7582b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-28db0b64-873a-4dca-aa5a-b9f9298c6c3e">
+<span class="eqno">(7)<a class="headerlink" href="#equation-28db0b64-873a-4dca-aa5a-b9f9298c6c3e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{matrix}
 -3 x_1 + 2x_2 - x_3 = -1 \\
 -2x_2 + 5x_3 = -9 \\
@@ -439,9 +439,15 @@ x_3
 <span class="n">augmented_A</span>
 </pre></div>
 </div>
+<p>Which gives us our upper triangular matrix:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.</span><span class="p">,</span>  <span class="mf">5.</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>You can now use back substitution to solve these equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-be5c5a08-1dbd-4d02-b883-c335e4c19a5d">
-<span class="eqno">(8)<a class="headerlink" href="#equation-be5c5a08-1dbd-4d02-b883-c335e4c19a5d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-36057c7d-a002-4893-8195-4b3698e3456c">
+<span class="eqno">(8)<a class="headerlink" href="#equation-36057c7d-a002-4893-8195-4b3698e3456c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{matrix}
 x_3 = - 1 \\
 x_2 = - \frac{1}{2}(-9 - 5x_3) = 2 \\
@@ -449,8 +455,8 @@ x_1 = - \frac{1}{3}(-1 + x_3 - 2x_2) = 2
 \end{matrix}
 \end{equation}\]</div>
 <p>And you get the solution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4f81e651-7ef4-4c6f-8a6d-cc9be77d9e76">
-<span class="eqno">(9)<a class="headerlink" href="#equation-4f81e651-7ef4-4c6f-8a6d-cc9be77d9e76" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4d05eb85-ee76-43d4-b051-1505bfd36992">
+<span class="eqno">(9)<a class="headerlink" href="#equation-4d05eb85-ee76-43d4-b051-1505bfd36992" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 x_1 \\
 x_2 \\
@@ -462,6 +468,24 @@ x_3
 - 1
 \end{bmatrix}
 \end{equation}\]</div>
+<p>Let’s implement the back substition in Python:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">back_substitution</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">syms</span><span class="p">):</span>
+    <span class="c1"># symbolic variable index</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">M</span><span class="p">))):</span>
+        <span class="c1"># create symbolic equation</span>
+        <span class="n">eqn</span> <span class="o">=</span> <span class="o">-</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">syms</span><span class="p">)):</span>
+            <span class="n">eqn</span> <span class="o">+=</span> <span class="n">syms</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">row</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+
+        <span class="c1"># solve symbolic expression and store variable</span>
+        <span class="n">syms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">eqn</span><span class="p">,</span> <span class="n">syms</span><span class="p">[</span><span class="n">i</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># return list of evaluated variables</span>
+    <span class="k">return</span> <span class="n">syms</span>
+
+<span class="n">back_substitution</span><span class="p">(</span><span class="n">augmented_A</span><span class="p">,</span> <span class="n">symbolic_vars</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="reduced-row-echelon-norm">
 <h2>Reduced Row Echelon Norm<a class="headerlink" href="#reduced-row-echelon-norm" title="Permalink to this headline">#</a></h2>
