@@ -513,8 +513,39 @@ A^{-1} =
 \end{bmatrix}
 \end{equation}
 
-
 ### Elementary Matrices
+
+We can use elementary matrices to implement the row reduction algorithm of Gaussian eliminiation.
+
+These elementary matrices differ from the identity matrix by a single elmentary row operation. 
+
+Let's take again our example with the matrix, with the first stage of the Gaussian elimination algorithm consisting in multiplying the row by two and adds it to the second one:
+
+\begin{equation}
+A = \begin{bmatrix}
+- 3 & 2 & -1 \\
+6 & -6 & 7 \\
+3 & -4 & 4
+\end{bmatrix} \rightarrow 
+\begin{bmatrix}
+- 3 & 2 & -1  \\
+0 & -2 & 5 \\
+3 & -4 & 4 
+\end{bmatrix} = 
+M_1A
+\end{equation}
+
+Where:
+
+\begin{equation}
+M_1 = \begin{bmatrix}
+1 & 0 & 0 \\
+2 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\end{equation}
+
+This matrix $M_1$ multiplies the first row by two and adds the result to the second row (this is why the element two is placed in the column 1, row 2).
 
 ### LU Decomposition
 
