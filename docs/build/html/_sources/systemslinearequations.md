@@ -346,8 +346,6 @@ The reduced row echelon form of a matrix $A$ is unique.
 
 Furthermore, if $A$ is a square invertible matrix, then $rref(A)$ is the identity matrix $I$.
 
-
-
 ### Computing Inverses 
 
 ### Elementary Matrices
