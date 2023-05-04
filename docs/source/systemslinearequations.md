@@ -716,3 +716,134 @@ We then have the LU decomposition of $A$ as $A = LU$:
 
 ### Solving (LU)x = b
 
+LU decomposition we've seen in the previou part is useful when we need to solve $Ax = b$ with large size. With the LU decomposition, we can write:
+
+\begin{equation}
+(LU)x = L(Ux) = b
+\end{equation}
+
+and:
+
+\begin{equation}
+y = Ux
+\end{equation}
+
+Then, we can solve:
+
+\begin{equation}
+Ly = b
+\end{equation}
+
+For $y$ by forward substition, and:
+
+\begin{equation}
+Ux = y
+\end{equation}
+
+For $x$ with backward substitution. 
+
+For large matrices, solving $(LU)x = b$ is really faster than solving $Ax = b$ directly.
+
+We can illustrate $LUx = b$ with:
+
+\begin{equation}
+L = \begin{bmatrix}
+1 & 0 & 0 \\
+-2 & 1 & 0 \\
+-1 & 1 & 1
+\end{bmatrix}
+\end{equation}
+
+
+\begin{equation}
+U = \begin{bmatrix}
+-3 & 2 & -1 \\
+0 & -2 & 5 \\
+0 & 0 & -2
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}
+b = \begin{bmatrix}
+-1  \\
+-7  \\
+-6
+\end{bmatrix}
+\end{equation}
+
+With $y = Ux$, we first solve $L_y = b$:
+
+\begin{equation}
+\begin{bmatrix}
+1 & 0 & 0 \\
+-2 & 1 & 0 \\
+-1 & 1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+y_1 \\ 
+y_2 \\
+y_3
+\end{bmatrix}
+= 
+\begin{bmatrix}
+-1 \\ 
+- 7 \\
+- 6
+\end{bmatrix}
+\end{equation}
+
+Using forward substitution:
+
+\begin{equation}
+\begin{matrix}
+y_1 = -1 \\
+y_2 = -7 + 2 y_1 = - 9 \\
+y_3 = -6 + y_1 - y_2 = 2
+\end{matrix}
+\end{equation}
+
+We can then solve $Ux = y$:
+
+\begin{equation}
+\begin{bmatrix}
+-3 & 2 & -1 \\
+0 & -2 & 5 \\
+0 & 0 & -2
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\ 
+x_2 \\
+x_3
+\end{bmatrix}
+= \begin{bmatrix}
+- 1 \\
+- 9 \\
+2
+\end{bmatrix}
+\end{equation}
+
+We can use back substitution:
+
+\begin{equation}
+\begin{matrix}
+x_3 = -1 \\
+x_2 = - \frac{1}{2}(-9 - 5 x_3) = 2 \\
+x_1 = - \frac{1}{3}(-1 - 2x_2 + x_3) = 2
+\end{matrix}
+\end{equation}
+
+Thus we have found the solution:
+
+\begin{equation}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+x_3
+\end{bmatrix}
+= 
+\begin{bmatrix}
+2 \\
+2 \\
+- 1
+\end{bmatrix}
+\end{equation}
