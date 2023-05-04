@@ -226,6 +226,126 @@ The reduced row echelon form of a matrix has:
 - all the entries below and above this one are zero
 - any zero rows occur at the bottom of the matrix
 
+Let's consider another example:
+
+\begin{equation}
+A =
+\begin{bmatrix}
+1 & 2 & 3 & 4 \\
+4 & 5 & 6 & 7 \\
+6 & 7 & 8 & 9
+\end{bmatrix}
+\end{equation}
+
+We can first multiply the first row by -4 and add it to the second row:
+
+
+\begin{equation}
+\begin{bmatrix}
+1 & 2 & 3 & 4 \\
+4 -4 & 5 - 8 & 6 - 12 & 7 - 16 \\
+6 & 7 & 8 & 9
+\end{bmatrix} =
+\begin{bmatrix}
+1 & 2 & 3 & 4 \\
+0 & -3 & -6 & -9 \\
+6 & 7 & 8 & 9
+\end{bmatrix}
+\end{equation}
+
+We can then multiply the first row by -6 and add it to the third row:
+
+
+\begin{equation}
+\begin{bmatrix}
+1 & 2 & 3 & 4 \\
+0 & -3 & -6 & -9 \\
+6 - 6 & 7 - 12 & 8 - 18 & 9 - 24
+\end{bmatrix} =
+\begin{bmatrix}
+1 & 2 & 3 & 4 \\
+0 & -3 & -6 & -9 \\
+0 & -5 & -10 & -15
+\end{bmatrix}
+\end{equation}
+
+Now we can multiply the second row by -2 and add it to the third row:
+
+\begin{equation}
+
+\begin{bmatrix}
+1 & 2 & 3 & 4 \\
+0 & -3 & -6 & -9 \\
+0 & -5 + 6  & -10 + 12 & -15 + 18
+\end{bmatrix} =
+\begin{bmatrix}
+1 & 2 & 3 & 4 \\
+0 & -3 & -6 & -9 \\
+0 & 1  & 2 & 3
+\end{bmatrix}
+\end{equation}
+
+We can also multiply the third row by 4 and add it to the second row:
+
+\begin{equation}
+\begin{bmatrix}
+1 & 2 & 3 & 4 \\
+0 & -3 + 4 & -6 + 8 & -9 + 12 \\
+0 & 1  & 2 & 3
+\end{bmatrix} =
+\begin{bmatrix}
+1 & 2 & 3 & 4 \\
+0 & 1 & 2 & 3 \\
+0 & 1  & 2 & 3
+\end{bmatrix} 
+\end{equation}
+
+We can multiply the second row by -1 and add it to the third column:
+
+\begin{equation}
+\begin{bmatrix}
+1 & 2 & 3 & 4 \\
+0 & 1 & 2 & 3 \\
+0 & 1 - 1  & 2 - 2 & 3 - 3
+\end{bmatrix} =
+\begin{bmatrix}
+1 & 2 & 3 & 4 \\
+0 & 1 & 2 & 3 \\
+0 & 0  & 0 & 0
+\end{bmatrix}
+\end{equation}
+
+And finally, we want to multiply the second row by -2 and add it to the first row:
+
+\begin{equation}
+\begin{bmatrix}
+1 & 2 - 2 & 3 - 4 & 4 - 6 \\
+0 & 1 & 2 & 3 \\
+0 & 0  & 0 & 0
+\end{bmatrix}=
+\begin{bmatrix}
+1 & 0 & -1 & -2 \\
+0 & 1 & 2 & 3 \\
+0 & 0  & 0 & 0
+\end{bmatrix}
+\end{equation}
+
+Thus:
+
+\begin{equation}
+rref(A) = \begin{bmatrix}
+1 & 0 & -1 & -2 \\
+0 & 1 & 2 & 3 \\
+0 & 0  & 0 & 0
+\end{bmatrix}
+\end{equation}
+
+In that case, we say that $A$ has two pivot columns. That is, two columns that contain a pivot position with a one in $rref(A)$.
+
+The reduced row echelon form of a matrix $A$ is unique.
+
+Furthermore, if $A$ is a square invertible matrix, then $rref(A)$ is the identity matrix $I$.
+
 
 
 ### Computing Inverses 
