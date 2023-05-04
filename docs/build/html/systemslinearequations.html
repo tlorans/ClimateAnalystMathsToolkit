@@ -304,8 +304,8 @@ document.write(`
 <section id="gaussian-elimination">
 <h2>Gaussian Elimination<a class="headerlink" href="#gaussian-elimination" title="Permalink to this headline">#</a></h2>
 <p>First of all, let’s recall that a linear system of equations such as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3eeb4c90-ba82-4795-b4a5-5600e1951536">
-<span class="eqno">(1)<a class="headerlink" href="#equation-3eeb4c90-ba82-4795-b4a5-5600e1951536" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a9476dcc-43d1-4890-8847-9e49679db458">
+<span class="eqno">(1)<a class="headerlink" href="#equation-a9476dcc-43d1-4890-8847-9e49679db458" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{matrix}
 -3x_1 + 2x_2 - x_3 = - 1 \\
 6x_1 - 6x_2 + 7x_3 = - 7 \\
@@ -313,8 +313,8 @@ document.write(`
 \end{matrix}
 \end{equation}\]</div>
 <p>can be written in matrix form as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a6b65b66-ee72-48f0-b6f3-998d894596d5">
-<span class="eqno">(2)<a class="headerlink" href="#equation-a6b65b66-ee72-48f0-b6f3-998d894596d5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5989096c-4325-4b01-92e2-b313e8da7234">
+<span class="eqno">(2)<a class="headerlink" href="#equation-5989096c-4325-4b01-92e2-b313e8da7234" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 \\
 6 &amp; -6 &amp; 7 \\
@@ -332,9 +332,27 @@ x_3
 \end{bmatrix}
 \end{equation}\]</div>
 <p>Or simply <span class="math notranslate nohighlight">\(Ax = b\)</span>.</p>
+<p>First, let’s use the <code class="docutils literal notranslate"><span class="pre">sympy</span></code> package to declare our system of linear equations in Python:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+
+<span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x1 x2 x3&#39;</span><span class="p">)</span>
+<span class="n">symbolic_vars</span> <span class="o">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">]</span>
+
+<span class="c1"># note that we&#39;ve moved to representation with each equation = 0</span>
+<span class="n">equations</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">-</span><span class="mi">3</span> <span class="o">*</span> <span class="n">x1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x2</span> <span class="o">-</span> <span class="n">x3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="mi">6</span> <span class="o">*</span> <span class="n">x1</span> <span class="o">-</span> <span class="mi">6</span> <span class="o">*</span> <span class="n">x2</span> <span class="o">+</span> <span class="mi">7</span> <span class="o">*</span> <span class="n">x3</span> <span class="o">+</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="mi">3</span> <span class="o">*</span> <span class="n">x1</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span><span class="n">x2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x3</span> <span class="o">+</span> <span class="mi">6</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>We now can use the function <code class="docutils literal notranslate"><span class="pre">linear_eq_to_matrix</span></code> from <code class="docutils literal notranslate"><span class="pre">sympy</span></code> in order to get the matrix forms of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(b\)</span>:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">linear_eq_to_matrix</span><span class="p">(</span><span class="n">equations</span><span class="p">,</span> <span class="n">symbolic_vars</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>The Gaussian elimination is the standard algorithm to solver a system of linear equations. The first step is to form an augmented matrix by combining the matrix <span class="math notranslate nohighlight">\(A\)</span> and the column vector <span class="math notranslate nohighlight">\(b\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-194f4b60-af55-45fa-8621-9cdc981f811b">
-<span class="eqno">(3)<a class="headerlink" href="#equation-194f4b60-af55-45fa-8621-9cdc981f811b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-594bf62a-de89-4ae2-9bd3-f389bee29b1d">
+<span class="eqno">(3)<a class="headerlink" href="#equation-594bf62a-de89-4ae2-9bd3-f389bee29b1d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 &amp; -1 \\
 6 &amp; -6 &amp; 7 &amp; -7 \\
@@ -349,8 +367,8 @@ x_3
 </ol>
 <p>The objective is to convert the matrix <span class="math notranslate nohighlight">\(A\)</span> to an upper-triangular form and use this new form to solve for the unknowns <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>First, we can multiply the first row by 2 and add it to the second row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bf507906-0624-4b46-ab72-57fabc1ea263">
-<span class="eqno">(4)<a class="headerlink" href="#equation-bf507906-0624-4b46-ab72-57fabc1ea263" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-35994628-97f2-459d-a733-72f1e96ac9a3">
+<span class="eqno">(4)<a class="headerlink" href="#equation-35994628-97f2-459d-a733-72f1e96ac9a3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 &amp; -1 \\
 6 - 6&amp; -6 + 4 &amp; 7 - 2 &amp; -7 - 2 \\
@@ -364,8 +382,8 @@ x_3
 \end{bmatrix}
 \end{equation}\]</div>
 <p>We can also add the first row the third row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6f4d4f9f-5d2d-4bf3-baa6-e3056f4952ed">
-<span class="eqno">(5)<a class="headerlink" href="#equation-6f4d4f9f-5d2d-4bf3-baa6-e3056f4952ed" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f67f5873-401b-491c-b4d8-286a274b3290">
+<span class="eqno">(5)<a class="headerlink" href="#equation-f67f5873-401b-491c-b4d8-286a274b3290" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 &amp; -1 \\
 0 &amp; -2 &amp; 5 &amp; -9 \\
@@ -378,8 +396,8 @@ x_3
 \end{bmatrix}
 \end{equation}\]</div>
 <p>We then can multiply the second row by -1 and add it to the third row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bd9e4637-b564-4cb3-8dfb-b1dc71b5c37b">
-<span class="eqno">(6)<a class="headerlink" href="#equation-bd9e4637-b564-4cb3-8dfb-b1dc71b5c37b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0dd8eff7-1ae1-433c-bd65-ecd353bcb501">
+<span class="eqno">(6)<a class="headerlink" href="#equation-0dd8eff7-1ae1-433c-bd65-ecd353bcb501" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 &amp; -1 \\
 0 &amp; -2 &amp; 5 &amp; -9 \\
@@ -392,8 +410,8 @@ x_3
 \end{bmatrix}
 \end{equation}\]</div>
 <p>Our original <span class="math notranslate nohighlight">\(A\)</span> matrix has now been converted to an upper triangular matrix. The new corresponding system of linear equations is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4e3e5715-59ba-4241-912f-a959324a66e0">
-<span class="eqno">(7)<a class="headerlink" href="#equation-4e3e5715-59ba-4241-912f-a959324a66e0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9faf940f-2a5a-4d01-a362-b8cdec3e2125">
+<span class="eqno">(7)<a class="headerlink" href="#equation-9faf940f-2a5a-4d01-a362-b8cdec3e2125" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{matrix}
 -3 x_1 + 2x_2 - x_3 = -1 \\
 -2x_2 + 5x_3 = -9 \\
@@ -401,8 +419,8 @@ x_3
 \end{matrix}
 \end{equation}\]</div>
 <p>You can now use back substitution to solve these equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-32168706-bc70-4750-8f8e-e9c0fb585243">
-<span class="eqno">(8)<a class="headerlink" href="#equation-32168706-bc70-4750-8f8e-e9c0fb585243" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e99b7df6-ecb6-489a-ab85-0dab3d81e3dd">
+<span class="eqno">(8)<a class="headerlink" href="#equation-e99b7df6-ecb6-489a-ab85-0dab3d81e3dd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{matrix}
 x_3 = - 1 \\
 x_2 = - \frac{1}{2}(-9 - 5x_3) = 2 \\
@@ -410,8 +428,8 @@ x_1 = - \frac{1}{3}(-1 + x_3 - 2x_2) = 2
 \end{matrix}
 \end{equation}\]</div>
 <p>And you get the solution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1ea5f6ff-6ae6-4b7a-ab49-5ad2ab1ef811">
-<span class="eqno">(9)<a class="headerlink" href="#equation-1ea5f6ff-6ae6-4b7a-ab49-5ad2ab1ef811" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2ada497e-37e7-4173-8388-9b6e5d165e2a">
+<span class="eqno">(9)<a class="headerlink" href="#equation-2ada497e-37e7-4173-8388-9b6e5d165e2a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 x_1 \\
 x_2 \\

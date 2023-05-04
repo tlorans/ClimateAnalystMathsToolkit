@@ -38,6 +38,28 @@ x_3
 
 Or simply $Ax = b$. 
 
+First, let's use the `sympy` package to declare our system of linear equations in Python:
+
+```Python
+import sympy as sp
+
+x1, x2, x3 = sp.symbols('x1 x2 x3')
+symbolic_vars = [x1, x2, x3]
+
+# note that we've moved to representation with each equation = 0
+equations = [
+    -3 * x1 + 2 * x2 - x3 + 1,
+    6 * x1 - 6 * x2 + 7 * x3 + 7,
+    3 * x1 - 4 *x2 + 4*x3 + 6
+]
+```
+
+We now can use the function `linear_eq_to_matrix` from `sympy` in order to get the matrix forms of $A$ and $b$:
+
+```Python
+A, b = sp.linear_eq_to_matrix(equations, symbolic_vars)
+```
+
 The Gaussian elimination is the standard algorithm to solver a system of linear equations. The first step is to form an augmented matrix by combining the matrix $A$ and the column vector $b$:
 
 \begin{equation}
