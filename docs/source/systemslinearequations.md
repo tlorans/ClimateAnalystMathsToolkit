@@ -348,6 +348,132 @@ Furthermore, if $A$ is a square invertible matrix, then $rref(A)$ is the identit
 
 ### Computing Inverses 
 
+We can compute the matrix inverse by converting an invertible matrix to reduced row echelon form. For a given matrix $A$, let's consider the following equation:
+
+\begin{equation}
+AA^{-1} = I
+\end{equation}
+
+With the unknown inverse $A^{-1}$. 
+
+We denote the columns of $A^{-1}$ as $a_1{-1}$, $a_2^{-1}$, etc. The matrix $A$ multiplying the first column of $A^{-1}$ is the equation:
+
+\begin{equation}
+Aa_1^{-1} = e_1
+\end{equation}
+
+With:
+
+\begin{equation}
+e_1 = \begin{bmatrix}
+1 & 0 & \cdots & 0
+\end{bmatrix}^T
+\end{equation}
+
+And where $e_1$ is the first column of the identity matrix. The general form is:
+
+\begin{equation}
+Aa^{-1}_i = e_i
+\end{equation}
+
+For $i = 1, ... , n$.
+
+To compute the inverse, the method is then to do row reduction on an augmented matrix which attaches the identity matrix to $A$. We find $A^{-1}$ by continuing the elimination until we obtain $rref(A) = I$.
+
+Let's go back to the first example we use for illustrating Gaussian Elimination:
+
+\begin{equation}
+A = \begin{bmatrix}
+- 3 & 2 & -1 \\
+6 & -6 & 7 \\
+3 & -4 & 4
+\end{bmatrix}
+\end{equation}
+
+We have the augmented matrix $A$ (with the identity matrix $I$ attached):
+
+\begin{equation}
+\begin{bmatrix}
+- 3 & 2 & -1 & 1 & 0 & 0\\
+6 & -6 & 7 & 0 & 1 & 0 \\
+3 & -4 & 4 & 0 & 0 & 1
+\end{bmatrix}
+\end{equation}
+
+We can first add the first row to the third row:
+\begin{equation}
+\begin{bmatrix}
+- 3 & 2 & -1 & 1 & 0 & 0\\
+6 & -6 & 7 & 0 & 1 & 0 \\
+3 - 3 & -4 + 2 & 4 - 1 & 0 + 1 & 0 & 1
+\end{bmatrix}
+= \begin{bmatrix}
+- 3 & 2 & -1 & 1 & 0 & 0\\
+6 & -6 & 7 & 0 & 1 & 0 \\
+0 & -2 & 3 & 1 & 0 & 1
+\end{bmatrix}
+\end{equation}
+
+Then multiply the first row by two and add it to the second row:
+\begin{equation}
+\begin{bmatrix}
+- 3 & 2 & -1 & 1 & 0 & 0\\
+6 - 6 & -6 + 4 & 7 - 2 & 0 + 2 & 1 & 0 \\
+0 & -2 & 3 & 1 & 0 & 1
+\end{bmatrix}
+= \begin{bmatrix}
+- 3 & 2 & -1 & 1 & 0 & 0\\
+0 & -2 & 5 & 2 & 1 & 0 \\
+0 & -2 & 3 & 1 & 0 & 1
+\end{bmatrix}
+\end{equation}
+
+We can multiply the second row by -1 and add it to the third row:
+\begin{equation}
+\begin{bmatrix}
+- 3 & 2 & -1 & 1 & 0 & 0\\
+0 & -2 & 5 & 2 & 1 & 0 \\
+0 & -2 + 2 & 3 - 5 & 1 - 2 & 0 - 1 & 1
+\end{bmatrix} = 
+\begin{bmatrix}
+- 3 & 2 & -1 & 1 & 0 & 0\\
+0 & -2 & 5 & 2 & 1 & 0 \\
+0 & 0 & -2 & -1 & - 1 & 1
+\end{bmatrix} 
+\end{equation}
+
+We can add the second row to the first row:
+\begin{equation}
+\begin{bmatrix}
+- 3 & 2 - 2 & -1 + 5 & 1 + 2 & 0 + 1 & 0\\
+0 & -2 & 5 & 2 & 1 & 0 \\
+0 & 0 & -2 & -1 & - 1 & 1
+\end{bmatrix}=
+ \begin{bmatrix}
+- 3 & 0 & 4 & 3 & 1 & 0\\
+0 & -2 & 5 & 2 & 1 & 0 \\
+0 & 0 & -2 & -1 & - 1 & 1
+\end{bmatrix}
+\end{equation}
+
+We can multiply the third row by two and add it to the first row:
+
+\begin{equation}
+\begin{bmatrix}
+- 3 & 0 & 4 - 4 & 3 -2 & 1 - 2 & 0 + 2\\
+0 & -2 & 5 & 2 & 1 & 0 \\
+0 & 0 & -2 & -1 & - 1 & 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+- 3 & 0 & 0 & 1 & -1 & 2\\
+0 & -2 & 5 & 2 & 1 & 0 \\
+0 & 0 & -2 & -1 & - 1 & 1
+\end{bmatrix}
+\end{equation}
+
+
+
 ### Elementary Matrices
 
 ### LU Decomposition
