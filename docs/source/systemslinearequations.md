@@ -767,7 +767,7 @@ M_1 = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}
 
-To invert this operation, we need to multiply the first row by -2 and add it to the second row:
+Inverting this operation just means that we will now multiply the first row of $A$ by -2 and add it to the second row. The corresponding elementary matrice is then:
 
 \begin{equation}
 M_1^{-1} = \begin{bmatrix}
@@ -776,6 +776,18 @@ M_1^{-1} = \begin{bmatrix}
 0 & 0 & 1
 \end{bmatrix}
 \end{equation}
+
+In Python:
+
+```Python
+np.linalg.inv(M_1)
+```
+
+```
+array([[ 1.,  0.,  0.],
+       [-2.,  1., -0.],
+       [ 0.,  0.,  1.]])
+```
 
 Applying the same process, we have:
 
@@ -824,6 +836,18 @@ L = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}
 
+In Python:
+
+```Python
+L = np.linalg.inv(M_1) @ np.linalg.inv(M_2) @ np.linalg.inv(M_3)
+L
+```
+```
+array([[ 1.,  0.,  0.],
+       [-2.,  1.,  0.],
+       [-1.,  1.,  1.]])
+```
+
 Which is a lower triangular matrix. 
 
 We then have the LU decomposition of $A$ as $A = LU$:
@@ -845,6 +869,18 @@ We then have the LU decomposition of $A$ as $A = LU$:
 0 & 0 & -2
 \end{bmatrix}
 \end{equation}
+
+Which gives in Python:
+```Python
+U = M_3 @ M_2 @ M_1 @ A
+L @ U
+```
+And we find $A$:
+```
+array([[-3.,  2., -1.],
+       [ 6., -6.,  7.],
+       [ 3., -4.,  4.]])
+```
 
 ### Solving (LU)x = b
 
