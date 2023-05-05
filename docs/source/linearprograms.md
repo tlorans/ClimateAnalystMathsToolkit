@@ -6,6 +6,8 @@ Optimization programs have constraints and objective function. The objective fun
 
 Using a particular solver, requires a particular form. We need to undersand how to manipulate a linear program in order to fit the form required by solvers.
 
+### A First Example
+
 ### Linear and Affine Functions
 
 Let's first define what linear and affine functions are.
