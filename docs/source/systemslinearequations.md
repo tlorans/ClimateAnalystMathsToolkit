@@ -580,7 +580,7 @@ A^{-1} =
 \end{bmatrix}
 \end{equation}
 
-We've already had two examples of tedious manual transformation of $A$ to the row reduction echelon form with Python. So let's now use the `linalg.inv` function from `numpy` that allows you to process it automatically:
+We've already had two examples of tedious manual transformation of $A$ to the row reduction echelon form with Python. So let's use the `linalg.inv` function from `numpy` that allows you to process it automatically:
 
 ```Python
 A = np.array([[-3, 2, -1],
