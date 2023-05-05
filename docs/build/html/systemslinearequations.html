@@ -305,8 +305,8 @@ document.write(`
 <section id="gaussian-elimination">
 <h2>Gaussian Elimination<a class="headerlink" href="#gaussian-elimination" title="Permalink to this headline">#</a></h2>
 <p>First of all, let’s recall that a linear system of equations such as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-63b1ffd8-a6a5-4c94-85a2-2080a59b95d3">
-<span class="eqno">(1)<a class="headerlink" href="#equation-63b1ffd8-a6a5-4c94-85a2-2080a59b95d3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c3e651c8-179a-4d1b-8791-75d02a65060b">
+<span class="eqno">(1)<a class="headerlink" href="#equation-c3e651c8-179a-4d1b-8791-75d02a65060b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{matrix}
 -3x_1 + 2x_2 - x_3 = - 1 \\
 6x_1 - 6x_2 + 7x_3 = - 7 \\
@@ -314,8 +314,8 @@ document.write(`
 \end{matrix}
 \end{equation}\]</div>
 <p>can be written in matrix form as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0c78d80d-11d1-4e9e-a338-2e7659940c88">
-<span class="eqno">(2)<a class="headerlink" href="#equation-0c78d80d-11d1-4e9e-a338-2e7659940c88" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c554eb47-cd30-46d5-aac6-0287edc47c94">
+<span class="eqno">(2)<a class="headerlink" href="#equation-c554eb47-cd30-46d5-aac6-0287edc47c94" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 \\
 6 &amp; -6 &amp; 7 \\
@@ -352,8 +352,8 @@ x_3
 </pre></div>
 </div>
 <p>The Gaussian elimination is the standard algorithm to solver a system of linear equations. The first step is to form an augmented matrix by combining the matrix <span class="math notranslate nohighlight">\(A\)</span> and the column vector <span class="math notranslate nohighlight">\(b\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-03844a96-2c10-4a20-bb82-b52a9777b80d">
-<span class="eqno">(3)<a class="headerlink" href="#equation-03844a96-2c10-4a20-bb82-b52a9777b80d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3c5e7701-b794-40a0-8486-21bd7110204f">
+<span class="eqno">(3)<a class="headerlink" href="#equation-3c5e7701-b794-40a0-8486-21bd7110204f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 &amp; -1 \\
 6 &amp; -6 &amp; 7 &amp; -7 \\
@@ -381,8 +381,8 @@ x_3
 </ol>
 <p>The objective is to convert the matrix <span class="math notranslate nohighlight">\(A\)</span> to an upper-triangular form and use this new form to solve for the unknowns <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>First, we can multiply the first row by 2 and add it to the second row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d2ae8490-af61-4860-bd7f-f4f2a3803fc8">
-<span class="eqno">(4)<a class="headerlink" href="#equation-d2ae8490-af61-4860-bd7f-f4f2a3803fc8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d321b61f-f393-4003-a016-2065f62263a5">
+<span class="eqno">(4)<a class="headerlink" href="#equation-d321b61f-f393-4003-a016-2065f62263a5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 &amp; -1 \\
 6 - 6&amp; -6 + 4 &amp; 7 - 2 &amp; -7 - 2 \\
@@ -396,8 +396,8 @@ x_3
 \end{bmatrix}
 \end{equation}\]</div>
 <p>We can also add the first row the third row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1641bb74-302c-4f52-8c42-fa6c36b738ce">
-<span class="eqno">(5)<a class="headerlink" href="#equation-1641bb74-302c-4f52-8c42-fa6c36b738ce" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8d584a02-70a2-4b3f-b97a-24ad87ca8749">
+<span class="eqno">(5)<a class="headerlink" href="#equation-8d584a02-70a2-4b3f-b97a-24ad87ca8749" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 &amp; -1 \\
 0 &amp; -2 &amp; 5 &amp; -9 \\
@@ -410,8 +410,8 @@ x_3
 \end{bmatrix}
 \end{equation}\]</div>
 <p>We then can multiply the second row by -1 and add it to the third row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dfbed1c1-3546-4388-95f5-35730384ecf7">
-<span class="eqno">(6)<a class="headerlink" href="#equation-dfbed1c1-3546-4388-95f5-35730384ecf7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-57c5c01e-685e-4603-a4f9-f71dfb951e18">
+<span class="eqno">(6)<a class="headerlink" href="#equation-57c5c01e-685e-4603-a4f9-f71dfb951e18" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 &amp; -1 \\
 0 &amp; -2 &amp; 5 &amp; -9 \\
@@ -424,8 +424,8 @@ x_3
 \end{bmatrix}
 \end{equation}\]</div>
 <p>Our original <span class="math notranslate nohighlight">\(A\)</span> matrix has now been converted to an upper triangular matrix. The new corresponding system of linear equations is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3eda01af-9250-4d6a-a5a0-d48fccc10543">
-<span class="eqno">(7)<a class="headerlink" href="#equation-3eda01af-9250-4d6a-a5a0-d48fccc10543" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cefbbd31-abff-41d3-bbe0-5b569a93a321">
+<span class="eqno">(7)<a class="headerlink" href="#equation-cefbbd31-abff-41d3-bbe0-5b569a93a321" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{matrix}
 -3 x_1 + 2x_2 - x_3 = -1 \\
 -2x_2 + 5x_3 = -9 \\
@@ -447,8 +447,8 @@ x_3
 </pre></div>
 </div>
 <p>You can now use back substitution to solve these equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e81aea56-ee0d-47ae-ab68-93bab4bcac76">
-<span class="eqno">(8)<a class="headerlink" href="#equation-e81aea56-ee0d-47ae-ab68-93bab4bcac76" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dd0307ce-b9c4-48eb-aef3-9bfe0e37bfeb">
+<span class="eqno">(8)<a class="headerlink" href="#equation-dd0307ce-b9c4-48eb-aef3-9bfe0e37bfeb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{matrix}
 x_3 = - 1 \\
 x_2 = - \frac{1}{2}(-9 - 5x_3) = 2 \\
@@ -456,8 +456,8 @@ x_1 = - \frac{1}{3}(-1 + x_3 - 2x_2) = 2
 \end{matrix}
 \end{equation}\]</div>
 <p>And you get the solution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-89955ed1-fa5e-45a9-9061-252f25701e31">
-<span class="eqno">(9)<a class="headerlink" href="#equation-89955ed1-fa5e-45a9-9061-252f25701e31" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-093130a0-ffd1-48f7-8c72-9208e165f4ba">
+<span class="eqno">(9)<a class="headerlink" href="#equation-093130a0-ffd1-48f7-8c72-9208e165f4ba" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 x_1 \\
 x_2 \\
@@ -502,8 +502,8 @@ x_3
 <li><p>any zero rows occur at the bottom of the matrix</p></li>
 </ul>
 <p>Let’s consider another example:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a64b454e-3022-40d8-8800-25e2c9840a4b">
-<span class="eqno">(10)<a class="headerlink" href="#equation-a64b454e-3022-40d8-8800-25e2c9840a4b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-25cb967c-6440-47e4-8836-cff5686c9d81">
+<span class="eqno">(10)<a class="headerlink" href="#equation-25cb967c-6440-47e4-8836-cff5686c9d81" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A =
 \begin{bmatrix}
 1 &amp; 2 &amp; 3 &amp; 4 \\
@@ -517,8 +517,8 @@ A =
 </pre></div>
 </div>
 <p>We can first multiply the first row by -4 and add it to the second row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31153595-64f8-4666-9546-586e2946ab53">
-<span class="eqno">(11)<a class="headerlink" href="#equation-31153595-64f8-4666-9546-586e2946ab53" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a92db4fd-918c-4b1c-8db9-f76c25cca2d2">
+<span class="eqno">(11)<a class="headerlink" href="#equation-a92db4fd-918c-4b1c-8db9-f76c25cca2d2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 1 &amp; 2 &amp; 3 &amp; 4 \\
 4 -4 &amp; 5 - 8 &amp; 6 - 12 &amp; 7 - 16 \\
@@ -540,8 +540,8 @@ A =
 </pre></div>
 </div>
 <p>We can then multiply the first row by -6 and add it to the third row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-935297af-c7ad-470a-8b6b-b736c77ff2d7">
-<span class="eqno">(12)<a class="headerlink" href="#equation-935297af-c7ad-470a-8b6b-b736c77ff2d7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-875ce2bf-5efc-4f3d-b274-3da42ca6d051">
+<span class="eqno">(12)<a class="headerlink" href="#equation-875ce2bf-5efc-4f3d-b274-3da42ca6d051" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 1 &amp; 2 &amp; 3 &amp; 4 \\
 0 &amp; -3 &amp; -6 &amp; -9 \\
@@ -563,8 +563,8 @@ A =
 </pre></div>
 </div>
 <p>Now we can multiply the second row by -2 and add it to the third row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-20032749-356d-4c63-85f9-c00e2724b4ac">
-<span class="eqno">(13)<a class="headerlink" href="#equation-20032749-356d-4c63-85f9-c00e2724b4ac" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b6ad1d0e-6ce8-4906-871e-294563a81861">
+<span class="eqno">(13)<a class="headerlink" href="#equation-b6ad1d0e-6ce8-4906-871e-294563a81861" title="Permalink to this equation">#</a></span>\[\begin{equation}
 
 \begin{bmatrix}
 1 &amp; 2 &amp; 3 &amp; 4 \\
@@ -587,8 +587,8 @@ A =
 </pre></div>
 </div>
 <p>We can also multiply the third row by 4 and add it to the second row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-37135296-aca7-4f40-932b-5b547c2aeacf">
-<span class="eqno">(14)<a class="headerlink" href="#equation-37135296-aca7-4f40-932b-5b547c2aeacf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ef7fe179-35ef-4eb0-9632-c7bd22179e64">
+<span class="eqno">(14)<a class="headerlink" href="#equation-ef7fe179-35ef-4eb0-9632-c7bd22179e64" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 1 &amp; 2 &amp; 3 &amp; 4 \\
 0 &amp; -3 + 4 &amp; -6 + 8 &amp; -9 + 12 \\
@@ -610,8 +610,8 @@ A =
 </pre></div>
 </div>
 <p>We can multiply the second row by -1 and add it to the third column:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c75e7e82-aad8-4bdc-b473-538697605cf4">
-<span class="eqno">(15)<a class="headerlink" href="#equation-c75e7e82-aad8-4bdc-b473-538697605cf4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f5015bc2-b77b-4edd-8e09-f35a1fdf559b">
+<span class="eqno">(15)<a class="headerlink" href="#equation-f5015bc2-b77b-4edd-8e09-f35a1fdf559b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 1 &amp; 2 &amp; 3 &amp; 4 \\
 0 &amp; 1 &amp; 2 &amp; 3 \\
@@ -633,8 +633,8 @@ A =
 </pre></div>
 </div>
 <p>And finally, we want to multiply the second row by -2 and add it to the first row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a48ed3a8-60f0-49d0-8c3a-89bce66f9bc6">
-<span class="eqno">(16)<a class="headerlink" href="#equation-a48ed3a8-60f0-49d0-8c3a-89bce66f9bc6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a43b1771-10d6-46a9-8141-8bc00e171fd4">
+<span class="eqno">(16)<a class="headerlink" href="#equation-a43b1771-10d6-46a9-8141-8bc00e171fd4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 1 &amp; 2 - 2 &amp; 3 - 4 &amp; 4 - 6 \\
 0 &amp; 1 &amp; 2 &amp; 3 \\
@@ -656,8 +656,8 @@ A =
 </pre></div>
 </div>
 <p>Thus:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6725acbe-b41c-4791-ab7d-269760c85443">
-<span class="eqno">(17)<a class="headerlink" href="#equation-6725acbe-b41c-4791-ab7d-269760c85443" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4d37dacd-6fb5-4aff-b54b-c9834725df95">
+<span class="eqno">(17)<a class="headerlink" href="#equation-4d37dacd-6fb5-4aff-b54b-c9834725df95" title="Permalink to this equation">#</a></span>\[\begin{equation}
 rref(A) = \begin{bmatrix}
 1 &amp; 0 &amp; -1 &amp; -2 \\
 0 &amp; 1 &amp; 2 &amp; 3 \\
@@ -670,33 +670,33 @@ rref(A) = \begin{bmatrix}
 <section id="computing-inverses">
 <h2>Computing Inverses<a class="headerlink" href="#computing-inverses" title="Permalink to this headline">#</a></h2>
 <p>We can compute the matrix inverse by converting an invertible matrix to reduced row echelon form. For a given matrix <span class="math notranslate nohighlight">\(A\)</span>, let’s consider the following equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4bf8558d-a445-45a5-a16d-e83fe7e7a881">
-<span class="eqno">(18)<a class="headerlink" href="#equation-4bf8558d-a445-45a5-a16d-e83fe7e7a881" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6347bf8d-809b-46b9-81a1-b99ee0dbc5e6">
+<span class="eqno">(18)<a class="headerlink" href="#equation-6347bf8d-809b-46b9-81a1-b99ee0dbc5e6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 AA^{-1} = I
 \end{equation}\]</div>
 <p>With the unknown inverse <span class="math notranslate nohighlight">\(A^{-1}\)</span>.</p>
 <p>We denote the columns of <span class="math notranslate nohighlight">\(A^{-1}\)</span> as <span class="math notranslate nohighlight">\(a_1{-1}\)</span>, <span class="math notranslate nohighlight">\(a_2^{-1}\)</span>, etc. The matrix <span class="math notranslate nohighlight">\(A\)</span> multiplying the first column of <span class="math notranslate nohighlight">\(A^{-1}\)</span> is the equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8d66e122-a189-4bb0-b3d7-d0622269f18c">
-<span class="eqno">(19)<a class="headerlink" href="#equation-8d66e122-a189-4bb0-b3d7-d0622269f18c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-378bbdc2-62dc-4d3f-bfa8-5579551bcda8">
+<span class="eqno">(19)<a class="headerlink" href="#equation-378bbdc2-62dc-4d3f-bfa8-5579551bcda8" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Aa_1^{-1} = e_1
 \end{equation}\]</div>
 <p>With:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b76b878f-0b2a-4063-8e5a-c1f5646ff6bf">
-<span class="eqno">(20)<a class="headerlink" href="#equation-b76b878f-0b2a-4063-8e5a-c1f5646ff6bf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-558c7cdb-f31d-437c-b632-b90b59929036">
+<span class="eqno">(20)<a class="headerlink" href="#equation-558c7cdb-f31d-437c-b632-b90b59929036" title="Permalink to this equation">#</a></span>\[\begin{equation}
 e_1 = \begin{bmatrix}
 1 &amp; 0 &amp; \cdots &amp; 0
 \end{bmatrix}^T
 \end{equation}\]</div>
 <p>And where <span class="math notranslate nohighlight">\(e_1\)</span> is the first column of the identity matrix. The general form is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b013ee5d-d141-4a2e-976c-f59d5df81b51">
-<span class="eqno">(21)<a class="headerlink" href="#equation-b013ee5d-d141-4a2e-976c-f59d5df81b51" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-15c215b9-525c-4871-b2b7-4711dbca06ec">
+<span class="eqno">(21)<a class="headerlink" href="#equation-15c215b9-525c-4871-b2b7-4711dbca06ec" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Aa^{-1}_i = e_i
 \end{equation}\]</div>
 <p>For <span class="math notranslate nohighlight">\(i = 1, ... , n\)</span>.</p>
 <p>To compute the inverse, the method is then to do row reduction on an augmented matrix which attaches the identity matrix to <span class="math notranslate nohighlight">\(A\)</span>. We find <span class="math notranslate nohighlight">\(A^{-1}\)</span> by continuing the elimination until we obtain <span class="math notranslate nohighlight">\(rref(A) = I\)</span>.</p>
 <p>Let’s go back to the first example we use for illustrating Gaussian Elimination:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3081ad7f-8eff-4a0b-94c3-c414aaa6b6db">
-<span class="eqno">(22)<a class="headerlink" href="#equation-3081ad7f-8eff-4a0b-94c3-c414aaa6b6db" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1f0f356a-cc54-45cf-b408-d915e1a3f1c2">
+<span class="eqno">(22)<a class="headerlink" href="#equation-1f0f356a-cc54-45cf-b408-d915e1a3f1c2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A = \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 \\
 6 &amp; -6 &amp; 7 \\
@@ -704,8 +704,8 @@ A = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}\]</div>
 <p>We have the augmented matrix <span class="math notranslate nohighlight">\(A\)</span> (with the identity matrix <span class="math notranslate nohighlight">\(I\)</span> attached):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d6e9a2f8-dfe9-42d6-be61-e76fc86791fd">
-<span class="eqno">(23)<a class="headerlink" href="#equation-d6e9a2f8-dfe9-42d6-be61-e76fc86791fd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-06b4549d-504d-41cb-b016-708a63581263">
+<span class="eqno">(23)<a class="headerlink" href="#equation-06b4549d-504d-41cb-b016-708a63581263" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 &amp; 1 &amp; 0 &amp; 0\\
 6 &amp; -6 &amp; 7 &amp; 0 &amp; 1 &amp; 0 \\
@@ -713,8 +713,8 @@ A = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}\]</div>
 <p>We can first add the first row to the third row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-272b29c8-9f74-4ff7-9a3d-6035eabb8c66">
-<span class="eqno">(24)<a class="headerlink" href="#equation-272b29c8-9f74-4ff7-9a3d-6035eabb8c66" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0972e7c7-1f66-426b-99b8-4ce3e57fe5cd">
+<span class="eqno">(24)<a class="headerlink" href="#equation-0972e7c7-1f66-426b-99b8-4ce3e57fe5cd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 &amp; 1 &amp; 0 &amp; 0\\
 6 &amp; -6 &amp; 7 &amp; 0 &amp; 1 &amp; 0 \\
@@ -727,8 +727,8 @@ A = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}\]</div>
 <p>Then multiply the first row by two and add it to the second row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f86e2d2a-8368-44a2-9c0d-f43e50c6d72f">
-<span class="eqno">(25)<a class="headerlink" href="#equation-f86e2d2a-8368-44a2-9c0d-f43e50c6d72f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-200d1868-de65-4e07-ab66-92cb8513c472">
+<span class="eqno">(25)<a class="headerlink" href="#equation-200d1868-de65-4e07-ab66-92cb8513c472" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 &amp; 1 &amp; 0 &amp; 0\\
 6 - 6 &amp; -6 + 4 &amp; 7 - 2 &amp; 0 + 2 &amp; 1 &amp; 0 \\
@@ -741,8 +741,8 @@ A = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}\]</div>
 <p>We can multiply the second row by -1 and add it to the third row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f92cba22-fc2e-48fd-ad7f-08ac19ef30ae">
-<span class="eqno">(26)<a class="headerlink" href="#equation-f92cba22-fc2e-48fd-ad7f-08ac19ef30ae" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c15b7392-c91d-460a-9c6c-53dbb615460c">
+<span class="eqno">(26)<a class="headerlink" href="#equation-c15b7392-c91d-460a-9c6c-53dbb615460c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 &amp; 1 &amp; 0 &amp; 0\\
 0 &amp; -2 &amp; 5 &amp; 2 &amp; 1 &amp; 0 \\
@@ -755,8 +755,8 @@ A = \begin{bmatrix}
 \end{bmatrix} 
 \end{equation}\]</div>
 <p>We can add the second row to the first row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2aed2938-e419-456c-bd46-3f8c5d8c4ce0">
-<span class="eqno">(27)<a class="headerlink" href="#equation-2aed2938-e419-456c-bd46-3f8c5d8c4ce0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c34accfa-39f0-4f71-8506-92db87191eb5">
+<span class="eqno">(27)<a class="headerlink" href="#equation-c34accfa-39f0-4f71-8506-92db87191eb5" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 - 2 &amp; -1 + 5 &amp; 1 + 2 &amp; 0 + 1 &amp; 0\\
 0 &amp; -2 &amp; 5 &amp; 2 &amp; 1 &amp; 0 \\
@@ -769,8 +769,8 @@ A = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}\]</div>
 <p>We can multiply the third row by two and add it to the first row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-867850e4-a175-481b-8f93-55ad41cf9f8f">
-<span class="eqno">(28)<a class="headerlink" href="#equation-867850e4-a175-481b-8f93-55ad41cf9f8f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-af8dba31-adc0-4879-9510-eeb7878e7846">
+<span class="eqno">(28)<a class="headerlink" href="#equation-af8dba31-adc0-4879-9510-eeb7878e7846" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 0 &amp; 4 - 4 &amp; 3 -2 &amp; 1 - 2 &amp; 0 + 2\\
 0 &amp; -2 &amp; 5 &amp; 2 &amp; 1 &amp; 0 \\
@@ -784,8 +784,8 @@ A = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}\]</div>
 <p>We can then multiply the third row by <span class="math notranslate nohighlight">\(\frac{5}{2}\)</span> and add it to the second row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f6e274a0-068f-4da5-8902-6b848e127053">
-<span class="eqno">(29)<a class="headerlink" href="#equation-f6e274a0-068f-4da5-8902-6b848e127053" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-23fc1f06-32a4-4653-a332-c671bb6b98a0">
+<span class="eqno">(29)<a class="headerlink" href="#equation-23fc1f06-32a4-4653-a332-c671bb6b98a0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 0 &amp; 0 &amp; 1 &amp; -1 &amp; 2\\
 0 &amp; -2 &amp; 5 - \frac{10}{2} &amp; 2 - \frac{5}{2} &amp; 1 - \frac{5}{2}  &amp; 0 + \frac{5}{2}\\
@@ -798,8 +798,8 @@ A = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}\]</div>
 <p>Finally, we can multiply the first row by <span class="math notranslate nohighlight">\(-\frac{1}{3}\)</span>, the second and third rows by <span class="math notranslate nohighlight">\(-\frac{1}{2}\)</span> and we get:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7a2c6d2d-0199-4de8-94f8-a92db0a5b9c0">
-<span class="eqno">(30)<a class="headerlink" href="#equation-7a2c6d2d-0199-4de8-94f8-a92db0a5b9c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a67bf18d-5c25-4e9c-a962-5b1d1553bd4e">
+<span class="eqno">(30)<a class="headerlink" href="#equation-a67bf18d-5c25-4e9c-a962-5b1d1553bd4e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 \times -\frac{1}{3} &amp; 0 &amp; 0 &amp; 1 \times -\frac{1}{3} &amp; -1 \times -\frac{1}{3} &amp; 2 \times -\frac{1}{3}\\
 0 &amp; -2 \times  -\frac{1}{2}&amp; 0 &amp; - \frac{1}{2}\times  -\frac{1}{2}&amp; - \frac{3}{2}  \times  -\frac{1}{2}  &amp; \frac{5}{2}  \times  -\frac{1}{2}\\
@@ -812,8 +812,8 @@ A = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}\]</div>
 <p>Then we have:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29bcb7dd-4f4c-47ee-b12d-4a4da83cbe95">
-<span class="eqno">(31)<a class="headerlink" href="#equation-29bcb7dd-4f4c-47ee-b12d-4a4da83cbe95" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e324c7e5-3c8f-4304-b197-1621c0512fbc">
+<span class="eqno">(31)<a class="headerlink" href="#equation-e324c7e5-3c8f-4304-b197-1621c0512fbc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A^{-1} = 
 \begin{bmatrix}
  -\frac{1}{3} &amp; \frac{1}{3} &amp; -\frac{2}{3}\\
@@ -844,11 +844,11 @@ A^{-1} =
 </section>
 <section id="elementary-matrices">
 <h2>Elementary Matrices<a class="headerlink" href="#elementary-matrices" title="Permalink to this headline">#</a></h2>
-<p>We can use elementary matrices to implement the row reduction algorithm of Gaussian eliminiation.</p>
+<p>We can use elementary matrices to implement the row reduction algorithm of Gaussian elimination.</p>
 <p>These elementary matrices differ from the identity matrix by a single elmentary row operation.</p>
 <p>Let’s take again our example with the matrix, with the first stage of the Gaussian elimination algorithm consisting in multiplying the row by two and adds it to the second one:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9dfab889-51bb-45af-8bae-aea0cdc99064">
-<span class="eqno">(32)<a class="headerlink" href="#equation-9dfab889-51bb-45af-8bae-aea0cdc99064" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b4c3a888-f1ca-4812-8c24-9a803b5b759e">
+<span class="eqno">(32)<a class="headerlink" href="#equation-b4c3a888-f1ca-4812-8c24-9a803b5b759e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A = \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 \\
 6 &amp; -6 &amp; 7 \\
@@ -862,18 +862,37 @@ A = \begin{bmatrix}
 M_1A
 \end{equation}\]</div>
 <p>Where:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b766d114-573d-4fab-9d4c-177a7b844839">
-<span class="eqno">(33)<a class="headerlink" href="#equation-b766d114-573d-4fab-9d4c-177a7b844839" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7b4e06db-660d-49cf-90a9-cca995d94561">
+<span class="eqno">(33)<a class="headerlink" href="#equation-7b4e06db-660d-49cf-90a9-cca995d94561" title="Permalink to this equation">#</a></span>\[\begin{equation}
 M_1 = \begin{bmatrix}
 1 &amp; 0 &amp; 0 \\
 2 &amp; 1 &amp; 0 \\
 0 &amp; 0 &amp; 1
 \end{bmatrix}
 \end{equation}\]</div>
+<p>Let’s build this elementary matrix in Python:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">M_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="n">M_1</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">M_1</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]])</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">M_1</span> <span class="o">@</span> <span class="n">A</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.</span><span class="p">,</span>  <span class="mf">5.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">3.</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.</span><span class="p">,</span>  <span class="mf">4.</span><span class="p">]])</span>
+</pre></div>
+</div>
 <p>This matrix <span class="math notranslate nohighlight">\(M_1\)</span> multiplies the first row by two and adds the result to the second row (this is why the element two is placed in the column 1, row 2).</p>
 <p>We have a second step with:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9e1e2f20-2b3b-4154-823b-ec3a4f709407">
-<span class="eqno">(34)<a class="headerlink" href="#equation-9e1e2f20-2b3b-4154-823b-ec3a4f709407" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d379be26-f491-4810-b12b-2b818da35aeb">
+<span class="eqno">(34)<a class="headerlink" href="#equation-d379be26-f491-4810-b12b-2b818da35aeb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1  \\
 0 &amp; -2 &amp; 5 \\
@@ -887,18 +906,28 @@ M_1 = \begin{bmatrix}
 M_2M_1A
 \end{equation}\]</div>
 <p>Where:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6f51941f-6734-470c-a5f8-35ab9823161c">
-<span class="eqno">(35)<a class="headerlink" href="#equation-6f51941f-6734-470c-a5f8-35ab9823161c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1f8f2274-1c76-4cfe-90a2-2b22dc5def43">
+<span class="eqno">(35)<a class="headerlink" href="#equation-1f8f2274-1c76-4cfe-90a2-2b22dc5def43" title="Permalink to this equation">#</a></span>\[\begin{equation}
 M_2 = \begin{bmatrix}
 1 &amp; 0 &amp; 0 \\
 0 &amp; 1 &amp; 0 \\
 1 &amp; 0 &amp; 1
 \end{bmatrix}
 \end{equation}\]</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">M_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="n">M_2</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">M_2</span> <span class="o">@</span> <span class="n">M_1</span> <span class="o">@</span> <span class="n">A</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.</span><span class="p">,</span>  <span class="mf">5.</span><span class="p">],</span>
+       <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.</span><span class="p">,</span>  <span class="mf">3.</span><span class="p">]])</span>
+</pre></div>
+</div>
 <p>With the number one placed in column one, row three, and the matrix multiplies the first row by one and adds the result to the third row.</p>
 <p>Finally, we have:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-35908056-88b6-4648-b0d4-b0b966fd2684">
-<span class="eqno">(36)<a class="headerlink" href="#equation-35908056-88b6-4648-b0d4-b0b966fd2684" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e4018e82-de66-49db-b1e2-047285b8aa20">
+<span class="eqno">(36)<a class="headerlink" href="#equation-e4018e82-de66-49db-b1e2-047285b8aa20" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 - 3 &amp; 2 &amp; -1  \\
 0 &amp; -2 &amp; 5 \\
@@ -912,36 +941,41 @@ M_2 = \begin{bmatrix}
 M_3M_2M_1A
 \end{equation}\]</div>
 <p>Where:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a045e461-0b09-4e35-9090-752f7738ff58">
-<span class="eqno">(37)<a class="headerlink" href="#equation-a045e461-0b09-4e35-9090-752f7738ff58" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a2afcc86-f0f5-4aee-b0e1-3ed4ba255e9f">
+<span class="eqno">(37)<a class="headerlink" href="#equation-a2afcc86-f0f5-4aee-b0e1-3ed4ba255e9f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 M_3 = \begin{bmatrix}
 1 &amp; 0 &amp; 0 \\
 0 &amp; 1 &amp; 0 \\
 0 &amp; -1 &amp; 1
 \end{bmatrix}
 \end{equation}\]</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">M_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="n">M_3</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">M_3</span> <span class="o">@</span> <span class="n">M_2</span> <span class="o">@</span> <span class="n">M_1</span> <span class="o">@</span> <span class="n">A</span>
+</pre></div>
+</div>
 <p>With the -1 placed in column two, row three and the matrix multiplies the second row by -1 and adds the result to the third row.</p>
 <p>Because the result is an upper triangular matrix, we have found that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0bfbe6db-a094-4e53-80e6-5c25d9b32ede">
-<span class="eqno">(38)<a class="headerlink" href="#equation-0bfbe6db-a094-4e53-80e6-5c25d9b32ede" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dba1843e-b826-458e-9dea-bc08137fc518">
+<span class="eqno">(38)<a class="headerlink" href="#equation-dba1843e-b826-458e-9dea-bc08137fc518" title="Permalink to this equation">#</a></span>\[\begin{equation}
 M_3M_2M_1A = U
 \end{equation}\]</div>
 </section>
 <section id="lu-decomposition">
 <h2>LU Decomposition<a class="headerlink" href="#lu-decomposition" title="Permalink to this headline">#</a></h2>
 <p>We have found in the previous part that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-89d79df4-c627-4229-994d-f66c9d013644">
-<span class="eqno">(39)<a class="headerlink" href="#equation-89d79df4-c627-4229-994d-f66c9d013644" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4ed45acf-1b87-48dc-b850-6f16ae0edd7f">
+<span class="eqno">(39)<a class="headerlink" href="#equation-4ed45acf-1b87-48dc-b850-6f16ae0edd7f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 M_3M_2M_1A = U
 \end{equation}\]</div>
 <p>If we invert the elementary matrices, we have:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5cc3c2cb-179a-4b33-9602-b69be414b491">
-<span class="eqno">(40)<a class="headerlink" href="#equation-5cc3c2cb-179a-4b33-9602-b69be414b491" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fea2c946-2892-4ae6-86e8-bc1550b2eeea">
+<span class="eqno">(40)<a class="headerlink" href="#equation-fea2c946-2892-4ae6-86e8-bc1550b2eeea" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A = M^{-1}_1M_2^{-1}M_3^{-1}U
 \end{equation}\]</div>
 <p>The matrix <span class="math notranslate nohighlight">\(M_1\)</span> multiplies the first row by two and adds it to the second row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7f66baa3-6560-464a-961d-31a1eac3a15d">
-<span class="eqno">(41)<a class="headerlink" href="#equation-7f66baa3-6560-464a-961d-31a1eac3a15d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-99bada04-e805-450b-8e0e-b9a4df7f14a1">
+<span class="eqno">(41)<a class="headerlink" href="#equation-99bada04-e805-450b-8e0e-b9a4df7f14a1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 M_1 = \begin{bmatrix}
 1 &amp; 0 &amp; 0 \\
 2 &amp; 1 &amp; 0 \\
@@ -949,8 +983,8 @@ M_1 = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}\]</div>
 <p>To invert this operation, we need to multiply the first row by -2 and add it to the second row:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6785647f-ca6b-4095-ba85-db053832bc80">
-<span class="eqno">(42)<a class="headerlink" href="#equation-6785647f-ca6b-4095-ba85-db053832bc80" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4b32c15f-80fd-4846-a50b-69a092a29776">
+<span class="eqno">(42)<a class="headerlink" href="#equation-4b32c15f-80fd-4846-a50b-69a092a29776" title="Permalink to this equation">#</a></span>\[\begin{equation}
 M_1^{-1} = \begin{bmatrix}
 1 &amp; 0 &amp; 0 \\
 -2 &amp; 1 &amp; 0 \\
@@ -958,16 +992,16 @@ M_1^{-1} = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}\]</div>
 <p>Applying the same process, we have:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ea626560-ff22-4efb-a665-4c8782c8df4d">
-<span class="eqno">(43)<a class="headerlink" href="#equation-ea626560-ff22-4efb-a665-4c8782c8df4d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9c30798f-0f47-4531-99bb-294160e64063">
+<span class="eqno">(43)<a class="headerlink" href="#equation-9c30798f-0f47-4531-99bb-294160e64063" title="Permalink to this equation">#</a></span>\[\begin{equation}
 M_2^{-1} = \begin{bmatrix}
 1 &amp; 0 &amp; 0 \\
 0 &amp; 1 &amp; 0 \\
 -1 &amp; 0 &amp; 1
 \end{bmatrix}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-23c42495-bd69-4538-8716-40f45570bf97">
-<span class="eqno">(44)<a class="headerlink" href="#equation-23c42495-bd69-4538-8716-40f45570bf97" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c1055001-d04e-43df-bb0e-4c5030172f49">
+<span class="eqno">(44)<a class="headerlink" href="#equation-c1055001-d04e-43df-bb0e-4c5030172f49" title="Permalink to this equation">#</a></span>\[\begin{equation}
 M_3^{-1} = \begin{bmatrix}
 1 &amp; 0 &amp; 0 \\
 0 &amp; 1 &amp; 0 \\
@@ -975,12 +1009,12 @@ M_3^{-1} = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}\]</div>
 <p>We have then:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c9b50990-a39c-49b4-9b3b-6c3139d1c54b">
-<span class="eqno">(45)<a class="headerlink" href="#equation-c9b50990-a39c-49b4-9b3b-6c3139d1c54b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-43c2e3b4-5ca5-4abc-a59e-532f2d51d251">
+<span class="eqno">(45)<a class="headerlink" href="#equation-43c2e3b4-5ca5-4abc-a59e-532f2d51d251" title="Permalink to this equation">#</a></span>\[\begin{equation}
 L = M^{-1}_1M^{-1}_2M^{-1}_3
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-26e020ca-77bd-4cfe-bd2a-740c7f9b24aa">
-<span class="eqno">(46)<a class="headerlink" href="#equation-26e020ca-77bd-4cfe-bd2a-740c7f9b24aa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cb0d3856-c0a5-48b9-89c0-769774c3ddf7">
+<span class="eqno">(46)<a class="headerlink" href="#equation-cb0d3856-c0a5-48b9-89c0-769774c3ddf7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 L = \begin{bmatrix}
 1 &amp; 0 &amp; 0 \\
 -2 &amp; 1 &amp; 0 \\
@@ -1004,8 +1038,8 @@ L = \begin{bmatrix}
 \end{equation}\]</div>
 <p>Which is a lower triangular matrix.</p>
 <p>We then have the LU decomposition of <span class="math notranslate nohighlight">\(A\)</span> as <span class="math notranslate nohighlight">\(A = LU\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b8119f1-4fad-4de1-987f-183547bde507">
-<span class="eqno">(47)<a class="headerlink" href="#equation-4b8119f1-4fad-4de1-987f-183547bde507" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-48a273b2-e013-464e-b8e6-81e9a4ff28d6">
+<span class="eqno">(47)<a class="headerlink" href="#equation-48a273b2-e013-464e-b8e6-81e9a4ff28d6" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \begin{bmatrix}
 - 3 &amp; 2 &amp; -1 \\
 6 &amp; -6 &amp; 7 \\
@@ -1026,46 +1060,46 @@ L = \begin{bmatrix}
 <section id="solving-lu-x-b">
 <h2>Solving (LU)x = b<a class="headerlink" href="#solving-lu-x-b" title="Permalink to this headline">#</a></h2>
 <p>LU decomposition we’ve seen in the previou part is useful when we need to solve <span class="math notranslate nohighlight">\(Ax = b\)</span> with large size. With the LU decomposition, we can write:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7e331b91-0ba7-4881-9b97-2da58a625ae6">
-<span class="eqno">(48)<a class="headerlink" href="#equation-7e331b91-0ba7-4881-9b97-2da58a625ae6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-91a650aa-f187-4b05-bace-13c37c56b4ec">
+<span class="eqno">(48)<a class="headerlink" href="#equation-91a650aa-f187-4b05-bace-13c37c56b4ec" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (LU)x = L(Ux) = b
 \end{equation}\]</div>
 <p>and:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4a2d6e4f-01a0-400c-94b5-d574cf43fe93">
-<span class="eqno">(49)<a class="headerlink" href="#equation-4a2d6e4f-01a0-400c-94b5-d574cf43fe93" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-89560d58-9628-4703-8ee5-8826b7e29447">
+<span class="eqno">(49)<a class="headerlink" href="#equation-89560d58-9628-4703-8ee5-8826b7e29447" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = Ux
 \end{equation}\]</div>
 <p>Then, we can solve:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-216f5ac3-055c-4b2f-ace6-1609032d03ee">
-<span class="eqno">(50)<a class="headerlink" href="#equation-216f5ac3-055c-4b2f-ace6-1609032d03ee" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dbacf15b-54cd-4f5a-b367-410617ce69ce">
+<span class="eqno">(50)<a class="headerlink" href="#equation-dbacf15b-54cd-4f5a-b367-410617ce69ce" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Ly = b
 \end{equation}\]</div>
 <p>For <span class="math notranslate nohighlight">\(y\)</span> by forward substition, and:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a024bd5c-f219-4cd8-b7b6-36fe0eb789ef">
-<span class="eqno">(51)<a class="headerlink" href="#equation-a024bd5c-f219-4cd8-b7b6-36fe0eb789ef" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5ab55229-9e3d-4cba-8dcc-c073c0416916">
+<span class="eqno">(51)<a class="headerlink" href="#equation-5ab55229-9e3d-4cba-8dcc-c073c0416916" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Ux = y
 \end{equation}\]</div>
 <p>For <span class="math notranslate nohighlight">\(x\)</span> with backward substitution.</p>
 <p>For large matrices, solving <span class="math notranslate nohighlight">\((LU)x = b\)</span> is really faster than solving <span class="math notranslate nohighlight">\(Ax = b\)</span> directly.</p>
 <p>We can illustrate <span class="math notranslate nohighlight">\(LUx = b\)</span> with:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-17826025-d8b7-4f18-9684-03553ddcbcdc">
-<span class="eqno">(52)<a class="headerlink" href="#equation-17826025-d8b7-4f18-9684-03553ddcbcdc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-aa2d8ac2-7876-48cb-9bfa-33f6ce4c8b5d">
+<span class="eqno">(52)<a class="headerlink" href="#equation-aa2d8ac2-7876-48cb-9bfa-33f6ce4c8b5d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 L = \begin{bmatrix}
 1 &amp; 0 &amp; 0 \\
 -2 &amp; 1 &amp; 0 \\
 -1 &amp; 1 &amp; 1
 \end{bmatrix}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-7552c7a2-7c33-45b3-9326-709fc5a7fb93">
-<span class="eqno">(53)<a class="headerlink" href="#equation-7552c7a2-7c33-45b3-9326-709fc5a7fb93" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9aa2ad85-b6d9-46b7-b2b1-70f6c2deb1fa">
+<span class="eqno">(53)<a class="headerlink" href="#equation-9aa2ad85-b6d9-46b7-b2b1-70f6c2deb1fa" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U = \begin{bmatrix}
 -3 &amp; 2 &amp; -1 \\
 0 &amp; -2 &amp; 5 \\
 0 &amp; 0 &amp; -2
 \end{bmatrix}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-264f51d3-132a-4067-b33c-6e57fc20ab85">
-<span class="eqno">(54)<a class="headerlink" href="#equation-264f51d3-132a-4067-b33c-6e57fc20ab85" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7b7dcbcf-fdf9-4451-99f3-d400e711a980">
+<span class="eqno">(54)<a class="headerlink" href="#equation-7b7dcbcf-fdf9-4451-99f3-d400e711a980" title="Permalink to this equation">#</a></span>\[\begin{equation}
 b = \begin{bmatrix}
 -1  \\
 -7  \\
@@ -1073,8 +1107,8 @@ b = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}\]</div>
 <p>With <span class="math notranslate nohighlight">\(y = Ux\)</span>, we first solve <span class="math notranslate nohighlight">\(L_y = b\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bb971218-1c2b-463a-ab4c-e2b1fd6318fa">
-<span class="eqno">(55)<a class="headerlink" href="#equation-bb971218-1c2b-463a-ab4c-e2b1fd6318fa" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-31685773-3045-4e83-85c2-f5b1e59db573">
+<span class="eqno">(55)<a class="headerlink" href="#equation-31685773-3045-4e83-85c2-f5b1e59db573" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 1 &amp; 0 &amp; 0 \\
 -2 &amp; 1 &amp; 0 \\
@@ -1093,8 +1127,8 @@ y_3
 \end{bmatrix}
 \end{equation}\]</div>
 <p>Using forward substitution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ab79528c-4702-46e7-842d-5d1cad46fd77">
-<span class="eqno">(56)<a class="headerlink" href="#equation-ab79528c-4702-46e7-842d-5d1cad46fd77" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-15834e6b-5c45-40a3-80c9-56c43aba31ee">
+<span class="eqno">(56)<a class="headerlink" href="#equation-15834e6b-5c45-40a3-80c9-56c43aba31ee" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{matrix}
 y_1 = -1 \\
 y_2 = -7 + 2 y_1 = - 9 \\
@@ -1102,8 +1136,8 @@ y_3 = -6 + y_1 - y_2 = 2
 \end{matrix}
 \end{equation}\]</div>
 <p>We can then solve <span class="math notranslate nohighlight">\(Ux = y\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9c8487f7-bbdc-4bbd-a7c0-a18f87b7db6d">
-<span class="eqno">(57)<a class="headerlink" href="#equation-9c8487f7-bbdc-4bbd-a7c0-a18f87b7db6d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-283d56d9-9bb2-45a3-9a6e-4a083352fcf3">
+<span class="eqno">(57)<a class="headerlink" href="#equation-283d56d9-9bb2-45a3-9a6e-4a083352fcf3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 -3 &amp; 2 &amp; -1 \\
 0 &amp; -2 &amp; 5 \\
@@ -1121,8 +1155,8 @@ x_3
 \end{bmatrix}
 \end{equation}\]</div>
 <p>We can use back substitution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7f8ec6dd-2c3a-4d35-8dbe-6d9179d02027">
-<span class="eqno">(58)<a class="headerlink" href="#equation-7f8ec6dd-2c3a-4d35-8dbe-6d9179d02027" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1a271ee7-f10a-4112-884e-d7ce17b91a0f">
+<span class="eqno">(58)<a class="headerlink" href="#equation-1a271ee7-f10a-4112-884e-d7ce17b91a0f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{matrix}
 x_3 = -1 \\
 x_2 = - \frac{1}{2}(-9 - 5 x_3) = 2 \\
@@ -1130,8 +1164,8 @@ x_1 = - \frac{1}{3}(-1 - 2x_2 + x_3) = 2
 \end{matrix}
 \end{equation}\]</div>
 <p>Thus we have found the solution:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-861673a2-e407-4989-b029-4353bea8a9a3">
-<span class="eqno">(59)<a class="headerlink" href="#equation-861673a2-e407-4989-b029-4353bea8a9a3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d30ee555-5126-4de3-8297-09214b7d2de9">
+<span class="eqno">(59)<a class="headerlink" href="#equation-d30ee555-5126-4de3-8297-09214b7d2de9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 x_1 \\
 x_2 \\

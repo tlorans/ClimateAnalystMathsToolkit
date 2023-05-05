@@ -604,7 +604,7 @@ array([[-0.33333333,  0.33333333, -0.66666667],
 
 ### Elementary Matrices
 
-We can use elementary matrices to implement the row reduction algorithm of Gaussian eliminiation.
+We can use elementary matrices to implement the row reduction algorithm of Gaussian elimination.
 
 These elementary matrices differ from the identity matrix by a single elmentary row operation. 
 
@@ -634,6 +634,28 @@ M_1 = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}
 
+Let's build this elementary matrix in Python:
+
+```Python
+M_1 = np.identity(len(A))
+M_1[1,0] = 2
+M_1
+```
+```
+array([[1., 0., 0.],
+       [2., 1., 0.],
+       [0., 0., 1.]])
+```
+
+```Python
+M_1 @ A
+```
+```
+array([[-3.,  2., -1.],
+       [ 0., -2.,  5.],
+       [ 3., -4.,  4.]])
+```
+
 This matrix $M_1$ multiplies the first row by two and adds the result to the second row (this is why the element two is placed in the column 1, row 2).
 
 We have a second step with:
@@ -662,6 +684,17 @@ M_2 = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}
 
+```Python
+M_2 = np.identity(len(A))
+M_2[2,0] = 1
+M_2 @ M_1 @ A
+```
+```
+array([[-3.,  2., -1.],
+       [ 0., -2.,  5.],
+       [ 0., -2.,  3.]])
+```
+
 With the number one placed in column one, row three, and the matrix multiplies the first row by one and adds the result to the third row.
 
 Finally, we have:
@@ -689,6 +722,18 @@ M_3 = \begin{bmatrix}
 0 & -1 & 1
 \end{bmatrix}
 \end{equation}
+
+```Python
+M_3 = np.identity(len(A))
+M_3[2,1] = -1
+M_3 @ M_2 @ M_1 @ A
+```
+```
+array([[-3.,  2., -1.],
+       [ 0., -2.,  5.],
+       [ 0.,  0., -2.]])
+```
+
 
 With the -1 placed in column two, row three and the matrix multiplies the second row by -1 and adds the result to the third row.
 
