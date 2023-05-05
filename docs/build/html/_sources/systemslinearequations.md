@@ -239,6 +239,12 @@ A =
 \end{bmatrix}
 \end{equation}
 
+```Python
+A = np.array([[1, 2, 3, 4],
+              [4, 5, 6, 7],
+              [6, 7, 8, 9]])
+```
+
 We can first multiply the first row by -4 and add it to the second row:
 
 
@@ -254,6 +260,16 @@ We can first multiply the first row by -4 and add it to the second row:
 6 & 7 & 8 & 9
 \end{bmatrix}
 \end{equation}
+
+```Python
+A[1] += A[0] * - 4 
+A
+```
+```
+array([[ 1,  2,  3,  4],
+       [ 0, -3, -6, -9],
+       [ 6,  7,  8,  9]])
+```
 
 We can then multiply the first row by -6 and add it to the third row:
 
@@ -271,6 +287,16 @@ We can then multiply the first row by -6 and add it to the third row:
 \end{bmatrix}
 \end{equation}
 
+```Python
+A[2] += A[0] * -6
+A
+```
+```
+array([[  1,   2,   3,   4],
+       [  0,  -3,  -6,  -9],
+       [  0,  -5, -10, -15]])
+```
+
 Now we can multiply the second row by -2 and add it to the third row:
 
 \begin{equation}
@@ -287,6 +313,16 @@ Now we can multiply the second row by -2 and add it to the third row:
 \end{bmatrix}
 \end{equation}
 
+```Python
+A[2] += A[1] * -2
+A
+```
+```
+array([[ 1,  2,  3,  4],
+       [ 0, -3, -6, -9],
+       [ 0,  1,  2,  3]])
+```
+
 We can also multiply the third row by 4 and add it to the second row:
 
 \begin{equation}
@@ -301,6 +337,16 @@ We can also multiply the third row by 4 and add it to the second row:
 0 & 1  & 2 & 3
 \end{bmatrix} 
 \end{equation}
+
+```Python
+A[1] += A[2] * 4
+A
+```
+```
+array([[1, 2, 3, 4],
+       [0, 1, 2, 3],
+       [0, 1, 2, 3]])
+```
 
 We can multiply the second row by -1 and add it to the third column:
 
@@ -317,6 +363,17 @@ We can multiply the second row by -1 and add it to the third column:
 \end{bmatrix}
 \end{equation}
 
+```Python
+A[2] += A[1] * -1
+A
+```
+
+```
+array([[1, 2, 3, 4],
+       [0, 1, 2, 3],
+       [0, 0, 0, 0]])
+```
+
 And finally, we want to multiply the second row by -2 and add it to the first row:
 
 \begin{equation}
@@ -331,6 +388,16 @@ And finally, we want to multiply the second row by -2 and add it to the first ro
 0 & 0  & 0 & 0
 \end{bmatrix}
 \end{equation}
+
+```Python
+A[0] += A[1] * -2
+A
+```
+```
+array([[ 1,  0, -1, -2],
+       [ 0,  1,  2,  3],
+       [ 0,  0,  0,  0]])
+```
 
 Thus:
 
