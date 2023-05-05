@@ -1016,3 +1016,20 @@ x_3
 \end{bmatrix}
 \end{equation}
 
+In `numpy`, the function `np.linalg.solve` to solve a system such as $Ax = b$ uses LU factorization:
+
+```Python
+A = np.array([[-3, 2, -1],
+              [6, -6, 7],
+              [3, -4, 4]])
+
+b = np.array([[-1, -7, - 6]]).T
+
+np.linalg.solve(A, b)
+```
+And you find $x$:
+```
+array([[ 2.],
+       [ 2.],
+       [-1.]])
+```

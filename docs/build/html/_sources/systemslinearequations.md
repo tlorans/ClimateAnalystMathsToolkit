@@ -875,6 +875,13 @@ Which gives in Python:
 U = M_3 @ M_2 @ M_1 @ A
 L @ U
 ```
+And we find $A$:
+```
+array([[-3.,  2., -1.],
+       [ 6., -6.,  7.],
+       [ 3., -4.,  4.]])
+```
+
 ### Solving (LU)x = b
 
 LU decomposition we've seen in the previou part is useful when we need to solve $Ax = b$ with large size. With the LU decomposition, we can write:
@@ -1008,4 +1015,16 @@ x_3
 - 1
 \end{bmatrix}
 \end{equation}
+
+In `numpy`, the function `np.linalg.solve` to solve a system such as $Ax = b$ uses LU factorization:
+
+```Python
+A = np.array([[-3, 2, -1],
+              [6, -6, 7],
+              [3, -4, 4]])
+
+b = np.array([[-1, -7, - 6]]).T
+
+np.linalg.solve(A, b)
+```
 
