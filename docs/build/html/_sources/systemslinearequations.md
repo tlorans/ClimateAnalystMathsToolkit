@@ -1027,4 +1027,9 @@ b = np.array([[-1, -7, - 6]]).T
 
 np.linalg.solve(A, b)
 ```
-
+And you find $x$:
+```
+array([[ 2.],
+       [ 2.],
+       [-1.]])
+```
