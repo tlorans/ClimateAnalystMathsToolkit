@@ -409,8 +409,6 @@ rref(A) = \begin{bmatrix}
 \end{bmatrix}
 \end{equation}
 
-In that case, we say that $A$ has two pivot columns. That is, two columns that contain a pivot position with a one in $rref(A)$.
-
 The reduced row echelon form of a matrix $A$ is unique.
 
 Furthermore, if $A$ is a square invertible matrix, then $rref(A)$ is the identity matrix $I$.
@@ -581,6 +579,24 @@ A^{-1} =
  \frac{1}{2} & \frac{1}{2} & -\frac{1}{2}
 \end{bmatrix}
 \end{equation}
+
+We've already had two examples of tedious manual transformation of $A$ to the row reduction echelon form with Python. So let's now use the `linalg.inv` function from `numpy` that allows you to process it automatically:
+
+```Python
+A = np.array([[-3, 2, -1],
+              [6, -6, 7],
+              [3, -4, 4]])
+A
+```
+```
+array([[-3,  2, -1],
+       [ 6, -6,  7],
+       [ 3, -4,  4]])
+```
+```
+np.linalg.inv(A)
+```
+
 
 ### Elementary Matrices
 

@@ -580,6 +580,28 @@ A^{-1} =
 \end{bmatrix}
 \end{equation}
 
+We've already had two examples of tedious manual transformation of $A$ to the row reduction echelon form with Python. So let's now use the `linalg.inv` function from `numpy` that allows you to process it automatically:
+
+```Python
+A = np.array([[-3, 2, -1],
+              [6, -6, 7],
+              [3, -4, 4]])
+A
+```
+```
+array([[-3,  2, -1],
+       [ 6, -6,  7],
+       [ 3, -4,  4]])
+```
+```
+np.linalg.inv(A)
+```
+```
+array([[-0.33333333,  0.33333333, -0.66666667],
+       [ 0.25      ,  0.75      , -1.25      ],
+       [ 0.5       ,  0.5       , -0.5       ]])
+```
+
 ### Elementary Matrices
 
 We can use elementary matrices to implement the row reduction algorithm of Gaussian eliminiation.
