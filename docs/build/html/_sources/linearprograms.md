@@ -60,7 +60,7 @@ b_m
 
 Which can be written as $Ax + b$.
 
-### The Linear Program and Standard Form
+### Standard Form
 
 A linear program (LP) is an optimization model with:
 
