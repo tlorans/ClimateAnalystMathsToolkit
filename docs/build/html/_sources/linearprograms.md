@@ -221,9 +221,4 @@ You can change an unbounded to bounded formulation, by adding a difference term:
 x \in \mathbb{R} \Leftrightarrow u \geq 0, \; v \geq 0 \text{ and } x = u-v
 \end{equation}
 
-#### Bounded to Unbounded
-
-
-
-#### Bounded to Nonnegative
 
