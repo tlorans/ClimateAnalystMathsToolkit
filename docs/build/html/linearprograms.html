@@ -286,6 +286,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equalities-to-inequalities">Equalities to Inequalities</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inequalities-to-equalities">Inequalities to Equalities</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unbounded-to-bounded">Unbounded to Bounded</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bounded-to-unbounded">Bounded to Unbounded</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bounded-to-nonnegative">Bounded to Nonnegative</a></li>
 </ul>
 </li>
@@ -419,22 +420,22 @@ In that model, you have decision variables (<span class="math notranslate nohigh
 <h2>Linear and Affine Functions<a class="headerlink" href="#linear-and-affine-functions" title="Permalink to this headline">#</a></h2>
 <p>Let’s first define what linear and affine functions are.</p>
 <p>A function <span class="math notranslate nohighlight">\(f(x_1,..., x_m)\)</span> is linear in the variables <span class="math notranslate nohighlight">\(x_1, ..., x_m\)</span> if there exists constants <span class="math notranslate nohighlight">\(a_1, ... , a_m\)</span> such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ecced3d9-cdda-48e7-8647-2e3d6eb0eece">
-<span class="eqno">(1)<a class="headerlink" href="#equation-ecced3d9-cdda-48e7-8647-2e3d6eb0eece" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a1454f06-7ec9-44b5-b1b1-66d6c534ee75">
+<span class="eqno">(1)<a class="headerlink" href="#equation-a1454f06-7ec9-44b5-b1b1-66d6c534ee75" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x_1,..., x_m) = a_1x_1 + ... + a_mx_m =
 a^Tx
 \end{equation}\]</div>
 <p>This is basically a dot product.</p>
 <p>A function <span class="math notranslate nohighlight">\(f(x_1,..., x_m)\)</span> is affine in the variables <span class="math notranslate nohighlight">\(x_1, ..., x_m\)</span> if there exist constants <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(a_1, ... , a_m\)</span> such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ca7297dc-d934-444a-85b6-f8f43e7fbd2e">
-<span class="eqno">(2)<a class="headerlink" href="#equation-ca7297dc-d934-444a-85b6-f8f43e7fbd2e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b3657e69-d353-40a0-a237-487d688eb356">
+<span class="eqno">(2)<a class="headerlink" href="#equation-b3657e69-d353-40a0-a237-487d688eb356" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x_1,..., x_m) = a_0 + a_1x_1 + ... + a_mx_m =
 a^Tx + b
 \end{equation}\]</div>
 <p>This is basically a dot product plus a constant.</p>
 <p>We can also combine several linear or affine functions:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3b248544-eadd-4359-aad8-431ab71ac4af">
-<span class="eqno">(3)<a class="headerlink" href="#equation-3b248544-eadd-4359-aad8-431ab71ac4af" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-49e4d42a-c2e1-407f-aa62-ba7c7f350a07">
+<span class="eqno">(3)<a class="headerlink" href="#equation-49e4d42a-c2e1-407f-aa62-ba7c7f350a07" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{matrix}
 a_{11}x_1 + &amp; \cdots + &amp; a_{1n}x_n + b_1 \\
 a_{21}x_1 + &amp; \cdots + &amp; a_{2n}x_n + b_2 \\
@@ -481,23 +482,84 @@ b_m
 </li>
 </ul>
 <p>Every LP can be put in the form:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{aligned}
+&amp; x^* = 
+&amp;&amp; argmax \; c^Tx\\
+&amp; \text{subject to}
+&amp; &amp; Ax \leq b\\
+&amp; &amp; &amp; x \geq 0 \\
+\end{aligned}
+\end{equation*}\]</div>
+<p>This is the standard form of a LP.</p>
+<p>Let’s make an illustration with the Top Brass example:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{aligned}
+&amp; f^*, s^* = 
+&amp;&amp; argmax \; \begin{bmatrix}12 \\
+9\end{bmatrix}^T \begin{bmatrix}f \\ s\end{bmatrix}\\
+&amp; \text{subject to}
+&amp; &amp; \begin{bmatrix}4 &amp; 2 \\
+1 &amp; 1  \\
+1 &amp; 0 \\
+0 &amp; 1 \end{bmatrix} \begin{bmatrix}f \\ s\end{bmatrix}\leq \begin{bmatrix} 4800 \\
+1750 \\
+1000 \\
+1500 \end{bmatrix}\\
+&amp; &amp; &amp; \begin{bmatrix} f \\
+s\end{bmatrix} \geq 0\\
+\end{aligned}
+\end{equation*}\]</div>
 </section>
 <section id="transformation-tricks">
 <h2>Transformation Tricks<a class="headerlink" href="#transformation-tricks" title="Permalink to this headline">#</a></h2>
+<p>To convert an initial problem to the standard form, there are some transformation tricks.</p>
 <section id="converting-min-to-max-or-vice-versa">
 <h3>Converting Min to Max or Vice Versa<a class="headerlink" href="#converting-min-to-max-or-vice-versa" title="Permalink to this headline">#</a></h3>
+<p>You can convert a minimization problem to a maximization problem or vice verse (by taking the negative):</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d2b18147-358b-4268-afe6-cb14c33f9484">
+<span class="eqno">(4)<a class="headerlink" href="#equation-d2b18147-358b-4268-afe6-cb14c33f9484" title="Permalink to this equation">#</a></span>\[\begin{equation}
+    \min_x
+ f(x) =
+  - \max_x
+  (-f(x))\end{equation}\]</div>
 </section>
 <section id="reversing-inequalities">
 <h3>Reversing Inequalities<a class="headerlink" href="#reversing-inequalities" title="Permalink to this headline">#</a></h3>
+<p>To reverse inequalities, you can simply flip the sign:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2f3c5c5a-14c3-4144-a5d7-89a660f9ac44">
+<span class="eqno">(5)<a class="headerlink" href="#equation-2f3c5c5a-14c3-4144-a5d7-89a660f9ac44" title="Permalink to this equation">#</a></span>\[\begin{equation}
+Ax \leq b \Leftrightarrow (-A)x \geq (-b)
+\end{equation}\]</div>
 </section>
 <section id="equalities-to-inequalities">
 <h3>Equalities to Inequalities<a class="headerlink" href="#equalities-to-inequalities" title="Permalink to this headline">#</a></h3>
+<p>To convert equalities to inequalities, you can double up:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ebd31c9f-91ac-467d-80ac-c8f95b8858bd">
+<span class="eqno">(6)<a class="headerlink" href="#equation-ebd31c9f-91ac-467d-80ac-c8f95b8858bd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+f(x) = 0 \Leftrightarrow f(x) \geq 0  \text{ and } f(x) \leq 0
+\end{equation}\]</div>
 </section>
 <section id="inequalities-to-equalities">
 <h3>Inequalities to Equalities<a class="headerlink" href="#inequalities-to-equalities" title="Permalink to this headline">#</a></h3>
+<p>To convert inequalities to equalities, you can add a slack:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dc91dd88-2586-4bc3-ab6f-7fb0e4b2e204">
+<span class="eqno">(7)<a class="headerlink" href="#equation-dc91dd88-2586-4bc3-ab6f-7fb0e4b2e204" title="Permalink to this equation">#</a></span>\[\begin{equation}
+f(x) \leq 0 \Leftrightarrow f(x) + s = 0 \text{ and } s \geq 0
+\end{equation}\]</div>
 </section>
 <section id="unbounded-to-bounded">
 <h3>Unbounded to Bounded<a class="headerlink" href="#unbounded-to-bounded" title="Permalink to this headline">#</a></h3>
+<p>You can change an unbounded to bounded formulation, by adding a difference term:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c8b05f55-d6a2-4afc-ae9f-489322a1c096">
+<span class="eqno">(8)<a class="headerlink" href="#equation-c8b05f55-d6a2-4afc-ae9f-489322a1c096" title="Permalink to this equation">#</a></span>\[\begin{equation}
+x \in \mathbb{R} \Leftrightarrow u \geq 0, \; v \geq 0 \text{ and } x = u-v
+\end{equation}\]</div>
+</section>
+<section id="bounded-to-unbounded">
+<h3>Bounded to Unbounded<a class="headerlink" href="#bounded-to-unbounded" title="Permalink to this headline">#</a></h3>
 </section>
 <section id="bounded-to-nonnegative">
 <h3>Bounded to Nonnegative<a class="headerlink" href="#bounded-to-nonnegative" title="Permalink to this headline">#</a></h3>
@@ -556,6 +618,7 @@ b_m
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equalities-to-inequalities">Equalities to Inequalities</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inequalities-to-equalities">Inequalities to Equalities</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unbounded-to-bounded">Unbounded to Bounded</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bounded-to-unbounded">Bounded to Unbounded</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bounded-to-nonnegative">Bounded to Nonnegative</a></li>
 </ul>
 </li>

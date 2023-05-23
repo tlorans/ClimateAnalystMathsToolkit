@@ -76,8 +76,6 @@ A more generic way to write this problem is:
 \end{aligned}
 \end{equation*}
 
-
-
 ### Linear and Affine Functions
 
 Let's first define what linear and affine functions are.
@@ -146,17 +144,86 @@ A linear program (LP) is an optimization model with:
 
 Every LP can be put in the form:
 
+\begin{equation*}
+\begin{aligned}
+& x^* = 
+&& argmax \; c^Tx\\
+& \text{subject to}
+& & Ax \leq b\\
+& & & x \geq 0 \\
+\end{aligned}
+\end{equation*}
+
+This is the standard form of a LP.
+
+Let's make an illustration with the Top Brass example:
+
+
+\begin{equation*}
+\begin{aligned}
+& f^*, s^* = 
+&& argmax \; \begin{bmatrix}12 \\
+9\end{bmatrix}^T \begin{bmatrix}f \\ s\end{bmatrix}\\
+& \text{subject to}
+& & \begin{bmatrix}4 & 2 \\
+1 & 1  \\
+1 & 0 \\
+0 & 1 \end{bmatrix} \begin{bmatrix}f \\ s\end{bmatrix}\leq \begin{bmatrix} 4800 \\
+1750 \\
+1000 \\
+1500 \end{bmatrix}\\
+& & & \begin{bmatrix} f \\
+s\end{bmatrix} \geq 0\\
+\end{aligned}
+\end{equation*}
+
 ### Transformation Tricks
 
+To convert an initial problem to the standard form, there are some transformation tricks.
 #### Converting Min to Max or Vice Versa
 
+You can convert a minimization problem to a maximization problem or vice verse (by taking the negative):
+
+\begin{equation}
+    \min_x
+ f(x) =
+  - \max_x
+  (-f(x))\end{equation}
 #### Reversing Inequalities 
+
+To reverse inequalities, you can simply flip the sign:
+
+\begin{equation}
+Ax \leq b \Leftrightarrow (-A)x \geq (-b)
+\end{equation}
 
 #### Equalities to Inequalities 
 
+To convert equalities to inequalities, you can double up:
+
+\begin{equation}
+f(x) = 0 \Leftrightarrow f(x) \geq 0  \text{ and } f(x) \leq 0
+\end{equation}
+
 #### Inequalities to Equalities 
 
+To convert inequalities to equalities, you can add a slack:
+
+\begin{equation}
+f(x) \leq 0 \Leftrightarrow f(x) + s = 0 \text{ and } s \geq 0
+\end{equation}
+
 #### Unbounded to Bounded
+
+You can change an unbounded to bounded formulation, by adding a difference term:
+
+\begin{equation}
+x \in \mathbb{R} \Leftrightarrow u \geq 0, \; v \geq 0 \text{ and } x = u-v
+\end{equation}
+
+#### Bounded to Unbounded
+
+
 
 #### Bounded to Nonnegative
 
