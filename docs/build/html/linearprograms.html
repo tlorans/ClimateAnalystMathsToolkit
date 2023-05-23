@@ -307,27 +307,134 @@ document.write(`
 <p>Using a particular solver, requires a particular form. We need to undersand how to manipulate a linear program in order to fit the form required by solvers.</p>
 <section id="a-first-example">
 <h2>A First Example<a class="headerlink" href="#a-first-example" title="Permalink to this headline">#</a></h2>
+<p>Let’s make a first toy example to illustrate optimization modelling, with the Top Brass example:</p>
+<ul class="simple">
+<li><p>The Top Brass Company makes trophies for athletic leagues. The company produces trophies for footabll and soccer championship.</p></li>
+<li><p>Each football trophy has a wood base, an engraved plaque, a large brass football on top and returns $12 in profit.</p></li>
+<li><p>Soccer throphies are similar, except that a brass soccer ball is on top, and the unit profit is only $9.</p></li>
+<li><p>The football has an asymmetric shape and then the base requires 4 board feet of woord.</p></li>
+<li><p>The soccer base requires only 2 board feet.</p></li>
+<li><p>At the moment there are 1000 bass footballs in stock, 1500 soccer balls, 1750 plaques and 4800 board feet of wood.</p></li>
+</ul>
+<p>Based on these information, what trophies should be produced from these supplies to maximize total profit, assuming that all that are made can be sold?</p>
+<p>We have the following recipe for building each trophy:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Wood</p></th>
+<th class="head"><p>Plaques</p></th>
+<th class="head"><p>Footballs</p></th>
+<th class="head"><p>Soccer Balls</p></th>
+<th class="head"><p>Profit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>football</p></td>
+<td><p>4 ft</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>$12</p></td>
+</tr>
+<tr class="row-odd"><td><p>soccer</p></td>
+<td><p>2 ft</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>$9</p></td>
+</tr>
+</tbody>
+</table>
+<p>And the following quantity of each ingredient in stock:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Wood</p></th>
+<th class="head"><p>Plaques</p></th>
+<th class="head"><p>Footballs</p></th>
+<th class="head"><p>Soccer Balls</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stocks</p></td>
+<td><p>4800 ft</p></td>
+<td><p>1750</p></td>
+<td><p>1000</p></td>
+<td><p>1500</p></td>
+</tr>
+</tbody>
+</table>
+<p>To formulate this problem as an optimization problem, we need to find three components: (i) the decision variables; (ii) the constraints; (iii) the objective function.</p>
+<ol class="arabic simple">
+<li><p>Decision variables:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f\)</span>: number of football trophies built</p></li>
+<li><p><span class="math notranslate nohighlight">\(s\)</span>: number of soccer trophies built</p></li>
+</ul>
+</li>
+<li><p>Constraints:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(4f + 2s \leq 4800\)</span> (wood budget)</p></li>
+<li><p><span class="math notranslate nohighlight">\(f + s \leq 1750\)</span> (plaque budget)</p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \leq f \leq 1000\)</span> (football budget)</p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \leq s \leq 1500\)</span> (soccer ball budget)</p></li>
+</ul>
+</li>
+<li><p>Objective function:</p>
+<ul class="simple">
+<li><p>Maximize <span class="math notranslate nohighlight">\(12f + 9s\)</span> (profit)</p></li>
+</ul>
+</li>
+</ol>
+<p>The optimization form is:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{aligned}
+&amp; f^*, s^* = 
+&amp;&amp; argmax \; 12f + 9s\\
+&amp; \text{subject to}
+&amp; &amp; 4f + 2s \leq 4800\\
+&amp; &amp; &amp; f + s \leq 1750 \\
+&amp;&amp;&amp;  0 \leq f \leq 1000 \\
+&amp;&amp;&amp; 0 \leq s \leq 1500
+\end{aligned}
+\end{equation*}\]</div>
+<p>This is an example of a linear program (LP), a type of optimization model.
+In that model, you have decision variables (<span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(s\)</span>) and parameters (the rest).</p>
+<p>A more generic way to write this problem is:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{aligned}
+&amp; f^*, s^* = 
+&amp;&amp; argmax \; c_1f + c_2s\\
+&amp; \text{subject to}
+&amp; &amp; a_{1,1}f + a_{1,2}s \leq b_1\\
+&amp; &amp; &amp; a_{2,1}f + a_{2,2}s \leq b_2 \\
+&amp;&amp;&amp;  l_1 \leq f \leq u_1 \\
+&amp;&amp;&amp; l_2 \leq s \leq u_2
+\end{aligned}
+\end{equation*}\]</div>
 </section>
 <section id="linear-and-affine-functions">
 <h2>Linear and Affine Functions<a class="headerlink" href="#linear-and-affine-functions" title="Permalink to this headline">#</a></h2>
 <p>Let’s first define what linear and affine functions are.</p>
 <p>A function <span class="math notranslate nohighlight">\(f(x_1,..., x_m)\)</span> is linear in the variables <span class="math notranslate nohighlight">\(x_1, ..., x_m\)</span> if there exists constants <span class="math notranslate nohighlight">\(a_1, ... , a_m\)</span> such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b9dd13c4-4609-4ebb-82a2-c09fa408da16">
-<span class="eqno">(1)<a class="headerlink" href="#equation-b9dd13c4-4609-4ebb-82a2-c09fa408da16" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ecced3d9-cdda-48e7-8647-2e3d6eb0eece">
+<span class="eqno">(1)<a class="headerlink" href="#equation-ecced3d9-cdda-48e7-8647-2e3d6eb0eece" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x_1,..., x_m) = a_1x_1 + ... + a_mx_m =
 a^Tx
 \end{equation}\]</div>
 <p>This is basically a dot product.</p>
 <p>A function <span class="math notranslate nohighlight">\(f(x_1,..., x_m)\)</span> is affine in the variables <span class="math notranslate nohighlight">\(x_1, ..., x_m\)</span> if there exist constants <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(a_1, ... , a_m\)</span> such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b125e467-fe5a-4487-a134-50e7251acc6a">
-<span class="eqno">(2)<a class="headerlink" href="#equation-b125e467-fe5a-4487-a134-50e7251acc6a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ca7297dc-d934-444a-85b6-f8f43e7fbd2e">
+<span class="eqno">(2)<a class="headerlink" href="#equation-ca7297dc-d934-444a-85b6-f8f43e7fbd2e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x_1,..., x_m) = a_0 + a_1x_1 + ... + a_mx_m =
 a^Tx + b
 \end{equation}\]</div>
 <p>This is basically a dot product plus a constant.</p>
 <p>We can also combine several linear or affine functions:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c623d6e6-357e-41a6-89b4-1be86b7a2799">
-<span class="eqno">(3)<a class="headerlink" href="#equation-c623d6e6-357e-41a6-89b4-1be86b7a2799" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3b248544-eadd-4359-aad8-431ab71ac4af">
+<span class="eqno">(3)<a class="headerlink" href="#equation-3b248544-eadd-4359-aad8-431ab71ac4af" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{matrix}
 a_{11}x_1 + &amp; \cdots + &amp; a_{1n}x_n + b_1 \\
 a_{21}x_1 + &amp; \cdots + &amp; a_{2n}x_n + b_2 \\

@@ -8,6 +8,76 @@ Using a particular solver, requires a particular form. We need to undersand how 
 
 ### A First Example
 
+Let's make a first toy example to illustrate optimization modelling, with the Top Brass example:
+
+- The Top Brass Company makes trophies for athletic leagues. The company produces trophies for footabll and soccer championship.
+- Each football trophy has a wood base, an engraved plaque, a large brass football on top and returns $12 in profit.
+- Soccer throphies are similar, except that a brass soccer ball is on top, and the unit profit is only $9.
+- The football has an asymmetric shape and then the base requires 4 board feet of woord.
+- The soccer base requires only 2 board feet. 
+- At the moment there are 1000 bass footballs in stock, 1500 soccer balls, 1750 plaques and 4800 board feet of wood.
+
+Based on these information, what trophies should be produced from these supplies to maximize total profit, assuming that all that are made can be sold?
+
+We have the following recipe for building each trophy:
+|   | Wood  | Plaques  | Footballs  | Soccer Balls  | Profit |
+|---|---|---|---|---|---|
+| football  |  4 ft |  1 | 1  | 0  | $12 |
+|  soccer | 2 ft  |  1 | 0  |  1 |  $9 |
+
+And the following quantity of each ingredient in stock:
+|   | Wood  | Plaques  | Footballs  | Soccer Balls  | 
+|---|---|---|---|---|
+| stocks  |  4800 ft |  1750 | 1000  | 1500  | 
+
+To formulate this problem as an optimization problem, we need to find three components: (i) the decision variables; (ii) the constraints; (iii) the objective function.
+
+1. Decision variables:
+    - $f$: number of football trophies built
+    - $s$: number of soccer trophies built
+
+2. Constraints:
+    - $4f + 2s \leq 4800$ (wood budget)
+    - $f + s \leq 1750$ (plaque budget)
+    - $0 \leq f \leq 1000$ (football budget)
+    - $0 \leq s \leq 1500$ (soccer ball budget)
+
+3. Objective function:
+    - Maximize $12f + 9s$ (profit)
+
+The optimization form is:
+
+\begin{equation*}
+\begin{aligned}
+& f^*, s^* = 
+&& argmax \; 12f + 9s\\
+& \text{subject to}
+& & 4f + 2s \leq 4800\\
+& & & f + s \leq 1750 \\
+&&&  0 \leq f \leq 1000 \\
+&&& 0 \leq s \leq 1500
+\end{aligned}
+\end{equation*}
+
+This is an example of a linear program (LP), a type of optimization model.
+In that model, you have decision variables ($f$ and $s$) and parameters (the rest).
+
+A more generic way to write this problem is:
+
+\begin{equation*}
+\begin{aligned}
+& f^*, s^* = 
+&& argmax \; c_1f + c_2s\\
+& \text{subject to}
+& & a_{1,1}f + a_{1,2}s \leq b_1\\
+& & & a_{2,1}f + a_{2,2}s \leq b_2 \\
+&&&  l_1 \leq f \leq u_1 \\
+&&& l_2 \leq s \leq u_2
+\end{aligned}
+\end{equation*}
+
+
+
 ### Linear and Affine Functions
 
 Let's first define what linear and affine functions are.
