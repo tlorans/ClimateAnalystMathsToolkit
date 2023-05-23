@@ -129,7 +129,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linearprograms.html">Linear Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="leastsquaresandqp.html">Quadratic Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qp.html">Quadratic Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 
@@ -282,9 +282,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-matrices">Special Matrices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transpose-matrix">Transpose Matrix</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-and-outer-products">Inner and Outer Products</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-matrix">Inverse Matrix</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-matrices">Orthogonal Matrices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#permutation-matrices">Permutation Matrices</a></li>
 </ul>
             </nav>
         </div>
@@ -298,13 +295,13 @@ document.write(`
                   
   <section id="matrices">
 <h1>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">#</a></h1>
-<p>In this part, we will cover the concept of matrices. We will define matrices, how to operate with, review some particular matrices (identity matrix for example), learn about transposes and inverses, and see the orthogonal and permutation matrices. All of this will be used later in the optimization part. Matrices are particularly important for portfolio optimization problem formulation.</p>
+<p>In this part, we will cover the concept of matrices. We will define matrices, how to operate with, review some particular matrices (identity matrix for example). All of this will be used later in the optimization part. Matrices are particularly important for portfolio optimization problem formulation.</p>
 <section id="matrix-definition">
 <h2>Matrix Definition<a class="headerlink" href="#matrix-definition" title="Permalink to this headline">#</a></h2>
 <p>A <span class="math notranslate nohighlight">\(m\)</span>-by-<span class="math notranslate nohighlight">\(n\)</span> matrix is a rectangular array of numbers or maths objects, with <span class="math notranslate nohighlight">\(m\)</span> rows and <span class="math notranslate nohighlight">\(n\)</span> columns.</p>
 <p>A two-by-two matrix <span class="math notranslate nohighlight">\(A\)</span> with two rows and two columns looks like:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-00eff89d-396f-4772-be98-bf3fe80ddd65">
-<span class="eqno">(1)<a class="headerlink" href="#equation-00eff89d-396f-4772-be98-bf3fe80ddd65" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d7377815-eb64-4a14-bbe8-97c79f9c0c06">
+<span class="eqno">(1)<a class="headerlink" href="#equation-d7377815-eb64-4a14-bbe8-97c79f9c0c06" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A = \begin{bmatrix}
 a &amp; b \\
 c &amp; d
@@ -323,8 +320,8 @@ c &amp; d
 <p>Column and row matrices are of special importance: these matrices are called vectors.
 We generally denote a column vector as a <span class="math notranslate nohighlight">\(n\)</span>-by-one vector and the row vector as one-by-<span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p>As an example, a <span class="math notranslate nohighlight">\(n = 3\)</span> column vector would be written as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c4700fee-08f8-4b1d-bc08-a3fe90ee844e">
-<span class="eqno">(2)<a class="headerlink" href="#equation-c4700fee-08f8-4b1d-bc08-a3fe90ee844e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2ae2a9c3-b4c8-49f3-b5a3-4e8793776ac7">
+<span class="eqno">(2)<a class="headerlink" href="#equation-2ae2a9c3-b4c8-49f3-b5a3-4e8793776ac7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 x = \begin{bmatrix}
 a \\
 b \\
@@ -332,8 +329,8 @@ c
 \end{bmatrix}
 \end{equation}\]</div>
 <p>And a row vector <span class="math notranslate nohighlight">\(m = 3\)</span> as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3ec60456-f012-4efc-b877-12adc067cbe0">
-<span class="eqno">(3)<a class="headerlink" href="#equation-3ec60456-f012-4efc-b877-12adc067cbe0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-55b39d54-c853-45f0-a6c6-0c1b269d95c1">
+<span class="eqno">(3)<a class="headerlink" href="#equation-55b39d54-c853-45f0-a6c6-0c1b269d95c1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = \begin{bmatrix}
 a &amp; b &amp; c
 \end{bmatrix}
@@ -356,8 +353,8 @@ a &amp; b &amp; c
 </pre></div>
 </div>
 <p>Finally, a general notation that you will encounter for writing a <span class="math notranslate nohighlight">\(m\)</span>-by-<span class="math notranslate nohighlight">\(n\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d2f09425-2381-4c2a-a655-685e385c0c56">
-<span class="eqno">(4)<a class="headerlink" href="#equation-d2f09425-2381-4c2a-a655-685e385c0c56" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8467b2e7-3436-4f8f-b8b1-b17ba406f9e7">
+<span class="eqno">(4)<a class="headerlink" href="#equation-8467b2e7-3436-4f8f-b8b1-b17ba406f9e7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A = \begin{bmatrix}
 a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
 a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
@@ -370,8 +367,8 @@ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
 <section id="matrix-addition-and-multiplication">
 <h2>Matrix Addition and Multiplication<a class="headerlink" href="#matrix-addition-and-multiplication" title="Permalink to this headline">#</a></h2>
 <p>We can add two matrices only if they have the same dimension <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span>. We proceed the addition element by element:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-52f1fbb2-ab62-40f8-90e0-114556ad156e">
-<span class="eqno">(5)<a class="headerlink" href="#equation-52f1fbb2-ab62-40f8-90e0-114556ad156e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dbbdff94-de02-4ef0-b3fc-a0368fe7effd">
+<span class="eqno">(5)<a class="headerlink" href="#equation-dbbdff94-de02-4ef0-b3fc-a0368fe7effd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 a &amp; b \\
 c &amp; d 
@@ -402,8 +399,8 @@ c + g &amp; d + h
 </pre></div>
 </div>
 <p>We can multiply matrices by a scalar. In that case, we just multiply every element of the matrix:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4750e7fc-a93a-4fda-956d-df5faaf9130d">
-<span class="eqno">(6)<a class="headerlink" href="#equation-4750e7fc-a93a-4fda-956d-df5faaf9130d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-398da51a-f6a2-44e7-ac17-5c78a82d03e1">
+<span class="eqno">(6)<a class="headerlink" href="#equation-398da51a-f6a2-44e7-ac17-5c78a82d03e1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 k \begin{bmatrix}
 a &amp; b \\
 c &amp; d
@@ -426,8 +423,8 @@ kc &amp; kd
 </div>
 <p>Matrices can be multiplied by something other than a scalar if the number of columns <span class="math notranslate nohighlight">\(n\)</span> of the left matrix equals the number of rows <span class="math notranslate nohighlight">\(m\)</span> of the right matrix.
 A matrix <span class="math notranslate nohighlight">\(m\)</span>-by-<span class="math notranslate nohighlight">\(n\)</span> can only be multiplied by another matrix <span class="math notranslate nohighlight">\(n\)</span>-by-<span class="math notranslate nohighlight">\(k\)</span>, and the resulting matrix will be of dimension <span class="math notranslate nohighlight">\(m\)</span>-by-<span class="math notranslate nohighlight">\(k\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-84225290-4b5d-49f4-84a1-a0681c441a58">
-<span class="eqno">(7)<a class="headerlink" href="#equation-84225290-4b5d-49f4-84a1-a0681c441a58" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f5915611-9a43-49fe-85af-8be73bd0589e">
+<span class="eqno">(7)<a class="headerlink" href="#equation-f5915611-9a43-49fe-85af-8be73bd0589e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 a &amp; b \\
 c &amp; d
@@ -448,8 +445,8 @@ ce + dg &amp; cf + dh
 <li><p>The same apply for the second row</p></li>
 </ul>
 <p>We can write a more general formula: element <span class="math notranslate nohighlight">\(c_{ij}\)</span> in the product matrix <span class="math notranslate nohighlight">\(C\)</span> is obtained by multiplying and summing the elements in row <span class="math notranslate nohighlight">\(i\)</span> of the left matrix and in column <span class="math notranslate nohighlight">\(j\)</span> of the right matrix:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-87b5e8ce-2213-4533-9e04-054f752e15c9">
-<span class="eqno">(8)<a class="headerlink" href="#equation-87b5e8ce-2213-4533-9e04-054f752e15c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f077edb0-b90c-4f16-b967-005710adf655">
+<span class="eqno">(8)<a class="headerlink" href="#equation-f077edb0-b90c-4f16-b967-005710adf655" title="Permalink to this equation">#</a></span>\[\begin{equation}
 c_{ij} = \sum^n_{k=1}a_{ik}b_{kj}
 \end{equation}\]</div>
 <p>We first can test matrix multiplication in Python with two matrices of the wrong dimensions:</p>
@@ -499,8 +496,8 @@ c_{ij} = \sum^n_{k=1}a_{ik}b_{kj}
 </div>
 <p>The identity matrix is a square matrix (<span class="math notranslate nohighlight">\(n = m\)</span>) with ones on the main diagonal. It is denoted by <span class="math notranslate nohighlight">\(I\)</span>.
 A property of <span class="math notranslate nohighlight">\(I\)</span> is the following result, if <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(I\)</span> are square matrices of the same size:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0b561d47-1189-4a8e-821c-2a79094a6ec4">
-<span class="eqno">(9)<a class="headerlink" href="#equation-0b561d47-1189-4a8e-821c-2a79094a6ec4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ba3a1715-b702-4d91-8676-84436eff696f">
+<span class="eqno">(9)<a class="headerlink" href="#equation-ba3a1715-b702-4d91-8676-84436eff696f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 AI = IA = A
 \end{equation}\]</div>
 <p>It means that multiplication by the identity matrix leaves the matrix unchanged.</p>
@@ -517,8 +514,8 @@ AI = IA = A
 </div>
 <p>Zero and identity matrices play the role of the numbers zero and one in matrix multiplication.</p>
 <p>Diagonal matrix has its nonzero elements on the diagonal. An example of a two-by-two diagonal matrix is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-34e29f6d-9d0e-4028-92ba-ff6597e5e483">
-<span class="eqno">(10)<a class="headerlink" href="#equation-34e29f6d-9d0e-4028-92ba-ff6597e5e483" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-315975c4-82ab-4542-b3c8-5c02af280805">
+<span class="eqno">(10)<a class="headerlink" href="#equation-315975c4-82ab-4542-b3c8-5c02af280805" title="Permalink to this equation">#</a></span>\[\begin{equation}
 D = \begin{bmatrix}
 d_1 &amp; 0 \\
 0 &amp; d_2
@@ -533,16 +530,16 @@ d_1 &amp; 0 \\
 </pre></div>
 </div>
 <p>Upper and lower triangular matrices are square matrix with zero elements below or above the diagonal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8bb0718d-eb58-44f5-9a1f-f971db1b7891">
-<span class="eqno">(11)<a class="headerlink" href="#equation-8bb0718d-eb58-44f5-9a1f-f971db1b7891" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-dc80f94e-a705-478d-81a4-8ea8e0773b49">
+<span class="eqno">(11)<a class="headerlink" href="#equation-dc80f94e-a705-478d-81a4-8ea8e0773b49" title="Permalink to this equation">#</a></span>\[\begin{equation}
 U = \begin{bmatrix}
 a &amp; b &amp; c \\
 0 &amp; d &amp; e \\
 0 &amp; 0 &amp; f
 \end{bmatrix}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-ab263958-46b5-4007-944b-ef70661c9051">
-<span class="eqno">(12)<a class="headerlink" href="#equation-ab263958-46b5-4007-944b-ef70661c9051" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ad6698ee-096a-437b-a1ca-5f754d0be268">
+<span class="eqno">(12)<a class="headerlink" href="#equation-ad6698ee-096a-437b-a1ca-5f754d0be268" title="Permalink to this equation">#</a></span>\[\begin{equation}
 L = \begin{bmatrix}
 a &amp; 0 &amp; 0 \\
 b &amp; d &amp; 0 \\
@@ -571,8 +568,8 @@ c &amp; e &amp; f
 <h2>Transpose Matrix<a class="headerlink" href="#transpose-matrix" title="Permalink to this headline">#</a></h2>
 <p>The transpose of the matrix <span class="math notranslate nohighlight">\(A\)</span> is denoted <span class="math notranslate nohighlight">\(A^T\)</span> and switches the rows and columns of <span class="math notranslate nohighlight">\(A\)</span>:</p>
 <p>If:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0d1f6a45-2051-4eb5-9866-3ff5d1bee74b">
-<span class="eqno">(13)<a class="headerlink" href="#equation-0d1f6a45-2051-4eb5-9866-3ff5d1bee74b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-aa71ec53-38c0-464d-b727-1e0a27a8a9bc">
+<span class="eqno">(13)<a class="headerlink" href="#equation-aa71ec53-38c0-464d-b727-1e0a27a8a9bc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A = \begin{bmatrix}
 a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
 a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
@@ -581,8 +578,8 @@ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
 \end{bmatrix}
 \end{equation}\]</div>
 <p>Then:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f3701772-2006-4b32-8094-ee20238b0d00">
-<span class="eqno">(14)<a class="headerlink" href="#equation-f3701772-2006-4b32-8094-ee20238b0d00" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7f7ef789-110d-4232-906c-00321548a8f4">
+<span class="eqno">(14)<a class="headerlink" href="#equation-7f7ef789-110d-4232-906c-00321548a8f4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 A^T  = \begin{bmatrix}
 a_{11} &amp; a_{21} &amp; \cdots &amp; a_{m1} \\
 a_{12} &amp; a_{22} &amp; \cdots &amp; a_{m2} \\
@@ -592,8 +589,8 @@ a_{1n} &amp; a_{2n} &amp; \cdots &amp; a_{mn}
 \end{equation}\]</div>
 <p>If <span class="math notranslate nohighlight">\(A\)</span> is <span class="math notranslate nohighlight">\(m\)</span>-by-<span class="math notranslate nohighlight">\(n\)</span>, then <span class="math notranslate nohighlight">\(A^T\)</span> is <span class="math notranslate nohighlight">\(n\)</span>-b-<span class="math notranslate nohighlight">\(m\)</span>.</p>
 <p>As an example:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bb67caf0-f864-4e5c-8c0c-0c222168f3dc">
-<span class="eqno">(15)<a class="headerlink" href="#equation-bb67caf0-f864-4e5c-8c0c-0c222168f3dc" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0f55989e-9727-48bf-8ad8-922c2e77442c">
+<span class="eqno">(15)<a class="headerlink" href="#equation-0f55989e-9727-48bf-8ad8-922c2e77442c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{bmatrix}
 a &amp; d \\
 b &amp; e \\
@@ -616,16 +613,16 @@ d &amp; e &amp; f
 </pre></div>
 </div>
 <p>With transpose matrices, we have the following facts:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5f703b28-3e76-4291-8810-a1b9bbd5f81e">
-<span class="eqno">(16)<a class="headerlink" href="#equation-5f703b28-3e76-4291-8810-a1b9bbd5f81e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e928d5aa-afc9-4622-84ee-9f46ef586cb6">
+<span class="eqno">(16)<a class="headerlink" href="#equation-e928d5aa-afc9-4622-84ee-9f46ef586cb6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (A^T)^T = A
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-6ae02652-cc0e-4f8d-9301-2bf0d7d36c90">
-<span class="eqno">(17)<a class="headerlink" href="#equation-6ae02652-cc0e-4f8d-9301-2bf0d7d36c90" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1aea7a48-da83-494d-9e77-e557a9dae06a">
+<span class="eqno">(17)<a class="headerlink" href="#equation-1aea7a48-da83-494d-9e77-e557a9dae06a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (A + B)^T = A^T + B^T
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-1eed1d5b-30dd-48d2-b111-701679bb8715">
-<span class="eqno">(18)<a class="headerlink" href="#equation-1eed1d5b-30dd-48d2-b111-701679bb8715" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c26a080d-e549-4aaa-8b50-d01f217124e9">
+<span class="eqno">(18)<a class="headerlink" href="#equation-c26a080d-e549-4aaa-8b50-d01f217124e9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (AB)^T = B^TA^T
 \end{equation}\]</div>
 <p>And finally, if <span class="math notranslate nohighlight">\(A\)</span> is a square matrix and <span class="math notranslate nohighlight">\(A^T = A\)</span>, <span class="math notranslate nohighlight">\(A\)</span> is called a symmetric matrix.</p>
@@ -633,8 +630,8 @@ d &amp; e &amp; f
 <section id="inner-and-outer-products">
 <h2>Inner and Outer Products<a class="headerlink" href="#inner-and-outer-products" title="Permalink to this headline">#</a></h2>
 <p>The inner product, also called the dot product, is a matrix product between a row vector and a column vector. We can obtain a row vector from a column vector with the transpose operator:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f0396040-f339-435d-93ca-f0b31f4958c5">
-<span class="eqno">(19)<a class="headerlink" href="#equation-f0396040-f339-435d-93ca-f0b31f4958c5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-be9fb83d-07ee-414b-aeda-5f17635bb156">
+<span class="eqno">(19)<a class="headerlink" href="#equation-be9fb83d-07ee-414b-aeda-5f17635bb156" title="Permalink to this equation">#</a></span>\[\begin{equation}
 u^Tv = \begin{bmatrix}
 u_1 &amp; u_2 &amp; u_3
 \end{bmatrix}
@@ -698,232 +695,6 @@ u_1v_1 + u_2v_2 + u_3v_3
 </pre></div>
 </div>
 <p>That is, a one-by-one matrix, ie. a scalar.</p>
-<p>The norm of a vector is defined by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ff52be81-2050-4172-bd8a-a191674dda67">
-<span class="eqno">(20)<a class="headerlink" href="#equation-ff52be81-2050-4172-bd8a-a191674dda67" title="Permalink to this equation">#</a></span>\[\begin{equation}
-||u|| = (u^Tu)^{1/2} = (u^2_1 + u^2_2 + u^2_3)^{1/2}
-\end{equation}\]</div>
-<p>If this norm is equal to one, the vector is normalized.</p>
-<p>You can use the function <code class="docutils literal notranslate"><span class="pre">linalg.norm</span></code> to get the norm of a vector:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">2.23606797749979</span>
-</pre></div>
-</div>
-<p>If a set of vectors are mutually orthogonal and normalized, we say that they are orthonormal.</p>
-<p>You can also encouter the outer product:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-36717dd4-1e99-44d4-aede-dde02b784c35">
-<span class="eqno">(21)<a class="headerlink" href="#equation-36717dd4-1e99-44d4-aede-dde02b784c35" title="Permalink to this equation">#</a></span>\[\begin{equation}
-uv^T = \begin{bmatrix}
-u_1 \\
-u_2 \\
-u_3
-\end{bmatrix}
-\begin{bmatrix}
-v_1 &amp; v_2 &amp; v_3
-\end{bmatrix}
-= \begin{bmatrix}
-u_1v_1 &amp; u_1v2 &amp; u_1v_3 \\
-u_2v_1 &amp; u_2v_2 &amp; u_2v_3 \\
-u_3v_1 &amp; u_3v_2 &amp; u_3v_3
-\end{bmatrix}
-\end{equation}\]</div>
-<p>To obtain the outer product in Python, you must be aware of creating your vectors with two dimensions:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span> <span class="c1"># column vector</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span> <span class="c1"># column vector</span>
-<span class="n">u</span> <span class="o">@</span> <span class="n">v</span><span class="o">.</span><span class="n">T</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-       <span class="p">[</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
-</pre></div>
-</div>
-</section>
-<section id="inverse-matrix">
-<h2>Inverse Matrix<a class="headerlink" href="#inverse-matrix" title="Permalink to this headline">#</a></h2>
-<p>Square matrices can have inverses. A matrix <span class="math notranslate nohighlight">\(A\)</span> with an invers is said invertible, and its inverse is denoted by <span class="math notranslate nohighlight">\(A^{-1}\)</span>. A property of the inverse matrix is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c46df509-190b-4d79-b912-46d092ab8aae">
-<span class="eqno">(22)<a class="headerlink" href="#equation-c46df509-190b-4d79-b912-46d092ab8aae" title="Permalink to this equation">#</a></span>\[\begin{equation}
-AA^{-1} = A^{-1}A = I
-\end{equation}\]</div>
-<p>If we have two invertibles matrices <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, then:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-441d9a12-369a-4304-9e8f-c23433f73c23">
-<span class="eqno">(23)<a class="headerlink" href="#equation-441d9a12-369a-4304-9e8f-c23433f73c23" title="Permalink to this equation">#</a></span>\[\begin{equation}
-(AB)^{-1} = B^{-1}A^{-1}
-\end{equation}\]</div>
-<p>And, if <span class="math notranslate nohighlight">\(A\)</span> is invertible:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a4a8a108-a451-47e2-bc7b-44079775e9a0">
-<span class="eqno">(24)<a class="headerlink" href="#equation-a4a8a108-a451-47e2-bc7b-44079775e9a0" title="Permalink to this equation">#</a></span>\[\begin{equation}
-(A^T)^{-1} = (A^{-1})^T
-\end{equation}\]</div>
-<p>As an illustration of the derivation of the inverse of a two-by-two matrix:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c07b17d2-30ee-463b-bbd4-9c1b18c95a0f">
-<span class="eqno">(25)<a class="headerlink" href="#equation-c07b17d2-30ee-463b-bbd4-9c1b18c95a0f" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\begin{bmatrix}
-a &amp; b \\
-c &amp; d
-\end{bmatrix}^{-1}
-= \frac{1}{ad-bc} 
-\begin{bmatrix}
-d &amp; -b \\
--c &amp; a
-\end{bmatrix}
-\end{equation}\]</div>
-<p>Where <span class="math notranslate nohighlight">\(ad - bc\)</span> is the definition of the determinant of a two-by-two matrix:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0d2f9b51-3e28-4d00-8413-23b134d6f5d5">
-<span class="eqno">(26)<a class="headerlink" href="#equation-0d2f9b51-3e28-4d00-8413-23b134d6f5d5" title="Permalink to this equation">#</a></span>\[\begin{equation}
-det \begin{bmatrix}
-a &amp; b \\
-c &amp; d
-\end{bmatrix} = ad - bc
-\end{equation}\]</div>
-<p>The determinants of a two-by-two matrix is then the product of the diagonal (<span class="math notranslate nohighlight">\(ad\)</span>) minus the product of the off-diagonals (<span class="math notranslate nohighlight">\(bc\)</span>). Because the determinant is in the denominator in the formula of the derivation of the matrix, a two-by-two matrix is invertible only if <span class="math notranslate nohighlight">\(det(A) \neq 0\)</span>.</p>
-<p>We will see later that a <span class="math notranslate nohighlight">\(n\)</span>-by-<span class="math notranslate nohighlight">\(n\)</span> matrix is invertible if and only if its determinant is nonzero. We will need a more general definition of the determinant.</p>
-<p>In Python, we find the inverse of a matrix with the <code class="docutils literal notranslate"><span class="pre">linalg.inv</span></code> function:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
-          <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
-
-<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">2.</span> <span class="p">,</span>  <span class="mf">1.</span> <span class="p">],</span>
-       <span class="p">[</span> <span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">]])</span>
-</pre></div>
-</div>
-</section>
-<section id="orthogonal-matrices">
-<h2>Orthogonal Matrices<a class="headerlink" href="#orthogonal-matrices" title="Permalink to this headline">#</a></h2>
-<p>An orthogonal matrix is a square matrix <span class="math notranslate nohighlight">\(Q\)</span> that satisfies:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31202202-43c7-4685-8344-e0e78ef45b13">
-<span class="eqno">(27)<a class="headerlink" href="#equation-31202202-43c7-4685-8344-e0e78ef45b13" title="Permalink to this equation">#</a></span>\[\begin{equation}
-Q^{-1} = Q^T
-\end{equation}\]</div>
-<p>Other properties are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-80cb3d53-9c29-472a-aa20-da8e4cce0aaa">
-<span class="eqno">(28)<a class="headerlink" href="#equation-80cb3d53-9c29-472a-aa20-da8e4cce0aaa" title="Permalink to this equation">#</a></span>\[\begin{equation}
-QQ^T = I
-\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-70dcfd56-7391-4b32-a249-ced8e591b76f">
-<span class="eqno">(29)<a class="headerlink" href="#equation-70dcfd56-7391-4b32-a249-ced8e591b76f" title="Permalink to this equation">#</a></span>\[\begin{equation}
-Q^TQ = I
-\end{equation}\]</div>
-<p>Let’s examine a two-by-two example, with <span class="math notranslate nohighlight">\(Q\)</span> the orthogonal matrix given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-50e057e0-9aa2-45ef-80bb-a75d383fdcd5">
-<span class="eqno">(30)<a class="headerlink" href="#equation-50e057e0-9aa2-45ef-80bb-a75d383fdcd5" title="Permalink to this equation">#</a></span>\[\begin{equation}
-Q = \begin{bmatrix}
-q_{11} &amp; q_{12} \\
-q_{21} &amp; q_{22}
-\end{bmatrix} =
-\begin{bmatrix}
-q_1 &amp; q_2
-\end{bmatrix}
-\end{equation}\]</div>
-<p>that is <span class="math notranslate nohighlight">\(q_1\)</span> and <span class="math notranslate nohighlight">\(q_2\)</span> are the two-by-one column vectors of <span class="math notranslate nohighlight">\(Q\)</span>.</p>
-<p>Let’s check if <span class="math notranslate nohighlight">\(Q\)</span> is orthogonal:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9c198dbf-b635-4d07-9bf4-42d92b17d634">
-<span class="eqno">(31)<a class="headerlink" href="#equation-9c198dbf-b635-4d07-9bf4-42d92b17d634" title="Permalink to this equation">#</a></span>\[\begin{equation}
-Q^TQ = \begin{bmatrix}
-q_1^T \\
-q_2^T
-\end{bmatrix}
-\begin{bmatrix}
-q_1 &amp; q_2
-\end{bmatrix}
-= \begin{bmatrix}
-q_1^Tq_1 &amp; q_1^Tq_2 \\
-q_2^Tq_1 &amp; q_2^Tq_2
-\end{bmatrix}
-\end{equation}\]</div>
-<p>So, if <span class="math notranslate nohighlight">\(Q\)</span> is orthogonal, then <span class="math notranslate nohighlight">\(Q^TQ = I\)</span> and:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ee109d09-8de1-45e2-97ae-c8cbd10c2d27">
-<span class="eqno">(32)<a class="headerlink" href="#equation-ee109d09-8de1-45e2-97ae-c8cbd10c2d27" title="Permalink to this equation">#</a></span>\[\begin{equation}
-q^T_1q_1 = q_2^Tq_2 = 1
-\end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-28ec8fc7-fee6-4026-b052-a524fc65f4d1">
-<span class="eqno">(33)<a class="headerlink" href="#equation-28ec8fc7-fee6-4026-b052-a524fc65f4d1" title="Permalink to this equation">#</a></span>\[\begin{equation}
-q_1^Tq_2 = q_2^Tq_1 = 0
-\end{equation}\]</div>
-<p>Which means that the columns of <span class="math notranslate nohighlight">\(Q\)</span>, <span class="math notranslate nohighlight">\(q_1\)</span> and <span class="math notranslate nohighlight">\(q_2\)</span>, form an orthonormal (mutually orthogonal and normalized) set of vectors. The same apply for the rows.</p>
-<p>An example in Python is:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="p">])</span>
-
-<span class="n">Q</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Q</span>
-</pre></div>
-</div>
-<p>Which gives you the identity matrix:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-</pre></div>
-</div>
-</section>
-<section id="permutation-matrices">
-<h2>Permutation Matrices<a class="headerlink" href="#permutation-matrices" title="Permalink to this headline">#</a></h2>
-<p>Permutation matrix is a type of orthogonal matrix that:</p>
-<ul class="simple">
-<li><p>when multiplying on the left, permutes the rows of a matrix</p></li>
-<li><p>when multiplying on the right, permutes the columns of a matrix</p></li>
-</ul>
-<p>An example is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d3652d51-5812-4ebe-ba70-c950ce488a32">
-<span class="eqno">(34)<a class="headerlink" href="#equation-d3652d51-5812-4ebe-ba70-c950ce488a32" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\begin{bmatrix}
-0 &amp; 1 \\
-1 &amp; 0
-\end{bmatrix}
-\begin{bmatrix}
-a &amp; b \\
-c &amp; d
-\end{bmatrix}
-= \begin{bmatrix}
-c &amp; d \\
-a &amp; b
-\end{bmatrix}
-\end{equation}\]</div>
-<p>If we denote the initial order as a set <span class="math notranslate nohighlight">\(\{1,2\}\)</span> (ie. the first row in the first place, the second row in the second place), we can denote the order of the permuted matrix as <span class="math notranslate nohighlight">\(\{2,1\}\)</span> (we have switched the order of the rows). To obtain the corresponding permutation matrix, we have permuted the corresponding rows of the identify matrix, such as <span class="math notranslate nohighlight">\(\{1,2\} \rightarrow \{2,1\}\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3e9009ce-5098-4c17-b875-ea66cf570378">
-<span class="eqno">(35)<a class="headerlink" href="#equation-3e9009ce-5098-4c17-b875-ea66cf570378" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\begin{bmatrix}
-1 &amp; 0 \\
-0 &amp; 1
-\end{bmatrix}
-\rightarrow
-\begin{bmatrix}
-0 &amp; 1 \\
-1 &amp; 0
-\end{bmatrix}
-\end{equation}\]</div>
-<p>Let’s have an example of constructing a permutation matrix in Python, with the goal to switch the rows such as <span class="math notranslate nohighlight">\(\{1, 2, 3\} \rightarrow \{2, 1, 3\}\)</span></p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">P</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
-       <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
-       <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]])</span>
-</pre></div>
-</div>
-<p>And let switch the rows of <span class="math notranslate nohighlight">\(A\)</span>:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-<span class="p">])</span>
-
-<span class="n">P</span> <span class="o">@</span> <span class="n">A</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">],</span>
-       <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span>
-       <span class="p">[</span><span class="mf">7.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">9.</span><span class="p">]])</span>
-</pre></div>
-</div>
 </section>
 </section>
 
@@ -974,9 +745,6 @@ a &amp; b
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-matrices">Special Matrices</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transpose-matrix">Transpose Matrix</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-and-outer-products">Inner and Outer Products</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-matrix">Inverse Matrix</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-matrices">Orthogonal Matrices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#permutation-matrices">Permutation Matrices</a></li>
 </ul>
   </nav></div>
 
