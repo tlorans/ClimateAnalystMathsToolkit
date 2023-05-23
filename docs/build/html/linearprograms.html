@@ -47,8 +47,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'linearprograms';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Eigenvalues and Eigenvectors" href="eigenvalues.html" />
-    <link rel="prev" title="Vector Spaces" href="vectorspaces.html" />
+    <link rel="next" title="Quadratic Programming" href="leastsquaresandqp.html" />
+    <link rel="prev" title="Matrices" href="matrices.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -128,10 +128,7 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="systemslinearequations.html">Systems of Linear Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vectorspaces.html">Vector Spaces</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Linear Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="eigenvalues.html">Eigenvalues and Eigenvectors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leastsquaresandqp.html">Quadratic Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
@@ -315,22 +312,22 @@ document.write(`
 <h2>Linear and Affine Functions<a class="headerlink" href="#linear-and-affine-functions" title="Permalink to this headline">#</a></h2>
 <p>Let’s first define what linear and affine functions are.</p>
 <p>A function <span class="math notranslate nohighlight">\(f(x_1,..., x_m)\)</span> is linear in the variables <span class="math notranslate nohighlight">\(x_1, ..., x_m\)</span> if there exists constants <span class="math notranslate nohighlight">\(a_1, ... , a_m\)</span> such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c461b86f-704d-4aca-b951-b7d939f126bf">
-<span class="eqno">(1)<a class="headerlink" href="#equation-c461b86f-704d-4aca-b951-b7d939f126bf" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b9dd13c4-4609-4ebb-82a2-c09fa408da16">
+<span class="eqno">(1)<a class="headerlink" href="#equation-b9dd13c4-4609-4ebb-82a2-c09fa408da16" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x_1,..., x_m) = a_1x_1 + ... + a_mx_m =
 a^Tx
 \end{equation}\]</div>
 <p>This is basically a dot product.</p>
 <p>A function <span class="math notranslate nohighlight">\(f(x_1,..., x_m)\)</span> is affine in the variables <span class="math notranslate nohighlight">\(x_1, ..., x_m\)</span> if there exist constants <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(a_1, ... , a_m\)</span> such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e9c5adbd-3128-4f76-b79c-9f52266c0c18">
-<span class="eqno">(2)<a class="headerlink" href="#equation-e9c5adbd-3128-4f76-b79c-9f52266c0c18" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b125e467-fe5a-4487-a134-50e7251acc6a">
+<span class="eqno">(2)<a class="headerlink" href="#equation-b125e467-fe5a-4487-a134-50e7251acc6a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x_1,..., x_m) = a_0 + a_1x_1 + ... + a_mx_m =
 a^Tx + b
 \end{equation}\]</div>
 <p>This is basically a dot product plus a constant.</p>
 <p>We can also combine several linear or affine functions:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fb268133-d643-455b-aba5-cb05ff11b01b">
-<span class="eqno">(3)<a class="headerlink" href="#equation-fb268133-d643-455b-aba5-cb05ff11b01b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c623d6e6-357e-41a6-89b4-1be86b7a2799">
+<span class="eqno">(3)<a class="headerlink" href="#equation-c623d6e6-357e-41a6-89b4-1be86b7a2799" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{matrix}
 a_{11}x_1 + &amp; \cdots + &amp; a_{1n}x_n + b_1 \\
 a_{21}x_1 + &amp; \cdots + &amp; a_{2n}x_n + b_2 \\
@@ -411,20 +408,20 @@ b_m
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="vectorspaces.html"
+       href="matrices.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Vector Spaces</p>
+        <p class="prev-next-title">Matrices</p>
       </div>
     </a>
     <a class="right-next"
-       href="eigenvalues.html"
+       href="leastsquaresandqp.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Eigenvalues and Eigenvectors</p>
+        <p class="prev-next-title">Quadratic Programming</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
