@@ -297,14 +297,14 @@ document.write(`
 <section id="quadratic-forms">
 <h2>Quadratic Forms<a class="headerlink" href="#quadratic-forms" title="Permalink to this headline">#</a></h2>
 <p>As we have seen in the previous part, the general form of linear functions is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1f0d9bc7-2a5b-4336-90fb-be0a3033f022">
-<span class="eqno">(1)<a class="headerlink" href="#equation-1f0d9bc7-2a5b-4336-90fb-be0a3033f022" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7899d1ee-8edc-4b2d-afc1-a076d8cfc266">
+<span class="eqno">(1)<a class="headerlink" href="#equation-7899d1ee-8edc-4b2d-afc1-a076d8cfc266" title="Permalink to this equation">#</a></span>\[\begin{equation}
 c_1x_1 + ... + c_nx_n = c^Tx
 \end{equation}\]</div>
 <p>with <span class="math notranslate nohighlight">\(c_i\)</span> are parameters and <span class="math notranslate nohighlight">\(x_i\)</span> are variables.</p>
 <p>On the other side, the general form of quadratic functions is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-243c25c6-0292-487c-9cd7-0d0f40bd7b51">
-<span class="eqno">(2)<a class="headerlink" href="#equation-243c25c6-0292-487c-9cd7-0d0f40bd7b51" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4723d7af-791b-40c7-9ea3-44829b8b7d45">
+<span class="eqno">(2)<a class="headerlink" href="#equation-4723d7af-791b-40c7-9ea3-44829b8b7d45" title="Permalink to this equation">#</a></span>\[\begin{equation}
 q_{11}x^2_1 + q_{12}x_1x_2 + ... + q_{nn}x^2_n
 = 
 \begin{bmatrix}
@@ -339,6 +339,163 @@ x_n
 </section>
 <section id="portfolio-optimization">
 <h2>Portfolio Optimization<a class="headerlink" href="#portfolio-optimization" title="Permalink to this headline">#</a></h2>
+<p>A well-known example of QP is portfolio optimization, due to the portfolio variance introduced into the objective function, making it quadratric.</p>
+<p>Let’s consider a universe of <span class="math notranslate nohighlight">\(n\)</span> assets. We have a vector of assets’ weights in the portfolio: <span class="math notranslate nohighlight">\(x = (x_1, ..., x_n)\)</span>.</p>
+<p>We have a vector of assets’ returns <span class="math notranslate nohighlight">\(R = (R_1, ..., R_n)\)</span>.</p>
+<p>The return of the portfolio is equal to:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a671e0c1-2d4a-46ed-9a9e-e8e1e12ac07c">
+<span class="eqno">(3)<a class="headerlink" href="#equation-a671e0c1-2d4a-46ed-9a9e-e8e1e12ac07c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+R(x) = \sum^n_{i=1}x_iR_i = x^T R
+\end{equation}\]</div>
+<p>The expected return of the portfolio is:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-bb73eaef-b8e3-4af1-87b4-74db05097bc9">
+<span class="eqno">(4)<a class="headerlink" href="#equation-bb73eaef-b8e3-4af1-87b4-74db05097bc9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\mu(x) = \mathbb{E}[R(x)] = \mathbb{E}[x^TR] = x^T \mathbb{E}[R] = x^T \mu
+\end{equation}\]</div>
+<p>The expected return of the portfolio is then simply the weighted average of the assets’ returns in the portfolio (weighted by their relative weight).</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">])</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">mu_portfolio</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">mu</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mu_portfolio</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">0.0625</span>
+</pre></div>
+</div>
+<p>The thing is slightly more complicated with the portfolio’s variance. Indeed, you need to take into account the covariance matrix between the assets in the portfolio in order to obtain a proper measure of the variance of the portfolio:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-47f726ee-72ab-4f39-ba0a-1dec0790bb3a">
+<span class="eqno">(5)<a class="headerlink" href="#equation-47f726ee-72ab-4f39-ba0a-1dec0790bb3a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\sigma^2(x) = \mathbb{E}[(R(x) - \mu(x))(R(x) - \mu(x))^T]
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-e80b1d40-355c-4a7a-935e-b28d81a59087">
+<span class="eqno">(6)<a class="headerlink" href="#equation-e80b1d40-355c-4a7a-935e-b28d81a59087" title="Permalink to this equation">#</a></span>\[\begin{equation}
+= \mathbb{E}[(x^TR - x^T\mu) (x^TR - x^T\mu)^T]
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-1e1c9fe7-319b-494e-b8fb-e9fd898d00e7">
+<span class="eqno">(7)<a class="headerlink" href="#equation-1e1c9fe7-319b-494e-b8fb-e9fd898d00e7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+= \mathbb{E}[x^T(R-\mu)(R - \mu)^T x]
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-a4d50327-bbf9-4ef3-a595-2d3b50103f08">
+<span class="eqno">(8)<a class="headerlink" href="#equation-a4d50327-bbf9-4ef3-a595-2d3b50103f08" title="Permalink to this equation">#</a></span>\[\begin{equation}
+x^T \mathbb{E}[(R-\mu)(R-\mu)^T]x
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-b66d1344-f34a-471b-8171-5f0b841abc2f">
+<span class="eqno">(9)<a class="headerlink" href="#equation-b66d1344-f34a-471b-8171-5f0b841abc2f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+= x^T \Sigma x
+\end{equation}\]</div>
+<p>In the Markowitz framework, the mean-variance investor considers maximizing the expected return of the portfolio under a volatility constraint (Roncalli, 2023):</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{aligned}
+&amp; x^* = 
+&amp; &amp; argmax &amp; \mu(x) \\
+&amp; \text{subject to}
+&amp; &amp; 1_n^Tx = 1, \\
+&amp;&amp;&amp; \sigma(x) \leq \sigma^*
+\end{aligned}
+\end{equation*}\]</div>
+<p>Or, equivalently, minimizing the volatility of the portfolio under a return constraint:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{aligned}
+&amp; x^* = 
+&amp; &amp; argmin &amp; \sigma(x) \\
+&amp; \text{subject to}
+&amp; &amp; 1_n^Tx = 1, \\
+&amp;&amp;&amp; \mu* \leq \mu(x)
+\end{aligned}
+\end{equation*}\]</div>
+<p>This is the optimization problem of finding the most efficient risk-returns couple mentioned previously, with the portfolio’s two moments.</p>
+<p>For ease of computation, Markowitz transformed the two original non-linear optimization problems into a quadratic optimization problem.
+Introducing a risk-tolerance parameter (<span class="math notranslate nohighlight">\(\gamma\)</span>-problem, Roncalli 2013) and the long-only constraint, we obtain the following quadratic problem:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{aligned}
+&amp; x^* = 
+&amp; &amp; argmin \frac{1}{2} x^T \Sigma x - \gamma x ^T \mu\\
+&amp; \text{subject to}
+&amp; &amp; 1_n^Tx = 1 \\
+&amp; &amp; &amp; 0_n \leq x \leq 1_n
+\end{aligned}
+\end{equation*}\]</div>
+<p>To solve this problem with Python, we will use the <code class="docutils literal notranslate"><span class="pre">qpsolvers</span></code> library. This library considers the following QP formulation:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{aligned}
+&amp; x^* = 
+&amp; &amp; argmin \frac{1}{2} x^T P x + q^T x \\
+&amp; \text{subject to}
+&amp; &amp; Ax = b, \\
+&amp;&amp;&amp; Gx \leq h,\\
+&amp; &amp; &amp; lb \leq x \leq ub
+\end{aligned}
+\end{equation*}\]</div>
+<p>We need to find <span class="math notranslate nohighlight">\(\{P, q, A, b, G, h, lb, ub\}\)</span>. In the previous case, <span class="math notranslate nohighlight">\(P = \Sigma\)</span>, <span class="math notranslate nohighlight">\(q = \gamma \mu\)</span>, <span class="math notranslate nohighlight">\(A = 1_n^T\)</span>, <span class="math notranslate nohighlight">\(b = 1\)</span>, <span class="math notranslate nohighlight">\(lb = 0_n\)</span> and <span class="math notranslate nohighlight">\(ub = 1_n\)</span>.</p>
+<p>To go further, we first need to install the package <code class="docutils literal notranslate"><span class="pre">qpsolvers</span></code>:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>!pip install qpsolvers 
+</pre></div>
+</div>
+<p>We can now define a concrete dataclass with the <code class="docutils literal notranslate"><span class="pre">MeanVariance</span></code> class. This class will require two elements <code class="docutils literal notranslate"><span class="pre">mu</span></code> and <code class="docutils literal notranslate"><span class="pre">Sigma</span></code>. We also define the method <code class="docutils literal notranslate"><span class="pre">get_portfolio</span></code>, requiring a <code class="docutils literal notranslate"><span class="pre">gamma</span></code> parameter to be provided:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qpsolvers</span> <span class="kn">import</span> <span class="n">solve_qp</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">MeanVariance</span><span class="p">:</span>
+
+  <span class="n">mu</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="c1"># Expected Returns</span>
+  <span class="n">Sigma</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span> <span class="c1"># Covariance Matrix</span>
+  
+  <span class="k">def</span> <span class="nf">get_portfolio</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gamma</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Portfolio</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;QP Formulation&quot;&quot;&quot;</span>
+
+    <span class="n">x_optim</span> <span class="o">=</span> <span class="n">solve_qp</span><span class="p">(</span><span class="n">P</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Sigma</span><span class="p">,</span>
+              <span class="n">q</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">gamma</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">mu</span><span class="p">),</span>
+              <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mu</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="c1"># fully invested</span>
+              <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">]),</span> <span class="c1"># fully invested</span>
+              <span class="n">lb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mu</span><span class="p">)),</span> <span class="c1"># long-only position</span>
+              <span class="n">ub</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mu</span><span class="p">)),</span> <span class="c1"># long-only position</span>
+              <span class="n">solver</span> <span class="o">=</span> <span class="s1">&#39;osqp&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Portfolio</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">x_optim</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mu</span><span class="p">,</span> <span class="n">Sigma</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Sigma</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This new class will return a <code class="docutils literal notranslate"><span class="pre">Portfolio</span></code> object if we call the <code class="docutils literal notranslate"><span class="pre">get_portfolio</span></code> method with an instantiated object. Let’s find several optimum portfolios with various value of <span class="math notranslate nohighlight">\(\gamma\)</span>, and plot the result:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">MeanVariance</span><span class="p">(</span><span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span><span class="p">,</span> <span class="n">Sigma</span> <span class="o">=</span> <span class="n">Sigma</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">arange</span>
+
+<span class="n">list_gammas</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">list_portfolios</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">for</span> <span class="n">gamma</span> <span class="ow">in</span> <span class="n">list_gammas</span><span class="p">:</span>
+  <span class="n">list_portfolios</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">get_portfolio</span><span class="p">(</span><span class="n">gamma</span> <span class="o">=</span> <span class="n">gamma</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">returns</span> <span class="o">=</span> <span class="p">[</span><span class="n">portfolio</span><span class="o">.</span><span class="n">get_expected_returns</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span> <span class="k">for</span> <span class="n">portfolio</span> <span class="ow">in</span> <span class="n">list_portfolios</span><span class="p">]</span>
+<span class="n">variances</span> <span class="o">=</span> <span class="p">[</span><span class="n">portfolio</span><span class="o">.</span><span class="n">get_variance</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span> <span class="k">for</span> <span class="n">portfolio</span> <span class="ow">in</span> <span class="n">list_portfolios</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">variances</span><span class="p">,</span> <span class="n">returns</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Volatility (in %)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Expected Return (in %)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Efficient Frontier&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default" id="efficientfrontier">
+<img alt="_images/efficient_frontier.png" src="_images/efficient_frontier.png" />
+<figcaption>
+<p><span class="caption-text">Figure: Efficient Frontier</span><a class="headerlink" href="#efficientfrontier" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This is the well-known efficient frontier. Every portfolios on the efficient frontier (that is, the upper side of this curve) are efficient in the Markowitz framework, depending on the risk-tolerance (<span class="math notranslate nohighlight">\(\gamma\)</span> parameter) of the investor.</p>
 </section>
 </section>
 

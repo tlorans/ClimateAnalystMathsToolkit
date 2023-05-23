@@ -47,7 +47,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'linearprograms';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Quadratic Programming" href="leastsquaresandqp.html" />
+    <link rel="next" title="Quadratic Programming" href="qp.html" />
     <link rel="prev" title="Matrices" href="matrices.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -129,7 +129,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Linear Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="leastsquaresandqp.html">Quadratic Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qp.html">Quadratic Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
 </ul>
 
@@ -418,22 +418,22 @@ In that model, you have decision variables (<span class="math notranslate nohigh
 <h2>Linear and Affine Functions<a class="headerlink" href="#linear-and-affine-functions" title="Permalink to this headline">#</a></h2>
 <p>Let’s first define what linear and affine functions are.</p>
 <p>A function <span class="math notranslate nohighlight">\(f(x_1,..., x_m)\)</span> is linear in the variables <span class="math notranslate nohighlight">\(x_1, ..., x_m\)</span> if there exists constants <span class="math notranslate nohighlight">\(a_1, ... , a_m\)</span> such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-346b1620-b4a3-42ee-80ec-6b7e3110ee34">
-<span class="eqno">(1)<a class="headerlink" href="#equation-346b1620-b4a3-42ee-80ec-6b7e3110ee34" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9e39b49c-16f9-4b58-98f7-810ec0e20cb7">
+<span class="eqno">(1)<a class="headerlink" href="#equation-9e39b49c-16f9-4b58-98f7-810ec0e20cb7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x_1,..., x_m) = a_1x_1 + ... + a_mx_m =
 a^Tx
 \end{equation}\]</div>
 <p>This is basically a dot product.</p>
 <p>A function <span class="math notranslate nohighlight">\(f(x_1,..., x_m)\)</span> is affine in the variables <span class="math notranslate nohighlight">\(x_1, ..., x_m\)</span> if there exist constants <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(a_1, ... , a_m\)</span> such that:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7e29c21a-79fa-4f1f-9273-0210c880c7e7">
-<span class="eqno">(2)<a class="headerlink" href="#equation-7e29c21a-79fa-4f1f-9273-0210c880c7e7" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-eab9e6e4-0380-4611-9e3e-11a7f7dad92c">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eab9e6e4-0380-4611-9e3e-11a7f7dad92c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x_1,..., x_m) = a_0 + a_1x_1 + ... + a_mx_m =
 a^Tx + b
 \end{equation}\]</div>
 <p>This is basically a dot product plus a constant.</p>
 <p>We can also combine several linear or affine functions:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7bcc71bf-ceee-44a2-802d-f83cf5805e38">
-<span class="eqno">(3)<a class="headerlink" href="#equation-7bcc71bf-ceee-44a2-802d-f83cf5805e38" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b509bf6d-eb06-4358-bf24-a916604e4331">
+<span class="eqno">(3)<a class="headerlink" href="#equation-b509bf6d-eb06-4358-bf24-a916604e4331" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{matrix}
 a_{11}x_1 + &amp; \cdots + &amp; a_{1n}x_n + b_1 \\
 a_{21}x_1 + &amp; \cdots + &amp; a_{2n}x_n + b_2 \\
@@ -517,8 +517,8 @@ s\end{bmatrix} \geq 0\\
 <section id="converting-min-to-max-or-vice-versa">
 <h3>Converting Min to Max or Vice Versa<a class="headerlink" href="#converting-min-to-max-or-vice-versa" title="Permalink to this headline">#</a></h3>
 <p>You can convert a minimization problem to a maximization problem or vice verse (by taking the negative):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-26db897f-ca87-48aa-8c09-af44dcb85465">
-<span class="eqno">(4)<a class="headerlink" href="#equation-26db897f-ca87-48aa-8c09-af44dcb85465" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a10bcbf7-4c30-439c-a521-1ec3a80106cc">
+<span class="eqno">(4)<a class="headerlink" href="#equation-a10bcbf7-4c30-439c-a521-1ec3a80106cc" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \min_x
  f(x) =
   - \max_x
@@ -527,32 +527,32 @@ s\end{bmatrix} \geq 0\\
 <section id="reversing-inequalities">
 <h3>Reversing Inequalities<a class="headerlink" href="#reversing-inequalities" title="Permalink to this headline">#</a></h3>
 <p>To reverse inequalities, you can simply flip the sign:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-83fa495d-0d02-45d5-a2f3-f6baef0abba9">
-<span class="eqno">(5)<a class="headerlink" href="#equation-83fa495d-0d02-45d5-a2f3-f6baef0abba9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-61a37cb7-c1db-48b2-bf0f-29776dbfd50b">
+<span class="eqno">(5)<a class="headerlink" href="#equation-61a37cb7-c1db-48b2-bf0f-29776dbfd50b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Ax \leq b \Leftrightarrow (-A)x \geq (-b)
 \end{equation}\]</div>
 </section>
 <section id="equalities-to-inequalities">
 <h3>Equalities to Inequalities<a class="headerlink" href="#equalities-to-inequalities" title="Permalink to this headline">#</a></h3>
 <p>To convert equalities to inequalities, you can double up:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a719f41f-7b05-4f5a-a528-491ef813baa9">
-<span class="eqno">(6)<a class="headerlink" href="#equation-a719f41f-7b05-4f5a-a528-491ef813baa9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bd2a2a16-8078-4292-9240-fab23601db83">
+<span class="eqno">(6)<a class="headerlink" href="#equation-bd2a2a16-8078-4292-9240-fab23601db83" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x) = 0 \Leftrightarrow f(x) \geq 0  \text{ and } f(x) \leq 0
 \end{equation}\]</div>
 </section>
 <section id="inequalities-to-equalities">
 <h3>Inequalities to Equalities<a class="headerlink" href="#inequalities-to-equalities" title="Permalink to this headline">#</a></h3>
 <p>To convert inequalities to equalities, you can add a slack:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-158447e2-a6e5-4471-a219-2c0e7e60ac22">
-<span class="eqno">(7)<a class="headerlink" href="#equation-158447e2-a6e5-4471-a219-2c0e7e60ac22" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a1936ba8-db37-4623-8527-32aafe4b5853">
+<span class="eqno">(7)<a class="headerlink" href="#equation-a1936ba8-db37-4623-8527-32aafe4b5853" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x) \leq 0 \Leftrightarrow f(x) + s = 0 \text{ and } s \geq 0
 \end{equation}\]</div>
 </section>
 <section id="unbounded-to-bounded">
 <h3>Unbounded to Bounded<a class="headerlink" href="#unbounded-to-bounded" title="Permalink to this headline">#</a></h3>
 <p>You can change an unbounded to bounded formulation, by adding a difference term:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0cb775c9-1e12-49b7-bbd2-2958339fc306">
-<span class="eqno">(8)<a class="headerlink" href="#equation-0cb775c9-1e12-49b7-bbd2-2958339fc306" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e4d69b6b-d27a-467e-82cd-6dd87ea266d1">
+<span class="eqno">(8)<a class="headerlink" href="#equation-e4d69b6b-d27a-467e-82cd-6dd87ea266d1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 x \in \mathbb{R} \Leftrightarrow u \geq 0, \; v \geq 0 \text{ and } x = u-v
 \end{equation}\]</div>
 </section>
@@ -578,7 +578,7 @@ x \in \mathbb{R} \Leftrightarrow u \geq 0, \; v \geq 0 \text{ and } x = u-v
       </div>
     </a>
     <a class="right-next"
-       href="leastsquaresandqp.html"
+       href="qp.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
