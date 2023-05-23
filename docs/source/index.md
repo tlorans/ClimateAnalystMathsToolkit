@@ -24,7 +24,7 @@ In this part, we will introduce optimization from a modelling perspective, follo
 
 matrices
 linearprograms
-leastsquaresandqp
+qp
 references
 ```
 
